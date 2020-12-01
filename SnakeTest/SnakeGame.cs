@@ -48,11 +48,42 @@ namespace SnakeTest
 
         // Game Operations
 
+        public void ChangeDirection(KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Up:
+                    if (currentMoveDirection != "down")
+                    {
+                        updateMoveDirection = "up";
+                    }
+                    break;
+                case Keys.Down:
+                    if (currentMoveDirection != "up")
+                    {
+                        updateMoveDirection = "down";
+                    }
+                    break;
+                case Keys.Left:
+                    if (currentMoveDirection != "right")
+                    {
+                        updateMoveDirection = "left";
+                    }
+                    break;
+                case Keys.Right:
+                    if (currentMoveDirection != "left")
+                    {
+                        updateMoveDirection = "right";
+                    }
+                    break;
+            }
+        }
+
         public void MoveSnake()
         {
             // Updating the location of each snake piece
             if(currentMoveDirection != updateMoveDirection)
-                snakeDirectionImage = currentMoveDirection + updateMoveDirection;
+                snakeDirectionImage = $"{currentMoveDirection}-{updateMoveDirection}";
             for (int i = (snakeLength - 1); i >= 0; i--)
             {
                 if (i == 0)
@@ -99,40 +130,9 @@ namespace SnakeTest
                     snakeHead.Image = bmpSnakeHeadRotated[1];
                     break;
             }
-            isCollision();
         }
 
-        public void ChangeDirection(KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.Up:
-                    if (currentMoveDirection != "down")
-                    {
-                        updateMoveDirection = "up";
-                    }
-                    break;
-                case Keys.Down:
-                    if (currentMoveDirection != "up")
-                    {
-                        updateMoveDirection = "down";
-                    }
-                    break;
-                case Keys.Left:
-                    if (currentMoveDirection != "right")
-                    {
-                        updateMoveDirection = "left";
-                    }
-                    break;
-                case Keys.Right:
-                    if (currentMoveDirection != "left")
-                    {
-                        updateMoveDirection = "right";
-                    }
-                    break;
-            }
-        }
-
+        
         public void AddSnakePiece()
         {
             SnakeBody.Last().Type = "body";
@@ -141,22 +141,32 @@ namespace SnakeTest
             snakeLength += 1;
         }
 
-        void isCollision()
+        public string HasColission()
         {
             if (InAppleSpace())
-                AppleEaten();
+                return "apple";
+            else if (HitSnakeBody())
+                return "snakeBody";
 
+            return "";
+        }
+
+        bool HitSnakeBody()
+        {
             foreach (Snake snake in SnakeBody)
             {
-                if (SnakeHead.GetY() == snake.GetY() && SnakeHead.GetX() == snake.GetX()) { GameEnd(); break; }
+                if (SnakeHead.GetY() == snake.GetY() && SnakeHead.GetX() == snake.GetX()) 
+                { return true; }
             }
+            return false;
         }
 
         bool InAppleSpace()
         {
             return SnakeHead.GetY() == apple.GetY() && SnakeHead.GetX() == apple.GetX();
         }
-        private void AppleEaten()
+
+        public void AppleEaten()
         {
             apple.MoveRandom();
             AddSnakePiece();
@@ -180,15 +190,7 @@ namespace SnakeTest
             apple.MoveRandom();
         }
 
-        public void GameEnd()
-        {
-
-        }
-
-
-
         // Design Operations
-
         private Image[] rotateImage(Bitmap bmp)
         {
             Image[] tmpRotate = new Image[4];

@@ -8,9 +8,10 @@ namespace SnakeTest
 {
     public partial class Form1 : Form
     {
-        string snakeDirectionImage; // make corners and stuff!
+        // Attributes
         SnakeGame snakeGame;
 
+        // Constructor
         public Form1()
         {
             InitializeComponent();
@@ -18,15 +19,43 @@ namespace SnakeTest
             
         }
 
-        // Sets the movement direction
+        // Operations
         private void KeyHasBeenPressed(object sender, KeyEventArgs e)
         {
             snakeGame.ChangeDirection(e);
             
             if (MovementTimer.Enabled == false)
+            {
                 MovementTimer.Start();
+                btnReset.Enabled = true;
+                SnakeHeadLabel.Focus();
+            }
+
         }
 
+        private void TimerTick(object sender, EventArgs e)
+        {
+            snakeGame.MoveSnake();
+
+            if (snakeGame.HasColission() == "apple")
+            {
+                AppleHit();
+            }
+            else if (snakeGame.HasColission() == "snakeBody")
+            {
+                SnakeHit();
+            }
+        }
+
+        private void AppleHit()
+        {
+            IncreaseScore();
+            snakeGame.AppleEaten();
+        }
+        private void SnakeHit()
+        {
+            gameEnd();
+        }
 
         public void IncreaseScore()
         {
@@ -45,7 +74,8 @@ namespace SnakeTest
         private void btnRestart_Click(object sender, EventArgs e)   //not in use
         {
             btnReset.Enabled = false;
-            MovementTimer.Start();
+            Reset();
+            MovementTimer.Stop();
         }
 
         private void Reset()
@@ -55,17 +85,6 @@ namespace SnakeTest
             SnakeHeadLabel.Top = 240;
             SnakeHeadLabel.Left = 260;
             snakeGame.Reset();
-        }
-
-        // Fix for focus bug
-        private void btnReset_Enter(object sender, EventArgs e)
-        {
-            SnakeHeadLabel.Focus();
-        }
-
-        private void TimerTick(object sender, EventArgs e)
-        {
-            snakeGame.MoveSnake();
         }
     }
 }

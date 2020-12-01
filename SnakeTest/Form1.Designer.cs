@@ -105,7 +105,7 @@ namespace SnakeTest
             this.btnReset.TabIndex = 1;
             this.btnReset.TabStop = false;
             this.btnReset.Text = "Reset";
-            this.btnReset.Enter += new System.EventHandler(this.btnReset_Enter);
+            this.btnReset.Click += new System.EventHandler(this.btnRestart_Click);
             // 
             // Form1
             // 

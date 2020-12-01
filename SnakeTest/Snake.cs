@@ -5,21 +5,24 @@ namespace SnakeTest
 {
     class Snake : Piece
     {
+        // Attributes
         private String type;
         private String direction = "";
 
+        // Constructors
         public Snake(Snake previousSnake, Panel panel, string type = "body", string direction = "") : base(panel)
         {
             this.type = type;
             moveSnake(previousSnake.GetX(), previousSnake.GetY(), direction);
         }
 
-        // Dont really need to create a SnakeHead, doesnt give us any more functionality than before
         public Snake(Label label, string type = "body") : base(label)
         {
             this.type = type;
         }
 
+
+        // Game Operations
         public void moveSnake(int x, int y, string direction)
         {
             entity.Top = y;
@@ -32,19 +35,10 @@ namespace SnakeTest
             entity.Top = y;
             entity.Left = x;
         }
-        public int GetX()
-        {
-            return entity.Location.X;
-        }
-        public int GetY()
-        {
-            return entity.Location.Y;
-        }
 
 
-        // For snake design, Using the correct images
 
-        // Not a huge fan of these GetSet, its probably more complicated to use them in this situation
+        // Design Operations
         public String Type   // property
         {
             get { return type; }   // get method
@@ -71,20 +65,20 @@ namespace SnakeTest
             switch (direction)
             {
                 // Corners
-                case "downleft":
-                case "rightup":
+                case "down-left":
+                case "right-up":
                     entity.Image = Properties.Resources.snakeNorth_West;
                     break;
-                case "upleft":
-                case "rightdown":
+                case "up-left":
+                case "right-down":
                     entity.Image = Properties.Resources.snakeSouth_West;
                     break;
-                case "upright":
-                case "leftdown":
+                case "up-right":
+                case "left-down":
                     entity.Image = Properties.Resources.snakeSouth_East;
                     break;
-                case "downright":
-                case "leftup":
+                case "down-right":
+                case "left-up":
                     entity.Image = Properties.Resources.snakeNorth_East;
                     break;
                 // Horizontal/Vertical
@@ -105,14 +99,9 @@ namespace SnakeTest
             if (direction.Length > 5)
             {
                 string[] splitted = { };
-                if (direction[0] == 'd')
-                    splitted = direction.Split("n");
-                else if (direction[0] == 'u')
-                    splitted = direction.Split("p");
-                else
-                    splitted = direction.Split("t");
+                splitted = direction.Split("-");
                 direction = splitted[1];
-            }
+            } 
 
             switch (direction)
             {

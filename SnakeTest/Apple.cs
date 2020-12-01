@@ -5,8 +5,11 @@ namespace SnakeTest
 {
     class Apple : Piece
     {
+        // Attributes
         Random rand = new Random();
         Panel gameBoard;
+
+        // Constructor
         public Apple(Panel panel) : base(panel)
         {
             //entity.BackColor = System.Drawing.Color.DarkRed;
@@ -15,16 +18,7 @@ namespace SnakeTest
             MoveRandom();
         }
 
-        public int GetX()
-        {
-            return entity.Location.X;
-        }
-
-        public int GetY()
-        {
-            return entity.Location.Y;
-        }
-
+        // Operations
         public void MoveRandom()
         {
             entity.Top = rand.Next(gameBoard.Height / 20) * 20;
