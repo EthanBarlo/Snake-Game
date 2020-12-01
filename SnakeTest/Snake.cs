@@ -13,30 +13,20 @@ namespace SnakeTest
         public Snake(Snake previousSnake, Panel panel, string type = "body", string direction = "") : base(panel)
         {
             this.type = type;
-            moveSnake(previousSnake.GetX(), previousSnake.GetY(), direction);
+            MoveSnake(previousSnake.GetX(), previousSnake.GetY(), direction);
         }
-
-        public Snake(Label label, string type = "body") : base(label)
-        {
-            this.type = type;
-        }
+        public Snake(Label label) : base(label){}
 
 
         // Game Operations
-        public void moveSnake(int x, int y, string direction)
+        // Move SnakeBody
+        public void MoveSnake(int x, int y, string direction = "")
         {
             entity.Top = y;
             entity.Left = x;
             if (direction != "")
                 SetDirection(direction); 
         }
-        public void moveSnake(int x, int y)
-        {
-            entity.Top = y;
-            entity.Left = x;
-        }
-
-
 
         // Design Operations
         public String Type   // property
@@ -119,6 +109,19 @@ namespace SnakeTest
                     break;
             }
             this.direction = direction;
+        }
+    }
+
+    class SnakeHead : Snake
+    {
+        public SnakeHead(Label label) : base(label){}
+        public void MoveY(int y)
+        {
+            entity.Top += y;
+        }
+        public void MoveX(int x)
+        {
+            entity.Left += x;
         }
     }
 }

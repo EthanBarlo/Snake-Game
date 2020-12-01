@@ -15,7 +15,7 @@ namespace SnakeTest
         public Form1()
         {
             InitializeComponent();
-            snakeGame = new SnakeGame(this, GamePanel, SnakeHeadLabel);
+            snakeGame = new SnakeGame(GamePanel, SnakeHeadLabel);
             
         }
 
