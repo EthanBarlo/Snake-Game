@@ -16,7 +16,7 @@ namespace SnakeTest
             this.type = type;
             MoveSnake(previousSnake.GetX(), previousSnake.GetY(), direction);
         }
-        public Snake(Label label) : base(label){}
+        public Snake(PictureBox pBox) : base(pBox) {}
 
 
         // Game Operations
@@ -115,7 +115,7 @@ namespace SnakeTest
 
     class SnakeHead : Snake
     {
-        public SnakeHead(Label label) : base(label){}
+        public SnakeHead(PictureBox pBox) : base(pBox){}
         public void MoveY(int y)
         {
             entity.Top += y;

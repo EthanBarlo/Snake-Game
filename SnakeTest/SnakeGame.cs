@@ -10,7 +10,7 @@ namespace SnakeTest
     {
         // Attributes
         Panel GamePanel;
-        Label snakeHead;
+        PictureBox snakeHead;
 
         SnakeHead SnakeHead;
         List<Snake> SnakeBody = new List<Snake>();
@@ -30,7 +30,7 @@ namespace SnakeTest
 
 
         // Constructor
-        public SnakeGame(Panel gamePanel , Label snakeHead)
+        public SnakeGame(Panel gamePanel , PictureBox snakeHead)
         {
             this.GamePanel = gamePanel;
             this.snakeHead = snakeHead;

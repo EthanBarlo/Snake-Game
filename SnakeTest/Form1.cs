@@ -15,7 +15,7 @@ namespace SnakeTest
         public Form1()
         {
             InitializeComponent();
-            snakeGame = new SnakeGame(GamePanel, SnakeHeadLabel);
+            snakeGame = new SnakeGame(GamePanel, SnakeHeadBox);
             menu = new Menu();
         }
 
@@ -23,12 +23,12 @@ namespace SnakeTest
         private void KeyHasBeenPressed(object sender, KeyEventArgs e)
         {
             snakeGame.ChangeDirection(e);
-            
+
             if (MovementTimer.Enabled == false)
             {
                 MovementTimer.Start();
                 btnReset.Enabled = true;
-                SnakeHeadLabel.Focus();
+                SnakeHeadBox.Focus();
             }
 
         }
@@ -82,15 +82,19 @@ namespace SnakeTest
         {
             // Resetting score and snakeHead location
             lblScore.Text = "0".PadLeft(7, '0');
-            SnakeHeadLabel.Top = 240;
-            SnakeHeadLabel.Left = 260;
+            SnakeHeadBox.Top = 240;
+            SnakeHeadBox.Left = 260;
             snakeGame.Reset();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            menu.ShowDialog();
-
+            //menu.ShowDialog();
+            this.SetStyle(
+                ControlStyles.AllPaintingInWmPaint |
+                ControlStyles.UserPaint |
+                ControlStyles.DoubleBuffer,
+                true);
         }
     }
 }

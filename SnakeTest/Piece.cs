@@ -6,20 +6,20 @@ namespace SnakeTest
     class Piece
     {
         // Attribute
-        protected Label entity;
+        protected PictureBox entity;
 
         // Constructors
         public Piece(Panel panel)
         {
-            entity = new Label();
+            entity = new PictureBox();
             entity.BackColor = System.Drawing.Color.Transparent;
             entity.Width = 20;
             entity.Height = 20;
             panel.Controls.Add(entity);
         }
-        public Piece(Label label)
+        public Piece(PictureBox pBox)
         {
-            entity = label;
+            entity = pBox;
         }
 
         // Operations

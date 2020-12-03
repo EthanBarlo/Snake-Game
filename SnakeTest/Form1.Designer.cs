@@ -33,38 +33,41 @@ namespace SnakeTest
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.MovementTimer = new System.Windows.Forms.Timer(this.components);
             this.GamePanel = new System.Windows.Forms.Panel();
-            this.SnakeHeadLabel = new System.Windows.Forms.Label();
+            this.SnakeHeadBox = new System.Windows.Forms.PictureBox();
             this.ScoreBox = new System.Windows.Forms.GroupBox();
             this.lblScore = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
             this.gameBorderBox = new System.Windows.Forms.PictureBox();
             this.GamePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SnakeHeadBox)).BeginInit();
             this.ScoreBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gameBorderBox)).BeginInit();
             this.SuspendLayout();
             // 
             // MovementTimer
             // 
+            this.MovementTimer.Interval = 150;
             this.MovementTimer.Tick += new System.EventHandler(this.TimerTick);
             // 
             // GamePanel
             // 
             this.GamePanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("GamePanel.BackgroundImage")));
-            this.GamePanel.Controls.Add(this.SnakeHeadLabel);
+            this.GamePanel.Controls.Add(this.SnakeHeadBox);
             this.GamePanel.Location = new System.Drawing.Point(66, 48);
             this.GamePanel.Name = "GamePanel";
             this.GamePanel.Size = new System.Drawing.Size(500, 500);
             this.GamePanel.TabIndex = 0;
             // 
-            // SnakeHeadLabel
+            // SnakeHeadBox
             // 
-            this.SnakeHeadLabel.BackColor = System.Drawing.Color.Transparent;
-            this.SnakeHeadLabel.Image = ((System.Drawing.Image)(resources.GetObject("SnakeHeadLabel.Image")));
-            this.SnakeHeadLabel.Location = new System.Drawing.Point(200, 200);
-            this.SnakeHeadLabel.Name = "SnakeHeadLabel";
-            this.SnakeHeadLabel.Size = new System.Drawing.Size(20, 20);
-            this.SnakeHeadLabel.TabIndex = 0;
+            this.SnakeHeadBox.BackColor = System.Drawing.Color.Transparent;
+            this.SnakeHeadBox.Image = ((System.Drawing.Image)(resources.GetObject("SnakeHeadBox.Image")));
+            this.SnakeHeadBox.Location = new System.Drawing.Point(200, 200);
+            this.SnakeHeadBox.Name = "SnakeHeadBox";
+            this.SnakeHeadBox.Size = new System.Drawing.Size(20, 20);
+            this.SnakeHeadBox.TabIndex = 0;
+            this.SnakeHeadBox.TabStop = false;
             // 
             // ScoreBox
             // 
@@ -134,6 +137,7 @@ namespace SnakeTest
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyHasBeenPressed);
             this.GamePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SnakeHeadBox)).EndInit();
             this.ScoreBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gameBorderBox)).EndInit();
             this.ResumeLayout(false);
@@ -143,12 +147,12 @@ namespace SnakeTest
         #endregion
         private System.Windows.Forms.Timer MovementTimer;
         private System.Windows.Forms.Panel GamePanel;
-        private System.Windows.Forms.Label SnakeHeadLabel;
         private System.Windows.Forms.GroupBox ScoreBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.PictureBox gameBorderBox;
+        private System.Windows.Forms.PictureBox SnakeHeadBox;
     }
 }
 

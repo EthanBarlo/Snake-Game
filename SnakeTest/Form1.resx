@@ -67,7 +67,7 @@
         HUt4ULgzbdmSH0iWOa14XbGVWzV/7qleGF6yZ2eULrODCSaZJoaGwSor5CjSK6stiktc9qM1/O2+PyYu
         Q1wrmOIYI4+F7vtRf/C7Wzcz0F9OCkeh4cnz3rogtA1fW573eeh5X0cQfIQLu+LPl2D4XfStitZ5AC0b
         cHZZ0YwdON+EtoeC7ui+FJQZyGTg9US+KQWt19A0X+7tZ5/jO0hIV1NXsLcP3VnJXqjx7sbq3v484/dH
-        9Bvh+HJthNg+fAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB+QMAxMSE3Runf8AAAXUSURBVFhH
+        9Bvh+HJthNg+fAAAAAlwSFlzAAALDQAACw0B7QfALAAAAAd0SU1FB+QMAxMSE3Runf8AAAXUSURBVFhH
         rZfpWhNJFIb7omSEkI25ghEUAVkEcRn10f+CQghkgQjijNdbnvdUvqbSSQBD/zhPLV1d9dbZuk/25Z/5
         cPBkPrQ3FsPVu2bo7dbC15WF8PVplG/PkEreHq1GOX5eCa31RW+/sc7mkB//NsLFq6rtVQ+/Pv/tcrFf
         Df2XlfDzY9OFOcaXb2u+lvH/n5b8Xb0jyQ4N5nSzGjrbVXuhYYuaoW+Q3Z2az/Ve1lzOtqrh1KT9YnEM
@@ -96,7 +96,7 @@
         TkSuQmCC
 </value>
   </data>
-  <data name="SnakeHeadLabel.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="SnakeHeadBox.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
         DwAAjA8AAP1SAACBQAAAfXkAAOmLAAA85QAAGcxzPIV3AAAKOWlDQ1BQaG90b3Nob3AgSUNDIHByb2Zp
