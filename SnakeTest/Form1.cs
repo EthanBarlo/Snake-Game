@@ -10,13 +10,13 @@ namespace SnakeTest
     {
         // Attributes
         SnakeGame snakeGame;
-
+        Menu menu;
         // Constructor
         public Form1()
         {
             InitializeComponent();
             snakeGame = new SnakeGame(GamePanel, SnakeHeadLabel);
-            
+            menu = new Menu();
         }
 
         // Operations
@@ -85,6 +85,12 @@ namespace SnakeTest
             SnakeHeadLabel.Top = 240;
             SnakeHeadLabel.Left = 260;
             snakeGame.Reset();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            menu.ShowDialog();
+
         }
     }
 }

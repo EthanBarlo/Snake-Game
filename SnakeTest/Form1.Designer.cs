@@ -131,6 +131,7 @@ namespace SnakeTest
             this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "Snake Game";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyHasBeenPressed);
             this.GamePanel.ResumeLayout(false);
             this.ScoreBox.ResumeLayout(false);
