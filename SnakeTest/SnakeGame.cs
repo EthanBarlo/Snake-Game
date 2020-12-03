@@ -21,9 +21,13 @@ namespace SnakeTest
         Bitmap bmpSnakeHead;
         Image[] bmpSnakeHeadRotated;
 
-        string updateMoveDirection;   // User Input Change
-        string currentMoveDirection;  // Direction Snake is currently moving in
+        Direction updateMoveDirection;   // User Input Change
+        Direction currentMoveDirection;  // Direction Snake is currently moving in
         string snakeDirectionImage;   // So all following SnakeBody pieces know what image to display
+
+        enum Direction { UP, DOWN, LEFT, RIGHT}
+
+
 
         // Constructor
         public SnakeGame(Panel gamePanel , Label snakeHead)
@@ -51,27 +55,27 @@ namespace SnakeTest
             switch (e.KeyCode)
             {
                 case Keys.Up:
-                    if (currentMoveDirection != "down")
+                    if (currentMoveDirection != Direction.DOWN)
                     {
-                        updateMoveDirection = "up";
+                        updateMoveDirection = Direction.UP;
                     }
                     break;
                 case Keys.Down:
-                    if (currentMoveDirection != "up")
+                    if (currentMoveDirection != Direction.UP)
                     {
-                        updateMoveDirection = "down";
+                        updateMoveDirection = Direction.DOWN;
                     }
                     break;
                 case Keys.Left:
-                    if (currentMoveDirection != "right")
+                    if (currentMoveDirection != Direction.RIGHT)
                     {
-                        updateMoveDirection = "left";
+                        updateMoveDirection = Direction.LEFT;
                     }
                     break;
                 case Keys.Right:
-                    if (currentMoveDirection != "left")
+                    if (currentMoveDirection != Direction.LEFT)
                     {
-                        updateMoveDirection = "right";
+                        updateMoveDirection = Direction.RIGHT;
                     }
                     break;
             }
@@ -87,56 +91,52 @@ namespace SnakeTest
             for (int i = (snakeLength - 1); i >= 0; i--)
             {
                 if (i == 0)
-                {
                     SnakeBody[i].MoveSnake(SnakeHead.GetX(), SnakeHead.GetY(), snakeDirectionImage);
-                }
                 else
-                {
-                    SnakeBody[i].MoveSnake(SnakeBody[i - 1].GetX(), SnakeBody[i - 1].GetY(), SnakeBody[i - 1].Direction);
-                }
+                    SnakeBody[i].MoveSnake(SnakeBody[i - 1].GetX(), SnakeBody[i - 1].GetY(), SnakeBody[i - 1].Direction, img: SnakeBody[i - 1].GetImage());
             }
 
             // Moving the SnakeHead
             switch (updateMoveDirection)
             {
-                case "up":
+                case Direction.UP:
                     SnakeHead.MoveY(-20);
                     if (SnakeHead.GetY() < 0)
                     {
                         SnakeHead.MoveSnake(SnakeHead.GetX(), GamePanel.Height - 20);
                     }
-                    currentMoveDirection = "up";
-                    snakeDirectionImage = "up";
+                    currentMoveDirection = Direction.UP;
+                    snakeDirectionImage = $"{Direction.UP}";
                     snakeHead.Image = bmpSnakeHeadRotated[0];
                     break;
-                case "down":
+                case Direction.DOWN:
                     SnakeHead.MoveY(+20);
                     if (SnakeHead.GetY() >= GamePanel.Height)
                     {
                         SnakeHead.MoveSnake(SnakeHead.GetX(), 0);
                     }
-                    currentMoveDirection = "down";
-                    snakeDirectionImage = "down";
+                    currentMoveDirection = Direction.DOWN;
+                    snakeDirectionImage = $"{Direction.DOWN}";
                     snakeHead.Image = bmpSnakeHeadRotated[2];
                     break;
-                case "left":
+                case Direction.LEFT:
                     SnakeHead.MoveX(-20);
                     if (SnakeHead.GetX() < 0)
                     {
                         SnakeHead.MoveSnake(GamePanel.Width - 20, SnakeHead.GetY());
                     }
-                    currentMoveDirection = "left";
-                    snakeDirectionImage = "left";
+                    currentMoveDirection = Direction.LEFT;
+                    snakeDirectionImage = $"{Direction.LEFT}";
                     snakeHead.Image = bmpSnakeHeadRotated[3];
                     break;
-                case "right":
+                case Direction.RIGHT:
                     SnakeHead.MoveX(+20);
                     if (SnakeHead.GetX() >= GamePanel.Width)
                     {
                         SnakeHead.MoveSnake(0, SnakeHead.GetY());
                     }
-                    currentMoveDirection = "right";
-                    snakeDirectionImage = "right";
+                    currentMoveDirection = Direction.RIGHT;
+                    snakeDirectionImage = $"{Direction.RIGHT}";
                     snakeHead.Image = bmpSnakeHeadRotated[1];
                     break;
             }

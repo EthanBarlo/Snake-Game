@@ -38,8 +38,10 @@ namespace SnakeTest
             this.lblScore = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
+            this.gameBorderBox = new System.Windows.Forms.PictureBox();
             this.GamePanel.SuspendLayout();
             this.ScoreBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gameBorderBox)).BeginInit();
             this.SuspendLayout();
             // 
             // MovementTimer
@@ -50,7 +52,7 @@ namespace SnakeTest
             // 
             this.GamePanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("GamePanel.BackgroundImage")));
             this.GamePanel.Controls.Add(this.SnakeHeadLabel);
-            this.GamePanel.Location = new System.Drawing.Point(52, 52);
+            this.GamePanel.Location = new System.Drawing.Point(66, 48);
             this.GamePanel.Name = "GamePanel";
             this.GamePanel.Size = new System.Drawing.Size(500, 500);
             this.GamePanel.TabIndex = 0;
@@ -107,6 +109,15 @@ namespace SnakeTest
             this.btnReset.Text = "Reset";
             this.btnReset.Click += new System.EventHandler(this.btnRestart_Click);
             // 
+            // gameBorderBox
+            // 
+            this.gameBorderBox.Image = ((System.Drawing.Image)(resources.GetObject("gameBorderBox.Image")));
+            this.gameBorderBox.Location = new System.Drawing.Point(56, 38);
+            this.gameBorderBox.Name = "gameBorderBox";
+            this.gameBorderBox.Size = new System.Drawing.Size(520, 520);
+            this.gameBorderBox.TabIndex = 3;
+            this.gameBorderBox.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -115,6 +126,7 @@ namespace SnakeTest
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.ScoreBox);
             this.Controls.Add(this.GamePanel);
+            this.Controls.Add(this.gameBorderBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.Name = "Form1";
@@ -122,6 +134,7 @@ namespace SnakeTest
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyHasBeenPressed);
             this.GamePanel.ResumeLayout(false);
             this.ScoreBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gameBorderBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -134,6 +147,7 @@ namespace SnakeTest
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.PictureBox gameBorderBox;
     }
 }
 

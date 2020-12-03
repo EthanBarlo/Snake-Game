@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SnakeTest
@@ -20,12 +21,17 @@ namespace SnakeTest
 
         // Game Operations
         // Move SnakeBody
-        public void MoveSnake(int x, int y, string direction = "")
+        public void MoveSnake(int x, int y, string direction = "", Image img = null)
         {
             entity.Top = y;
             entity.Left = x;
-            if (direction != "")
-                SetDirection(direction); 
+            this.direction = direction;
+            if (direction != "" && img == null )
+                SetDirection(direction);
+            else if (type == "tail")
+                SetTailDirection(direction);
+            else
+                entity.Image = img;
         }
 
         // Design Operations
@@ -40,44 +46,39 @@ namespace SnakeTest
             set {direction = value; } // set method
         }
 
+        public Image GetImage()
+        {
+            return entity.Image;
+        }
+
         private void SetDirection(string direction)
         {
-            if (type == "tail")
-            {
-                SetTailDirection(direction);
-                return;
-            }
-            else if (type == "head")
-            {
-                return;
-            }
-
             switch (direction)
             {
                 // Corners
-                case "down-left":
-                case "right-up":
+                case "DOWN-LEFT":
+                case "RIGHT-UP":
                     entity.Image = Properties.Resources.snakeNorth_West;
                     break;
-                case "up-left":
-                case "right-down":
+                case "UP-LEFT":
+                case "RIGHT-DOWN":
                     entity.Image = Properties.Resources.snakeSouth_West;
                     break;
-                case "up-right":
-                case "left-down":
+                case "UP-RIGHT":
+                case "LEFT-DOWN":
                     entity.Image = Properties.Resources.snakeSouth_East;
                     break;
-                case "down-right":
-                case "left-up":
+                case "DOWN-RIGHT":
+                case "LEFT-UP":
                     entity.Image = Properties.Resources.snakeNorth_East;
                     break;
                 // Horizontal/Vertical
-                case "up":
-                case "down":
+                case "UP":
+                case "DOWN":
                     entity.Image = Properties.Resources.snakeBodyVertical;
                     break;
-                case "left":
-                case "right":
+                case "LEFT":
+                case "RIGHT":
                     entity.Image = Properties.Resources.snakeBodyHorizontal;
                     break;
             }
@@ -91,20 +92,20 @@ namespace SnakeTest
                 string[] splitted = { };
                 splitted = direction.Split("-");
                 direction = splitted[1];
-            } 
+            }
 
             switch (direction)
             {
-                case "up":
+                case "UP":
                     entity.Image = Properties.Resources.snakeTailNorth;
                     break;
-                case "down":
+                case "DOWN":
                     entity.Image = Properties.Resources.snakeTailSouth;
                     break;
-                case "left":
+                case "LEFT":
                     entity.Image = Properties.Resources.snakeTailWest;
                     break;
-                case "right":
+                case "RIGHT":
                     entity.Image = Properties.Resources.snakeTailEast;
                     break;
             }
