@@ -1,5 +1,4 @@
-﻿
-namespace SnakeTest
+﻿namespace SnakeTest
 {
     partial class Form1
     {
@@ -104,7 +103,6 @@ namespace SnakeTest
             this.btnReset.CausesValidation = false;
             this.btnReset.Enabled = false;
             this.btnReset.Location = new System.Drawing.Point(588, 176);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(82, 22);
             this.btnReset.TabIndex = 1;
@@ -123,7 +121,6 @@ namespace SnakeTest
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(772, 587);
             this.Controls.Add(this.btnReset);
@@ -155,4 +152,3 @@ namespace SnakeTest
         private System.Windows.Forms.PictureBox SnakeHeadBox;
     }
 }
-
