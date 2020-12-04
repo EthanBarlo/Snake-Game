@@ -42,7 +42,7 @@ namespace SnakeTest
             SnakeBody.Add(new Snake(SnakeHead, GamePanel, "tail"));
             snakeLength = SnakeBody.Count;
             
-            apple = new Apple(GamePanel);
+            apple = new Apple(GamePanel, SnakeHead, SnakeBody);
 
             // Snake Head Rotation
             bmpSnakeHead = new Bitmap(snakeHead.Image);
@@ -178,7 +178,7 @@ namespace SnakeTest
 
         public void AppleEaten()
         {
-            apple.MoveRandom();
+            apple.MoveRandom(SnakeHead);
             AddSnakePiece();
             // need to increase score
         }
@@ -197,7 +197,7 @@ namespace SnakeTest
             SnakeBody.Add(new Snake(SnakeHead, GamePanel));
             SnakeBody.Add(new Snake(SnakeHead, GamePanel, "tail"));
             snakeLength = SnakeBody.Count;
-            apple.MoveRandom();
+            apple.MoveRandom(SnakeHead);
         }
 
         // Design Operations
