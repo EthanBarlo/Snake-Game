@@ -52,7 +52,8 @@
             // 
             this.GamePanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("GamePanel.BackgroundImage")));
             this.GamePanel.Controls.Add(this.SnakeHeadBox);
-            this.GamePanel.Location = new System.Drawing.Point(66, 48);
+            this.GamePanel.Location = new System.Drawing.Point(77, 55);
+            this.GamePanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.GamePanel.Name = "GamePanel";
             this.GamePanel.Size = new System.Drawing.Size(500, 500);
             this.GamePanel.TabIndex = 0;
@@ -61,7 +62,8 @@
             // 
             this.SnakeHeadBox.BackColor = System.Drawing.Color.Transparent;
             this.SnakeHeadBox.Image = ((System.Drawing.Image)(resources.GetObject("SnakeHeadBox.Image")));
-            this.SnakeHeadBox.Location = new System.Drawing.Point(200, 200);
+            this.SnakeHeadBox.Location = new System.Drawing.Point(220, 220);
+            this.SnakeHeadBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.SnakeHeadBox.Name = "SnakeHeadBox";
             this.SnakeHeadBox.Size = new System.Drawing.Size(20, 20);
             this.SnakeHeadBox.TabIndex = 0;
@@ -72,27 +74,31 @@
             this.ScoreBox.Controls.Add(this.lblScore);
             this.ScoreBox.Controls.Add(this.label1);
             this.ScoreBox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ScoreBox.Location = new System.Drawing.Point(582, 38);
+            this.ScoreBox.Location = new System.Drawing.Point(634, 45);
+            this.ScoreBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ScoreBox.Name = "ScoreBox";
-            this.ScoreBox.Size = new System.Drawing.Size(184, 112);
+            this.ScoreBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ScoreBox.Size = new System.Drawing.Size(215, 129);
             this.ScoreBox.TabIndex = 2;
             this.ScoreBox.TabStop = false;
             this.ScoreBox.Text = "ScoreBox";
             // 
             // lblScore
             // 
-            this.lblScore.Location = new System.Drawing.Point(83, 30);
+            this.lblScore.Location = new System.Drawing.Point(97, 35);
+            this.lblScore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(93, 70);
+            this.lblScore.Size = new System.Drawing.Size(108, 81);
             this.lblScore.TabIndex = 0;
             this.lblScore.Text = "0000000";
             this.lblScore.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(6, 30);
+            this.label1.Location = new System.Drawing.Point(7, 35);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(172, 70);
+            this.label1.Size = new System.Drawing.Size(201, 81);
             this.label1.TabIndex = 0;
             this.label1.Text = "Score - 0000000";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -101,9 +107,10 @@
             // 
             this.btnReset.CausesValidation = false;
             this.btnReset.Enabled = false;
-            this.btnReset.Location = new System.Drawing.Point(588, 176);
+            this.btnReset.Location = new System.Drawing.Point(634, 190);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(82, 22);
+            this.btnReset.Size = new System.Drawing.Size(96, 25);
             this.btnReset.TabIndex = 1;
             this.btnReset.TabStop = false;
             this.btnReset.Text = "Reset";
@@ -112,7 +119,8 @@
             // gameBorderBox
             // 
             this.gameBorderBox.Image = ((System.Drawing.Image)(resources.GetObject("gameBorderBox.Image")));
-            this.gameBorderBox.Location = new System.Drawing.Point(56, 38);
+            this.gameBorderBox.Location = new System.Drawing.Point(67, 45);
+            this.gameBorderBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gameBorderBox.Name = "gameBorderBox";
             this.gameBorderBox.Size = new System.Drawing.Size(520, 520);
             this.gameBorderBox.TabIndex = 3;
@@ -120,15 +128,16 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(772, 587);
+            this.ClientSize = new System.Drawing.Size(884, 661);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.ScoreBox);
             this.Controls.Add(this.GamePanel);
             this.Controls.Add(this.gameBorderBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form1";
             this.Text = "Snake Game";
             this.Load += new System.EventHandler(this.Form1_Load);
