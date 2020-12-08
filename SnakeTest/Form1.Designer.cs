@@ -38,10 +38,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
             this.gameBorderBox = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.MenuPanel = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnPlay = new System.Windows.Forms.Button();
             this.GamePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SnakeHeadBox)).BeginInit();
             this.ScoreBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gameBorderBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.MenuPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // MovementTimer
@@ -52,7 +59,7 @@
             // 
             this.GamePanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("GamePanel.BackgroundImage")));
             this.GamePanel.Controls.Add(this.SnakeHeadBox);
-            this.GamePanel.Location = new System.Drawing.Point(77, 55);
+            this.GamePanel.Location = new System.Drawing.Point(33, 126);
             this.GamePanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.GamePanel.Name = "GamePanel";
             this.GamePanel.Size = new System.Drawing.Size(500, 500);
@@ -74,7 +81,7 @@
             this.ScoreBox.Controls.Add(this.lblScore);
             this.ScoreBox.Controls.Add(this.label1);
             this.ScoreBox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ScoreBox.Location = new System.Drawing.Point(634, 45);
+            this.ScoreBox.Location = new System.Drawing.Point(626, 126);
             this.ScoreBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ScoreBox.Name = "ScoreBox";
             this.ScoreBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -107,7 +114,7 @@
             // 
             this.btnReset.CausesValidation = false;
             this.btnReset.Enabled = false;
-            this.btnReset.Location = new System.Drawing.Point(634, 190);
+            this.btnReset.Location = new System.Drawing.Point(626, 271);
             this.btnReset.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(96, 25);
@@ -119,18 +126,61 @@
             // gameBorderBox
             // 
             this.gameBorderBox.Image = ((System.Drawing.Image)(resources.GetObject("gameBorderBox.Image")));
-            this.gameBorderBox.Location = new System.Drawing.Point(67, 45);
+            this.gameBorderBox.Location = new System.Drawing.Point(23, 116);
             this.gameBorderBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gameBorderBox.Name = "gameBorderBox";
             this.gameBorderBox.Size = new System.Drawing.Size(520, 520);
             this.gameBorderBox.TabIndex = 3;
             this.gameBorderBox.TabStop = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(164, -29);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(521, 343);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // MenuPanel
+            // 
+            this.MenuPanel.Controls.Add(this.btnPlay);
+            this.MenuPanel.Controls.Add(this.pictureBox1);
+            this.MenuPanel.Location = new System.Drawing.Point(0, 0);
+            this.MenuPanel.Name = "MenuPanel";
+            this.MenuPanel.Size = new System.Drawing.Size(886, 660);
+            this.MenuPanel.TabIndex = 5;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(274, -80);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(340, 190);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
+            // btnPlay
+            // 
+            this.btnPlay.Location = new System.Drawing.Point(260, 346);
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.Size = new System.Drawing.Size(283, 84);
+            this.btnPlay.TabIndex = 5;
+            this.btnPlay.Text = "Play";
+            this.btnPlay.UseVisualStyleBackColor = true;
+            this.btnPlay.Click += new System.EventHandler(this.PlayButon);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 661);
+            this.Controls.Add(this.MenuPanel);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.ScoreBox);
             this.Controls.Add(this.GamePanel);
@@ -146,6 +196,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.SnakeHeadBox)).EndInit();
             this.ScoreBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gameBorderBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.MenuPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -159,5 +212,9 @@
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.PictureBox gameBorderBox;
         private System.Windows.Forms.PictureBox SnakeHeadBox;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel MenuPanel;
+        private System.Windows.Forms.Button btnPlay;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

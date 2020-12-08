@@ -96,5 +96,10 @@ namespace SnakeTest
                 ControlStyles.DoubleBuffer,
                 true);
         }
+
+        private void PlayButon(object sender, EventArgs e)
+        {
+            MenuPanel.Visible = false;
+        }
     }
 }
