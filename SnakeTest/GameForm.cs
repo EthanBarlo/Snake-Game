@@ -22,7 +22,14 @@ namespace SnakeTest
         // Operations
         private void KeyHasBeenPressed(object sender, KeyEventArgs e)
         {
-            snakeGame.ChangeDirection(e);
+            if (e.KeyCode == Keys.Escape)
+            {
+                MovementTimer.Stop();
+                menu.ShowDialog();
+                MovementTimer.Start();
+            }
+            else
+                snakeGame.ChangeDirection(e);
 
             if (MovementTimer.Enabled == false)
             {
@@ -59,15 +66,15 @@ namespace SnakeTest
 
         public void IncreaseScore()
         {
-            if (Convert.ToInt32(lblScore.Text) == 9999999) { MessageBox.Show("Max Score reached"); MovementTimer.Stop(); }
-            lblScore.Text = Convert.ToString(Convert.ToInt32(lblScore.Text) + 1).PadLeft(7, '0');
+            //if (Convert.ToInt32(lblScore.Text) == 9999999) { MessageBox.Show("Max Score reached"); MovementTimer.Stop(); }
+            //lblScore.Text = Convert.ToString(Convert.ToInt32(lblScore.Text) + 1).PadLeft(7, '0');
         }
 
         private void gameEnd()
         {
             btnReset.Enabled = true;
             MovementTimer.Stop();
-            MessageBox.Show($"You Died!\nFinal Score: {Convert.ToInt32(lblScore.Text)}");
+            //MessageBox.Show($"You Died!\nFinal Score: {Convert.ToInt32(lblScore.Text)}");
             Reset();
         }
 
@@ -81,7 +88,7 @@ namespace SnakeTest
         private void Reset()
         {
             // Resetting score and snakeHead location
-            lblScore.Text = "0".PadLeft(7, '0');
+            //lblScore.Text = "0".PadLeft(7, '0');
             SnakeHeadBox.Top = 240;
             SnakeHeadBox.Left = 260;
             snakeGame.Reset();
@@ -89,7 +96,7 @@ namespace SnakeTest
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //menu.ShowDialog();
+            menu.ShowDialog();
             this.SetStyle(
                 ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.UserPaint |
@@ -97,9 +104,15 @@ namespace SnakeTest
                 true);
         }
 
-        private void PlayButon(object sender, EventArgs e)
-        {
-            MenuPanel.Visible = false;
-        }
+        // Menu Panel
+        //private void PlayButon(object sender, EventArgs e)
+        //{
+        //    MenuPanel.Visible = false;
+        //}
+
+        //private void SettingsClick(object sender, EventArgs e)
+        //{
+
+        //}
     }
 }

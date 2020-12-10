@@ -203,9 +203,9 @@ namespace SnakeTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tile {
+        internal static System.Drawing.Bitmap snakeTitle {
             get {
-                object obj = ResourceManager.GetObject("tile", resourceCulture);
+                object obj = ResourceManager.GetObject("snakeTitle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +213,9 @@ namespace SnakeTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Untitled_2 {
+        internal static System.Drawing.Bitmap tile {
             get {
-                object obj = ResourceManager.GetObject("Untitled_2", resourceCulture);
+                object obj = ResourceManager.GetObject("tile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
