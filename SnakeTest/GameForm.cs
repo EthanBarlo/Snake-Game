@@ -6,17 +6,17 @@ using System.Windows.Forms;
 
 namespace SnakeTest
 {
-    public partial class Form1 : Form
+    public partial class GameForm : Form
     {
         // Attributes
         SnakeGame snakeGame;
-        Menu menu;
+        bool pause = false;
+
         // Constructor
-        public Form1()
+        public GameForm()
         {
             InitializeComponent();
             snakeGame = new SnakeGame(GamePanel, SnakeHeadBox);
-            menu = new Menu();
         }
 
         // Operations
@@ -24,10 +24,11 @@ namespace SnakeTest
         {
             if (e.KeyCode == Keys.Escape)
             {
-                MovementTimer.Stop();
-                menu.ShowDialog();
-                MovementTimer.Start();
+                pause = !pause;
+                if (pause) MovementTimer.Stop();
+                else MovementTimer.Start();
             }
+
             else
                 snakeGame.ChangeDirection(e);
 
@@ -66,15 +67,15 @@ namespace SnakeTest
 
         public void IncreaseScore()
         {
-            //if (Convert.ToInt32(lblScore.Text) == 9999999) { MessageBox.Show("Max Score reached"); MovementTimer.Stop(); }
-            //lblScore.Text = Convert.ToString(Convert.ToInt32(lblScore.Text) + 1).PadLeft(7, '0');
+            if (Convert.ToInt32(lblScore.Text) == 9999999) { MessageBox.Show("Max Score reached"); MovementTimer.Stop(); }
+            lblScore.Text = Convert.ToString(Convert.ToInt32(lblScore.Text) + 1).PadLeft(7, '0');
         }
 
         private void gameEnd()
         {
             btnReset.Enabled = true;
             MovementTimer.Stop();
-            //MessageBox.Show($"You Died!\nFinal Score: {Convert.ToInt32(lblScore.Text)}");
+            MessageBox.Show($"You Died!\nFinal Score: {Convert.ToInt32(lblScore.Text)}");
             Reset();
         }
 
@@ -88,7 +89,7 @@ namespace SnakeTest
         private void Reset()
         {
             // Resetting score and snakeHead location
-            //lblScore.Text = "0".PadLeft(7, '0');
+            lblScore.Text = "0".PadLeft(7, '0');
             SnakeHeadBox.Top = 240;
             SnakeHeadBox.Left = 260;
             snakeGame.Reset();
@@ -96,23 +97,23 @@ namespace SnakeTest
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            menu.ShowDialog();
+            //Try stop flashing (NOT WORKING)
             this.SetStyle(
                 ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.UserPaint |
                 ControlStyles.DoubleBuffer,
                 true);
+
+            // Leaderboard stuff
+            Leaderboard.LoadFile();
+            foreach (var item in Leaderboard.GetLeaderBoard())
+            {
+                lbLeaderboard.Items.Add(item);
+            }
+
+
+
+
         }
-
-        // Menu Panel
-        //private void PlayButon(object sender, EventArgs e)
-        //{
-        //    MenuPanel.Visible = false;
-        //}
-
-        //private void SettingsClick(object sender, EventArgs e)
-        //{
-
-        //}
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace SnakeTest
 {
-    partial class Form1
+    partial class GameForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameForm));
             this.MovementTimer = new System.Windows.Forms.Timer(this.components);
             this.GamePanel = new System.Windows.Forms.Panel();
             this.SnakeHeadBox = new System.Windows.Forms.PictureBox();
             this.ScoreBox = new System.Windows.Forms.GroupBox();
+            this.lblScore = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
             this.gameBorderBox = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbLeaderboard = new System.Windows.Forms.ListBox();
             this.GamePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SnakeHeadBox)).BeginInit();
             this.ScoreBox.SuspendLayout();
@@ -73,6 +74,7 @@
             // 
             // ScoreBox
             // 
+            this.ScoreBox.Controls.Add(this.lblScore);
             this.ScoreBox.Controls.Add(this.label1);
             this.ScoreBox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ScoreBox.Location = new System.Drawing.Point(626, 126);
@@ -84,15 +86,28 @@
             this.ScoreBox.TabStop = false;
             this.ScoreBox.Text = "ScoreBox";
             // 
+            // lblScore
+            // 
+            this.lblScore.BackColor = System.Drawing.Color.Transparent;
+            this.lblScore.Location = new System.Drawing.Point(99, 44);
+            this.lblScore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(89, 35);
+            this.lblScore.TabIndex = 0;
+            this.lblScore.Text = "0000000";
+            this.lblScore.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(23, 29);
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(13, 44);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(183, 62);
+            this.label1.Size = new System.Drawing.Size(101, 35);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Score - 0000000";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Text = "Score - ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnReset
             // 
@@ -128,37 +143,38 @@
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
             // 
-            // listBox1
+            // lbLeaderboard
             // 
-            this.listBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(626, 237);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(214, 364);
-            this.listBox1.TabIndex = 6;
+            this.lbLeaderboard.BackColor = System.Drawing.SystemColors.Control;
+            this.lbLeaderboard.FormattingEnabled = true;
+            this.lbLeaderboard.ItemHeight = 20;
+            this.lbLeaderboard.Location = new System.Drawing.Point(626, 237);
+            this.lbLeaderboard.Name = "lbLeaderboard";
+            this.lbLeaderboard.Size = new System.Drawing.Size(214, 364);
+            this.lbLeaderboard.TabIndex = 6;
             // 
-            // Form1
+            // GameForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 661);
+            this.ClientSize = new System.Drawing.Size(880, 689);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.ScoreBox);
             this.Controls.Add(this.GamePanel);
             this.Controls.Add(this.gameBorderBox);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lbLeaderboard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "Form1";
+            this.Name = "GameForm";
             this.Text = "Snake Game";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyHasBeenPressed);
             this.GamePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SnakeHeadBox)).EndInit();
             this.ScoreBox.ResumeLayout(false);
+            this.ScoreBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gameBorderBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -174,6 +190,7 @@
         private System.Windows.Forms.PictureBox gameBorderBox;
         private System.Windows.Forms.PictureBox SnakeHeadBox;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbLeaderboard;
+        private System.Windows.Forms.Label lblScore;
     }
 }

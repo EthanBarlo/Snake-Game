@@ -13,20 +13,15 @@ namespace SnakeTest
     public partial class Menu : Form
     {
         // Attributes
+        GameForm game;
         Dictionary<string, string> SettingsDict =
                     new Dictionary<string, string>();
-
 
         public Menu()
         {
             InitializeComponent();
             GameSettings.LoadSettings();
         }
-
-
-        
-
-        
 
 
 
@@ -39,7 +34,8 @@ namespace SnakeTest
 
         private void PlayClicked(object sender, EventArgs e)
         {
-            Close();
+            game = new GameForm();
+            game.ShowDialog();
         }
 
         // Settings Menu
@@ -48,7 +44,10 @@ namespace SnakeTest
             Settings.Visible = false;
         }
 
-       
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
     static class GameSettings
     {
