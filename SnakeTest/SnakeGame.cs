@@ -212,6 +212,5 @@ namespace SnakeTest
             }
             return tmpRotate;
         }
-
     }
 }
