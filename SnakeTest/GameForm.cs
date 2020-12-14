@@ -17,6 +17,8 @@ namespace SnakeTest
         {
             InitializeComponent();
             snakeGame = new SnakeGame(GamePanel, SnakeHeadBox);
+            SetLabelParents();
+
         }
 
         // Operations
@@ -104,16 +106,34 @@ namespace SnakeTest
                 ControlStyles.DoubleBuffer,
                 true);
 
+
             // Leaderboard stuff
-            Leaderboard.LoadFile();
-            foreach (var item in Leaderboard.GetLeaderBoard())
-            {
-                lbLeaderboard.Items.Add(item);
-            }
+            //Leaderboard.LoadFile();
+            //foreach (var item in Leaderboard.GetLeaderBoard())
+            //{
+            //    lbLeaderboard.Items.Add(item);
+            //}
+        }
 
+        private void SetLabelParents()
+        {
+            // Score
+            lblScoreText.Parent = GameBackground;
+            lblScore.Parent = GameBackground;
 
+            // Leaderboard
+            lblLeaderboard.Parent = GameBackground;
 
+            lblPlace1.Parent = GameBackground;
+            lblPlace2.Parent = GameBackground;
+            lblPlace3.Parent = GameBackground;
+            lblPlace4.Parent = GameBackground;
+            lblPlace5.Parent = GameBackground;
+            lblPlace6.Parent = GameBackground;
+            lblPlace7.Parent = GameBackground;
+            lblPlace8.Parent = GameBackground;
 
+            lblYouBottom.Parent = GameBackground;
         }
     }
 }

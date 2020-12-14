@@ -23,8 +23,6 @@ namespace SnakeTest
             GameSettings.LoadSettings();
         }
 
-
-
         // Main Menu
 
         private void SettingsClick(object sender, EventArgs e)
