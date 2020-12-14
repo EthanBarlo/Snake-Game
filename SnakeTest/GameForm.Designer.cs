@@ -75,7 +75,7 @@
             this.SnakeHeadBox.Location = new System.Drawing.Point(200, 200);
             this.SnakeHeadBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.SnakeHeadBox.Name = "SnakeHeadBox";
-            this.SnakeHeadBox.Size = new System.Drawing.Size(50, 50);
+            this.SnakeHeadBox.Size = new System.Drawing.Size(40, 40);
             this.SnakeHeadBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.SnakeHeadBox.TabIndex = 0;
             this.SnakeHeadBox.TabStop = false;
@@ -111,10 +111,10 @@
             // 
             this.btnReset.CausesValidation = false;
             this.btnReset.Enabled = false;
-            this.btnReset.Location = new System.Drawing.Point(882, 100);
+            this.btnReset.Location = new System.Drawing.Point(884, 103);
             this.btnReset.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(84, 19);
+            this.btnReset.Size = new System.Drawing.Size(130, 48);
             this.btnReset.TabIndex = 1;
             this.btnReset.TabStop = false;
             this.btnReset.Text = "Reset";
@@ -148,10 +148,10 @@
             this.lblPlace1.BackColor = System.Drawing.Color.Transparent;
             this.lblPlace1.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlace1.Image = ((System.Drawing.Image)(resources.GetObject("lblPlace1.Image")));
-            this.lblPlace1.Location = new System.Drawing.Point(794, 401);
+            this.lblPlace1.Location = new System.Drawing.Point(784, 401);
             this.lblPlace1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlace1.Name = "lblPlace1";
-            this.lblPlace1.Size = new System.Drawing.Size(218, 30);
+            this.lblPlace1.Size = new System.Drawing.Size(234, 30);
             this.lblPlace1.TabIndex = 0;
             this.lblPlace1.Text = "1.   wwwwww    000000";
             this.lblPlace1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -161,10 +161,10 @@
             this.lblPlace2.BackColor = System.Drawing.Color.Transparent;
             this.lblPlace2.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlace2.Image = ((System.Drawing.Image)(resources.GetObject("lblPlace2.Image")));
-            this.lblPlace2.Location = new System.Drawing.Point(794, 436);
+            this.lblPlace2.Location = new System.Drawing.Point(784, 436);
             this.lblPlace2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlace2.Name = "lblPlace2";
-            this.lblPlace2.Size = new System.Drawing.Size(218, 30);
+            this.lblPlace2.Size = new System.Drawing.Size(234, 30);
             this.lblPlace2.TabIndex = 0;
             this.lblPlace2.Text = "2.   TestName    000000";
             this.lblPlace2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -174,10 +174,10 @@
             this.lblPlace3.BackColor = System.Drawing.Color.Transparent;
             this.lblPlace3.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlace3.Image = ((System.Drawing.Image)(resources.GetObject("lblPlace3.Image")));
-            this.lblPlace3.Location = new System.Drawing.Point(794, 471);
+            this.lblPlace3.Location = new System.Drawing.Point(784, 471);
             this.lblPlace3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlace3.Name = "lblPlace3";
-            this.lblPlace3.Size = new System.Drawing.Size(218, 30);
+            this.lblPlace3.Size = new System.Drawing.Size(234, 30);
             this.lblPlace3.TabIndex = 0;
             this.lblPlace3.Text = "3.   TestName    000000";
             this.lblPlace3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -187,10 +187,10 @@
             this.lblPlace4.BackColor = System.Drawing.Color.Transparent;
             this.lblPlace4.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlace4.Image = ((System.Drawing.Image)(resources.GetObject("lblPlace4.Image")));
-            this.lblPlace4.Location = new System.Drawing.Point(794, 506);
+            this.lblPlace4.Location = new System.Drawing.Point(784, 506);
             this.lblPlace4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlace4.Name = "lblPlace4";
-            this.lblPlace4.Size = new System.Drawing.Size(218, 30);
+            this.lblPlace4.Size = new System.Drawing.Size(234, 30);
             this.lblPlace4.TabIndex = 0;
             this.lblPlace4.Text = "4.   TestName    000000";
             this.lblPlace4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -200,10 +200,10 @@
             this.lblPlace5.BackColor = System.Drawing.Color.Transparent;
             this.lblPlace5.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlace5.Image = ((System.Drawing.Image)(resources.GetObject("lblPlace5.Image")));
-            this.lblPlace5.Location = new System.Drawing.Point(794, 541);
+            this.lblPlace5.Location = new System.Drawing.Point(784, 541);
             this.lblPlace5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlace5.Name = "lblPlace5";
-            this.lblPlace5.Size = new System.Drawing.Size(218, 30);
+            this.lblPlace5.Size = new System.Drawing.Size(234, 30);
             this.lblPlace5.TabIndex = 0;
             this.lblPlace5.Text = "5.   TestName    000000";
             this.lblPlace5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -213,10 +213,10 @@
             this.lblPlace6.BackColor = System.Drawing.Color.Transparent;
             this.lblPlace6.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlace6.Image = ((System.Drawing.Image)(resources.GetObject("lblPlace6.Image")));
-            this.lblPlace6.Location = new System.Drawing.Point(794, 576);
+            this.lblPlace6.Location = new System.Drawing.Point(784, 576);
             this.lblPlace6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlace6.Name = "lblPlace6";
-            this.lblPlace6.Size = new System.Drawing.Size(218, 30);
+            this.lblPlace6.Size = new System.Drawing.Size(234, 30);
             this.lblPlace6.TabIndex = 0;
             this.lblPlace6.Text = "6.   TestName    000000";
             this.lblPlace6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -226,10 +226,10 @@
             this.lblPlace7.BackColor = System.Drawing.Color.Transparent;
             this.lblPlace7.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlace7.Image = ((System.Drawing.Image)(resources.GetObject("lblPlace7.Image")));
-            this.lblPlace7.Location = new System.Drawing.Point(794, 611);
+            this.lblPlace7.Location = new System.Drawing.Point(784, 611);
             this.lblPlace7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlace7.Name = "lblPlace7";
-            this.lblPlace7.Size = new System.Drawing.Size(218, 30);
+            this.lblPlace7.Size = new System.Drawing.Size(234, 30);
             this.lblPlace7.TabIndex = 0;
             this.lblPlace7.Text = "7.   TestName    000000";
             this.lblPlace7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -239,10 +239,10 @@
             this.lblPlace8.BackColor = System.Drawing.Color.Transparent;
             this.lblPlace8.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlace8.Image = ((System.Drawing.Image)(resources.GetObject("lblPlace8.Image")));
-            this.lblPlace8.Location = new System.Drawing.Point(794, 646);
+            this.lblPlace8.Location = new System.Drawing.Point(784, 646);
             this.lblPlace8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlace8.Name = "lblPlace8";
-            this.lblPlace8.Size = new System.Drawing.Size(218, 30);
+            this.lblPlace8.Size = new System.Drawing.Size(234, 30);
             this.lblPlace8.TabIndex = 0;
             this.lblPlace8.Text = "8.   TestName    000000";
             this.lblPlace8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -265,10 +265,10 @@
             this.lblPlace9.BackColor = System.Drawing.Color.Transparent;
             this.lblPlace9.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlace9.Image = ((System.Drawing.Image)(resources.GetObject("lblPlace9.Image")));
-            this.lblPlace9.Location = new System.Drawing.Point(794, 681);
+            this.lblPlace9.Location = new System.Drawing.Point(784, 681);
             this.lblPlace9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlace9.Name = "lblPlace9";
-            this.lblPlace9.Size = new System.Drawing.Size(218, 30);
+            this.lblPlace9.Size = new System.Drawing.Size(234, 30);
             this.lblPlace9.TabIndex = 0;
             this.lblPlace9.Text = "9.   TestName    000000";
             this.lblPlace9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -278,10 +278,10 @@
             this.lblPlace10.BackColor = System.Drawing.Color.Transparent;
             this.lblPlace10.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlace10.Image = ((System.Drawing.Image)(resources.GetObject("lblPlace10.Image")));
-            this.lblPlace10.Location = new System.Drawing.Point(794, 716);
+            this.lblPlace10.Location = new System.Drawing.Point(784, 716);
             this.lblPlace10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlace10.Name = "lblPlace10";
-            this.lblPlace10.Size = new System.Drawing.Size(218, 30);
+            this.lblPlace10.Size = new System.Drawing.Size(234, 30);
             this.lblPlace10.TabIndex = 0;
             this.lblPlace10.Text = "10.  TestName    000000";
             this.lblPlace10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -308,7 +308,7 @@
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.GamePanel);
             this.Controls.Add(this.GameBackground);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "GameForm";
@@ -342,6 +342,5 @@
         private System.Windows.Forms.Label lblYouBottom;
         private System.Windows.Forms.Label lblPlace9;
         private System.Windows.Forms.Label lblPlace10;
-        private System.Windows.Forms.Label Place10;
     }
 }

@@ -40,11 +40,11 @@ namespace SnakeTest
             this.lblSettings = new System.Windows.Forms.Label();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnPlay = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnQuit = new System.Windows.Forms.Button();
+            this.MenuBackground = new System.Windows.Forms.PictureBox();
             this.MenuPanel.SuspendLayout();
             this.Settings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MenuBackground)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuPanel
@@ -53,11 +53,11 @@ namespace SnakeTest
             this.MenuPanel.Controls.Add(this.Settings);
             this.MenuPanel.Controls.Add(this.btnSettings);
             this.MenuPanel.Controls.Add(this.btnPlay);
-            this.MenuPanel.Controls.Add(this.pictureBox1);
             this.MenuPanel.Controls.Add(this.btnQuit);
+            this.MenuPanel.Controls.Add(this.MenuBackground);
             this.MenuPanel.Location = new System.Drawing.Point(0, 0);
             this.MenuPanel.Name = "MenuPanel";
-            this.MenuPanel.Size = new System.Drawing.Size(886, 660);
+            this.MenuPanel.Size = new System.Drawing.Size(888, 674);
             this.MenuPanel.TabIndex = 6;
             // 
             // Settings
@@ -71,7 +71,7 @@ namespace SnakeTest
             this.Settings.Controls.Add(this.lblSettings);
             this.Settings.Location = new System.Drawing.Point(0, 0);
             this.Settings.Name = "Settings";
-            this.Settings.Size = new System.Drawing.Size(886, 660);
+            this.Settings.Size = new System.Drawing.Size(886, 674);
             this.Settings.TabIndex = 6;
             this.Settings.Visible = false;
             // 
@@ -141,9 +141,9 @@ namespace SnakeTest
             // 
             // btnSettings
             // 
-            this.btnSettings.Location = new System.Drawing.Point(261, 447);
+            this.btnSettings.Location = new System.Drawing.Point(227, 392);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(282, 83);
+            this.btnSettings.Size = new System.Drawing.Size(421, 96);
             this.btnSettings.TabIndex = 6;
             this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = true;
@@ -151,34 +151,33 @@ namespace SnakeTest
             // 
             // btnPlay
             // 
-            this.btnPlay.Location = new System.Drawing.Point(260, 346);
+            this.btnPlay.Location = new System.Drawing.Point(227, 262);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(283, 84);
+            this.btnPlay.Size = new System.Drawing.Size(421, 108);
             this.btnPlay.TabIndex = 5;
             this.btnPlay.Text = "Play";
             this.btnPlay.UseVisualStyleBackColor = true;
             this.btnPlay.Click += new System.EventHandler(this.PlayClicked);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(164, -29);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(521, 343);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnQuit
             // 
-            this.btnQuit.Location = new System.Drawing.Point(261, 548);
+            this.btnQuit.Location = new System.Drawing.Point(227, 511);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(282, 83);
+            this.btnQuit.Size = new System.Drawing.Size(421, 100);
             this.btnQuit.TabIndex = 6;
             this.btnQuit.Text = "Quit";
             this.btnQuit.UseVisualStyleBackColor = true;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
+            // 
+            // MenuBackground
+            // 
+            this.MenuBackground.Image = ((System.Drawing.Image)(resources.GetObject("MenuBackground.Image")));
+            this.MenuBackground.Location = new System.Drawing.Point(0, 0);
+            this.MenuBackground.Name = "MenuBackground";
+            this.MenuBackground.Size = new System.Drawing.Size(888, 674);
+            this.MenuBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.MenuBackground.TabIndex = 7;
+            this.MenuBackground.TabStop = false;
             // 
             // Menu
             // 
@@ -186,13 +185,13 @@ namespace SnakeTest
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(886, 675);
             this.Controls.Add(this.MenuPanel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Menu";
             this.Text = "Menu";
             this.MenuPanel.ResumeLayout(false);
             this.Settings.ResumeLayout(false);
             this.Settings.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MenuBackground)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -205,12 +204,11 @@ namespace SnakeTest
         private System.Windows.Forms.Label lblSettings;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnPlay;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnQuit;
         private System.Windows.Forms.Button btnSizeMedium;
         private System.Windows.Forms.Button btnSizeLarge;
         private System.Windows.Forms.Button btnSizeSmall;
         private System.Windows.Forms.Label lblGameSize;
-        private System.Windows.Forms.Button btn;
+        private System.Windows.Forms.PictureBox MenuBackground;
     }
 }

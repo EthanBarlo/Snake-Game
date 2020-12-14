@@ -12,7 +12,7 @@ namespace SnakeTest
         static public int GameSize = 2;
         static public bool wallTeleport = true;
         static public int snakeSpeed = 2;
-        static public int CellSize = 25;
+        static public int CellSize = 30;
 
         // Constructor
         static GameSettings()

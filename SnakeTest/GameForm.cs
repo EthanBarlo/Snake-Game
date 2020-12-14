@@ -148,7 +148,6 @@ namespace SnakeTest
 
             // Leaderboard
             lblLeaderboard.Parent = GameBackground;
-            
             lblPlace1.Parent = GameBackground;
             lblPlace2.Parent = GameBackground;
             lblPlace3.Parent = GameBackground;

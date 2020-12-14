@@ -58,15 +58,15 @@ namespace SnakeTest
             {
                 case "S":
                     GameSettings.GameSize = 1;
-                    GameSettings.CellSize = 30;
+                    GameSettings.CellSize = 40;
                     break;
                 case "M":
                     GameSettings.GameSize = 2;
-                    GameSettings.CellSize = 25;
+                    GameSettings.CellSize = 30;
                     break;
                 case "L":
                     GameSettings.GameSize = 3;
-                    GameSettings.CellSize = 20;
+                    GameSettings.CellSize = 25;
                     break;
             }
             UpdateButtons();
