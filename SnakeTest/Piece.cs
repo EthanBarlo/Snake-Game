@@ -13,8 +13,9 @@ namespace SnakeTest
         {
             entity = new PictureBox();
             entity.BackColor = System.Drawing.Color.Transparent;
-            entity.Width = 20;
-            entity.Height = 20;
+            entity.Width = GameSettings.CellSize;
+            entity.Height = GameSettings.CellSize;
+            entity.SizeMode = PictureBoxSizeMode.StretchImage;
             panel.Controls.Add(entity);
         }
         public Piece(PictureBox pBox)

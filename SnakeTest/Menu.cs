@@ -20,7 +20,7 @@ namespace SnakeTest
         public Menu()
         {
             InitializeComponent();
-            GameSettings.LoadSettings();
+            UpdateButtons();
         }
 
         // Main Menu
@@ -46,31 +46,42 @@ namespace SnakeTest
         {
             Application.Exit();
         }
-    }
-    static class GameSettings
-    {
-        // Attributes
-        static string fileName = "gameSettings.txt";
-        static int gameSize = 2;
-        static bool wallTeleport = true;
-        static int snakeSpeed = 2;
 
-        // Operations
-        static public void LoadSettings()
+
+        // Settings
+
+        // Game Size
+        private void GameSizeChange(object sender, EventArgs e)
         {
-            if (File.Exists(fileName))
+            Button btn = sender as Button;
+            switch (btn.Text)
             {
-                string[] settings =  File.ReadAllLines(fileName);
-                gameSize = Convert.ToInt32(settings[0]);
-                wallTeleport = Convert.ToBoolean(settings[1]);
-                snakeSpeed = Convert.ToInt32(settings[2]);
+                case "S":
+                    GameSettings.GameSize = 1;
+                    GameSettings.CellSize = 30;
+                    break;
+                case "M":
+                    GameSettings.GameSize = 2;
+                    GameSettings.CellSize = 25;
+                    break;
+                case "L":
+                    GameSettings.GameSize = 3;
+                    GameSettings.CellSize = 20;
+                    break;
             }
+            UpdateButtons();
         }
 
-        static public void SaveSettings()
+
+
+        // Update Buttons
+        private void UpdateButtons()
         {
-            string[] settings = {$"{gameSize}", $"{wallTeleport}", $"{snakeSpeed}"};
-            File.WriteAllLines(fileName, settings);
+            btnSizeSmall.Enabled = GameSettings.GameSize != 1;
+            btnSizeMedium.Enabled = GameSettings.GameSize != 2;
+            btnSizeLarge.Enabled = GameSettings.GameSize != 3;
+
         }
     }
+    
 }

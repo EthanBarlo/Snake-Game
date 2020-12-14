@@ -100,17 +100,17 @@ namespace SnakeTest
             switch (updateMoveDirection)
             {
                 case Direction.UP:
-                    SnakeHead.MoveY(-20);
+                    SnakeHead.MoveY(-GameSettings.CellSize);
                     if (SnakeHead.GetY() < 0)
                     {
-                        SnakeHead.MoveSnake(SnakeHead.GetX(), GamePanel.Height - 20);
+                        SnakeHead.MoveSnake(SnakeHead.GetX(), GamePanel.Height - GameSettings.CellSize);
                     }
                     currentMoveDirection = Direction.UP;
                     snakeDirectionImage = $"{Direction.UP}";
                     snakeHead.Image = bmpSnakeHeadRotated[0];
                     break;
                 case Direction.DOWN:
-                    SnakeHead.MoveY(+20);
+                    SnakeHead.MoveY(+GameSettings.CellSize);
                     if (SnakeHead.GetY() >= GamePanel.Height)
                     {
                         SnakeHead.MoveSnake(SnakeHead.GetX(), 0);
@@ -120,17 +120,17 @@ namespace SnakeTest
                     snakeHead.Image = bmpSnakeHeadRotated[2];
                     break;
                 case Direction.LEFT:
-                    SnakeHead.MoveX(-20);
+                    SnakeHead.MoveX(-GameSettings.CellSize);
                     if (SnakeHead.GetX() < 0)
                     {
-                        SnakeHead.MoveSnake(GamePanel.Width - 20, SnakeHead.GetY());
+                        SnakeHead.MoveSnake(GamePanel.Width - GameSettings.CellSize, SnakeHead.GetY());
                     }
                     currentMoveDirection = Direction.LEFT;
                     snakeDirectionImage = $"{Direction.LEFT}";
                     snakeHead.Image = bmpSnakeHeadRotated[3];
                     break;
                 case Direction.RIGHT:
-                    SnakeHead.MoveX(+20);
+                    SnakeHead.MoveX(+GameSettings.CellSize);
                     if (SnakeHead.GetX() >= GamePanel.Width)
                     {
                         SnakeHead.MoveSnake(0, SnakeHead.GetY());

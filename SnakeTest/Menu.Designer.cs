@@ -32,16 +32,16 @@ namespace SnakeTest
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.Settings = new System.Windows.Forms.Panel();
+            this.btnSizeMedium = new System.Windows.Forms.Button();
+            this.btnSizeLarge = new System.Windows.Forms.Button();
+            this.btnSizeSmall = new System.Windows.Forms.Button();
+            this.lblGameSize = new System.Windows.Forms.Label();
             this.btnCloseSettings = new System.Windows.Forms.Button();
             this.lblSettings = new System.Windows.Forms.Label();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnPlay = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnQuit = new System.Windows.Forms.Button();
-            this.lblGameSize = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.MenuPanel.SuspendLayout();
             this.Settings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -63,9 +63,9 @@ namespace SnakeTest
             // Settings
             // 
             this.Settings.BackColor = System.Drawing.Color.Transparent;
-            this.Settings.Controls.Add(this.button2);
-            this.Settings.Controls.Add(this.button3);
-            this.Settings.Controls.Add(this.button1);
+            this.Settings.Controls.Add(this.btnSizeMedium);
+            this.Settings.Controls.Add(this.btnSizeLarge);
+            this.Settings.Controls.Add(this.btnSizeSmall);
             this.Settings.Controls.Add(this.lblGameSize);
             this.Settings.Controls.Add(this.btnCloseSettings);
             this.Settings.Controls.Add(this.lblSettings);
@@ -74,6 +74,49 @@ namespace SnakeTest
             this.Settings.Size = new System.Drawing.Size(886, 660);
             this.Settings.TabIndex = 6;
             this.Settings.Visible = false;
+            // 
+            // btnSizeMedium
+            // 
+            this.btnSizeMedium.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSizeMedium.Location = new System.Drawing.Point(504, 238);
+            this.btnSizeMedium.Name = "btnSizeMedium";
+            this.btnSizeMedium.Size = new System.Drawing.Size(97, 76);
+            this.btnSizeMedium.TabIndex = 4;
+            this.btnSizeMedium.Text = "M";
+            this.btnSizeMedium.UseVisualStyleBackColor = true;
+            this.btnSizeMedium.Click += new System.EventHandler(this.GameSizeChange);
+            // 
+            // btnSizeLarge
+            // 
+            this.btnSizeLarge.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSizeLarge.Location = new System.Drawing.Point(663, 238);
+            this.btnSizeLarge.Name = "btnSizeLarge";
+            this.btnSizeLarge.Size = new System.Drawing.Size(97, 76);
+            this.btnSizeLarge.TabIndex = 4;
+            this.btnSizeLarge.Text = "L";
+            this.btnSizeLarge.UseVisualStyleBackColor = true;
+            this.btnSizeLarge.Click += new System.EventHandler(this.GameSizeChange);
+            // 
+            // btnSizeSmall
+            // 
+            this.btnSizeSmall.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSizeSmall.Location = new System.Drawing.Point(351, 238);
+            this.btnSizeSmall.Name = "btnSizeSmall";
+            this.btnSizeSmall.Size = new System.Drawing.Size(97, 76);
+            this.btnSizeSmall.TabIndex = 4;
+            this.btnSizeSmall.Text = "S";
+            this.btnSizeSmall.UseVisualStyleBackColor = true;
+            this.btnSizeSmall.Click += new System.EventHandler(this.GameSizeChange);
+            // 
+            // lblGameSize
+            // 
+            this.lblGameSize.AutoSize = true;
+            this.lblGameSize.Font = new System.Drawing.Font("Segoe UI", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblGameSize.Location = new System.Drawing.Point(45, 238);
+            this.lblGameSize.Name = "lblGameSize";
+            this.lblGameSize.Size = new System.Drawing.Size(253, 62);
+            this.lblGameSize.TabIndex = 3;
+            this.lblGameSize.Text = "Game Size:";
             // 
             // btnCloseSettings
             // 
@@ -137,43 +180,6 @@ namespace SnakeTest
             this.btnQuit.UseVisualStyleBackColor = true;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
-            // lblGameSize
-            // 
-            this.lblGameSize.AutoSize = true;
-            this.lblGameSize.Font = new System.Drawing.Font("Segoe UI", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblGameSize.Location = new System.Drawing.Point(45, 238);
-            this.lblGameSize.Name = "lblGameSize";
-            this.lblGameSize.Size = new System.Drawing.Size(253, 62);
-            this.lblGameSize.TabIndex = 3;
-            this.lblGameSize.Text = "Game Size:";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(351, 238);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(97, 76);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(504, 238);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 76);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "button1";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(663, 238);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(97, 76);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "button1";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -201,9 +207,10 @@ namespace SnakeTest
         private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnQuit;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSizeMedium;
+        private System.Windows.Forms.Button btnSizeLarge;
+        private System.Windows.Forms.Button btnSizeSmall;
         private System.Windows.Forms.Label lblGameSize;
+        private System.Windows.Forms.Button btn;
     }
 }

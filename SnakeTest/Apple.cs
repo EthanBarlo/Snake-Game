@@ -29,10 +29,11 @@ namespace SnakeTest
             while (true)
             {
                 spaceTaken = false;
+                int CellSize = GameSettings.CellSize;
 
                 // Generate random location
-                int row = rand.Next(gameBoard.Height / 20) * 20;
-                int col = rand.Next(gameBoard.Width / 20) * 20;
+                int row = rand.Next(gameBoard.Height / CellSize) * CellSize;
+                int col = rand.Next(gameBoard.Width / CellSize) * CellSize;
 
                 // If apple is in same location as SnakeHead try another location
                 if (snakeHead.GetX() == col && snakeHead.GetY() == row)

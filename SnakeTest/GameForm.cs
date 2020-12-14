@@ -16,6 +16,12 @@ namespace SnakeTest
         public GameForm()
         {
             InitializeComponent();
+            // Setting SnakeHead Up
+            SnakeHeadBox.Width = GameSettings.CellSize;
+            SnakeHeadBox.Height = GameSettings.CellSize;
+            SnakeHeadBox.Left = (SnakeHeadBox.Location.X / GameSettings.CellSize) * GameSettings.CellSize;
+            SnakeHeadBox.Top = (SnakeHeadBox.Location.Y / GameSettings.CellSize) * GameSettings.CellSize;
+
             snakeGame = new SnakeGame(GamePanel, SnakeHeadBox);
             SetLabelParents();
 
@@ -90,10 +96,13 @@ namespace SnakeTest
 
         private void Reset()
         {
+            // Center Location
+            int center = ((GamePanel.Height / GameSettings.CellSize) / 2) * GameSettings.CellSize;
+
             // Resetting score and snakeHead location
             lblScore.Text = "0".PadLeft(7, '0');
-            SnakeHeadBox.Top = 240;
-            SnakeHeadBox.Left = 260;
+            SnakeHeadBox.Top = center;
+            SnakeHeadBox.Left = center;
             snakeGame.Reset();
         }
 
@@ -105,6 +114,22 @@ namespace SnakeTest
                 ControlStyles.UserPaint |
                 ControlStyles.DoubleBuffer,
                 true);
+
+            // Setting Game Size
+            switch (GameSettings.GameSize)
+            {
+                case 1:
+                    GamePanel.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.BackgroundSmall));
+                    break;
+                case 2:
+                    GamePanel.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.BackgroundMedium));
+                    break;
+                case 3:
+                    GamePanel.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.BackgroundLarge));
+                    break;
+            }
+
+            
 
 
             // Leaderboard stuff
@@ -123,7 +148,7 @@ namespace SnakeTest
 
             // Leaderboard
             lblLeaderboard.Parent = GameBackground;
-
+            
             lblPlace1.Parent = GameBackground;
             lblPlace2.Parent = GameBackground;
             lblPlace3.Parent = GameBackground;
@@ -132,7 +157,8 @@ namespace SnakeTest
             lblPlace6.Parent = GameBackground;
             lblPlace7.Parent = GameBackground;
             lblPlace8.Parent = GameBackground;
-
+            lblPlace9.Parent = GameBackground;
+            lblPlace10.Parent = GameBackground;
             lblYouBottom.Parent = GameBackground;
         }
     }
