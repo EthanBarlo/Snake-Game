@@ -32,31 +32,23 @@ static class Leaderboard
         // Get Size List
         var SizeList = GetSpecificSize(GameSize);
 
-        // Sort List
-        //var SortedList = SizeList.OrderBy(int.Parse(SizeList[0]));
-
         // Generate Output
         var OutputLeaderBoard = new List<string>();
+        int counter = 0;
         foreach (var scoreItem in SizeList)
         {
-            OutputLeaderBoard.Add($"{scoreItem[0]}  -  {scoreItem[1]}");
+            OutputLeaderBoard.Add($"{scoreItem[0]}-{scoreItem[1]}");
+            counter++;
+            if (counter == 10) break;
         }
+
         return OutputLeaderBoard;
     }
 
 
-    private static IEnumerable<List<string>> GetSpecificSize(int size)
+    private static List<List<string>> GetSpecificSize(int size)
     {
-        //var outputList = new List<string>();
-
-        //var outputList = leaderBoard.Select(s => s.Select(n => new { Item = n, Size = int.Parse(n.Split(':')[0]) })
-        //                            .Where(x => x.Size == size)
-        //                            .Select(x => x.Item))
-        //                            .ToList();
-
-        var outputList = leaderBoard.Select(s => new { ScoreItem = s, GameSize = int.Parse(s[2]) })
-                                    .Where(x => x.GameSize == size)
-                                    .Select(x => x.ScoreItem);
+        var outputList = leaderBoard.FindAll(f => int.Parse(f[2]) == size).OrderBy(s => int.Parse(s[0])).ToList();
         return outputList;
     }
 
@@ -81,10 +73,7 @@ static class Leaderboard
         string SaveOutput = "";
         foreach (var scoreItem in leaderBoard)
         {
-            //foreach (var item in scoreItem)
-            //{
-            //    SaveOutput += item;
-            //}
+            //              Score : Name : GameSize
             SaveOutput += $"{scoreItem[0]}:{scoreItem[1]}:{scoreItem[2]}";
             SaveOutput += "\n";
         }
