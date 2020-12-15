@@ -20,7 +20,9 @@ static class Leaderboard
     // Edit Leaderboard
     public static void addNewScore(string score, string name, int gameSize)
     {
-        leaderBoard.Add(new List<string>  {score, name, $"{gameSize}" });
+        if (name.Length > 6)
+            name = name.Substring(0, 6);
+        leaderBoard.Add(new List<string>  {score, name.ToLower(), $"{gameSize}" });
         SaveToFile();
     }
 

@@ -11,6 +11,7 @@ namespace SnakeTest
         // Attributes
         Panel GamePanel;
         PictureBox snakeHead;
+        Form gameForm;
 
         SnakeHead SnakeHead;
         List<Snake> SnakeBody = new List<Snake>();
@@ -30,10 +31,11 @@ namespace SnakeTest
 
 
         // Constructor
-        public SnakeGame(Panel gamePanel , PictureBox snakeHead)
+        public SnakeGame(Panel gamePanel , PictureBox snakeHead, Form gameForm)
         {
             this.GamePanel = gamePanel;
             this.snakeHead = snakeHead;
+            this.gameForm = gameForm;
             // Initilizing the snake
             SnakeHead = new SnakeHead(snakeHead);
             SnakeBody.Add(new Snake(SnakeHead, GamePanel));
@@ -81,6 +83,42 @@ namespace SnakeTest
             }
         }
 
+        private void MoveHead(int move, Direction direction)
+        {
+            switch (direction)
+            {
+                case Direction.RIGHT:
+                case Direction.LEFT:
+                    SnakeHead.MoveX(move);
+                    if (SnakeHead.GetX() < 0) SnakeHead.MoveSnake(GamePanel.Width - GameSettings.CellSize, SnakeHead.GetY());
+                    else if (SnakeHead.GetX() >= GamePanel.Width) SnakeHead.MoveSnake(0, SnakeHead.GetY());
+                    break;
+                case Direction.UP:
+                case Direction.DOWN:
+                    SnakeHead.MoveY(move);
+                    if (SnakeHead.GetY() < 0) SnakeHead.MoveSnake(SnakeHead.GetX(), GamePanel.Height - GameSettings.CellSize);
+                    else if (SnakeHead.GetY() >= GamePanel.Height) SnakeHead.MoveSnake(SnakeHead.GetX(), 0);
+                    break;
+            }
+            currentMoveDirection = direction;
+            snakeDirectionImage = $"{direction}";
+        }
+
+        private void WallHit(Direction direction)
+        {
+            if (GameSettings.Teleport)
+            {
+
+            }
+            else
+            {
+                Form test = GameForm;
+
+                gameForm.
+                GameForm.ActiveForm.gameEnd();
+            }
+        }
+
         public void MoveSnake()
         {
             // Updating the location of each snake piece
@@ -100,48 +138,23 @@ namespace SnakeTest
             switch (updateMoveDirection)
             {
                 case Direction.UP:
-                    SnakeHead.MoveY(-GameSettings.CellSize);
-                    if (SnakeHead.GetY() < 0)
-                    {
-                        SnakeHead.MoveSnake(SnakeHead.GetX(), GamePanel.Height - GameSettings.CellSize);
-                    }
-                    currentMoveDirection = Direction.UP;
-                    snakeDirectionImage = $"{Direction.UP}";
+                    MoveHead(-GameSettings.CellSize, updateMoveDirection);
                     snakeHead.Image = bmpSnakeHeadRotated[0];
                     break;
                 case Direction.DOWN:
-                    SnakeHead.MoveY(+GameSettings.CellSize);
-                    if (SnakeHead.GetY() >= GamePanel.Height)
-                    {
-                        SnakeHead.MoveSnake(SnakeHead.GetX(), 0);
-                    }
-                    currentMoveDirection = Direction.DOWN;
-                    snakeDirectionImage = $"{Direction.DOWN}";
+                    MoveHead(+GameSettings.CellSize, updateMoveDirection);
                     snakeHead.Image = bmpSnakeHeadRotated[2];
                     break;
                 case Direction.LEFT:
-                    SnakeHead.MoveX(-GameSettings.CellSize);
-                    if (SnakeHead.GetX() < 0)
-                    {
-                        SnakeHead.MoveSnake(GamePanel.Width - GameSettings.CellSize, SnakeHead.GetY());
-                    }
-                    currentMoveDirection = Direction.LEFT;
-                    snakeDirectionImage = $"{Direction.LEFT}";
+                    MoveHead(-GameSettings.CellSize, updateMoveDirection);
                     snakeHead.Image = bmpSnakeHeadRotated[3];
                     break;
                 case Direction.RIGHT:
-                    SnakeHead.MoveX(+GameSettings.CellSize);
-                    if (SnakeHead.GetX() >= GamePanel.Width)
-                    {
-                        SnakeHead.MoveSnake(0, SnakeHead.GetY());
-                    }
-                    currentMoveDirection = Direction.RIGHT;
-                    snakeDirectionImage = $"{Direction.RIGHT}";
+                    MoveHead(+GameSettings.CellSize, updateMoveDirection);
                     snakeHead.Image = bmpSnakeHeadRotated[1];
                     break;
             }
         }
-
         
         public void AddSnakePiece()
         {

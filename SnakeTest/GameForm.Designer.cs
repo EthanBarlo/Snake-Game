@@ -41,7 +41,6 @@
             this.SnakeHeadBox = new System.Windows.Forms.PictureBox();
             this.lblScore = new System.Windows.Forms.Label();
             this.lblScoreText = new System.Windows.Forms.Label();
-            this.btnReset = new System.Windows.Forms.Button();
             this.GameBackground = new System.Windows.Forms.PictureBox();
             this.lblLeaderboard = new System.Windows.Forms.Label();
             this.lblPlace1 = new System.Windows.Forms.Label();
@@ -65,11 +64,13 @@
             this.lbl8 = new System.Windows.Forms.Label();
             this.lbl9 = new System.Windows.Forms.Label();
             this.lbl10 = new System.Windows.Forms.Label();
+            this.leaderBoardSnake = new System.Windows.Forms.PictureBox();
             this.GamePanel.SuspendLayout();
             this.GameOverPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GameOverBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SnakeHeadBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GameBackground)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leaderBoardSnake)).BeginInit();
             this.SuspendLayout();
             // 
             // MovementTimer
@@ -193,19 +194,6 @@
             this.lblScoreText.TabIndex = 0;
             this.lblScoreText.Text = "Score";
             this.lblScoreText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnReset
-            // 
-            this.btnReset.CausesValidation = false;
-            this.btnReset.Enabled = false;
-            this.btnReset.Location = new System.Drawing.Point(884, 103);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(130, 48);
-            this.btnReset.TabIndex = 1;
-            this.btnReset.TabStop = false;
-            this.btnReset.Text = "Reset";
-            this.btnReset.Click += new System.EventHandler(this.btnRestart_Click);
             // 
             // GameBackground
             // 
@@ -354,6 +342,7 @@
             this.lblYouBottom.TabIndex = 0;
             this.lblYouBottom.Text = "You    000000";
             this.lblYouBottom.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblYouBottom.Visible = false;
             // 
             // lblPlace9
             // 
@@ -493,11 +482,23 @@
             this.lbl10.Text = "10.";
             this.lbl10.Visible = false;
             // 
+            // leaderBoardSnake
+            // 
+            this.leaderBoardSnake.BackColor = System.Drawing.Color.Transparent;
+            this.leaderBoardSnake.Image = ((System.Drawing.Image)(resources.GetObject("leaderBoardSnake.Image")));
+            this.leaderBoardSnake.Location = new System.Drawing.Point(690, 390);
+            this.leaderBoardSnake.Name = "leaderBoardSnake";
+            this.leaderBoardSnake.Size = new System.Drawing.Size(64, 448);
+            this.leaderBoardSnake.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.leaderBoardSnake.TabIndex = 9;
+            this.leaderBoardSnake.TabStop = false;
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1092, 846);
+            this.Controls.Add(this.leaderBoardSnake);
             this.Controls.Add(this.lbl3);
             this.Controls.Add(this.lbl4);
             this.Controls.Add(this.lbl5);
@@ -522,7 +523,6 @@
             this.Controls.Add(this.lblPlace2);
             this.Controls.Add(this.lblPlace1);
             this.Controls.Add(this.lblLeaderboard);
-            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.GamePanel);
             this.Controls.Add(this.GameBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -538,6 +538,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.GameOverBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SnakeHeadBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GameBackground)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leaderBoardSnake)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -546,7 +547,6 @@
         private System.Windows.Forms.Timer MovementTimer;
         private System.Windows.Forms.Panel GamePanel;
         private System.Windows.Forms.Label lblScoreText;
-        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.PictureBox SnakeHeadBox;
         private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.PictureBox GameBackground;
@@ -578,5 +578,6 @@
         private System.Windows.Forms.Label lbl8;
         private System.Windows.Forms.Label lbl9;
         private System.Windows.Forms.Label lbl10;
+        private System.Windows.Forms.PictureBox leaderBoardSnake;
     }
 }

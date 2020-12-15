@@ -81,6 +81,23 @@ namespace SnakeTest
             btnSizeMedium.Enabled = GameSettings.GameSize != 2;
             btnSizeLarge.Enabled = GameSettings.GameSize != 3;
 
+            btnTeleportTrue.Enabled = !GameSettings.Teleport;
+            btnTeleportFalse.Enabled = !GameSettings.Teleport;
+
+        }
+
+        private void btnTeleportClick(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if(btn.Text == "True")
+            {
+                GameSettings.Teleport = true;
+            }
+            else
+            {
+                GameSettings.Teleport = false;
+            }
+            UpdateButtons();
         }
     }
     

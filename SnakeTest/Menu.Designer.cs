@@ -42,6 +42,9 @@ namespace SnakeTest
             this.btnPlay = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
             this.MenuBackground = new System.Windows.Forms.PictureBox();
+            this.lblTeleportEnabled = new System.Windows.Forms.Label();
+            this.btnTeleportTrue = new System.Windows.Forms.Button();
+            this.btnTeleportFalse = new System.Windows.Forms.Button();
             this.MenuPanel.SuspendLayout();
             this.Settings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MenuBackground)).BeginInit();
@@ -63,9 +66,12 @@ namespace SnakeTest
             // Settings
             // 
             this.Settings.BackColor = System.Drawing.Color.Transparent;
+            this.Settings.Controls.Add(this.btnTeleportFalse);
+            this.Settings.Controls.Add(this.btnTeleportTrue);
             this.Settings.Controls.Add(this.btnSizeMedium);
             this.Settings.Controls.Add(this.btnSizeLarge);
             this.Settings.Controls.Add(this.btnSizeSmall);
+            this.Settings.Controls.Add(this.lblTeleportEnabled);
             this.Settings.Controls.Add(this.lblGameSize);
             this.Settings.Controls.Add(this.btnCloseSettings);
             this.Settings.Controls.Add(this.lblSettings);
@@ -77,7 +83,7 @@ namespace SnakeTest
             // 
             // btnSizeMedium
             // 
-            this.btnSizeMedium.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSizeMedium.Font = new System.Drawing.Font("Arial", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSizeMedium.Location = new System.Drawing.Point(504, 238);
             this.btnSizeMedium.Name = "btnSizeMedium";
             this.btnSizeMedium.Size = new System.Drawing.Size(97, 76);
@@ -88,7 +94,7 @@ namespace SnakeTest
             // 
             // btnSizeLarge
             // 
-            this.btnSizeLarge.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSizeLarge.Font = new System.Drawing.Font("Arial", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSizeLarge.Location = new System.Drawing.Point(663, 238);
             this.btnSizeLarge.Name = "btnSizeLarge";
             this.btnSizeLarge.Size = new System.Drawing.Size(97, 76);
@@ -99,7 +105,7 @@ namespace SnakeTest
             // 
             // btnSizeSmall
             // 
-            this.btnSizeSmall.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSizeSmall.Font = new System.Drawing.Font("Arial", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSizeSmall.Location = new System.Drawing.Point(351, 238);
             this.btnSizeSmall.Name = "btnSizeSmall";
             this.btnSizeSmall.Size = new System.Drawing.Size(97, 76);
@@ -111,10 +117,10 @@ namespace SnakeTest
             // lblGameSize
             // 
             this.lblGameSize.AutoSize = true;
-            this.lblGameSize.Font = new System.Drawing.Font("Segoe UI", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblGameSize.Location = new System.Drawing.Point(45, 238);
+            this.lblGameSize.Font = new System.Drawing.Font("Arial", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblGameSize.Location = new System.Drawing.Point(45, 254);
             this.lblGameSize.Name = "lblGameSize";
-            this.lblGameSize.Size = new System.Drawing.Size(253, 62);
+            this.lblGameSize.Size = new System.Drawing.Size(279, 55);
             this.lblGameSize.TabIndex = 3;
             this.lblGameSize.Text = "Game Size:";
             // 
@@ -132,10 +138,10 @@ namespace SnakeTest
             // lblSettings
             // 
             this.lblSettings.AutoSize = true;
-            this.lblSettings.Font = new System.Drawing.Font("Segoe UI", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblSettings.Font = new System.Drawing.Font("Arial", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblSettings.Location = new System.Drawing.Point(286, 23);
             this.lblSettings.Name = "lblSettings";
-            this.lblSettings.Size = new System.Drawing.Size(276, 89);
+            this.lblSettings.Size = new System.Drawing.Size(297, 78);
             this.lblSettings.TabIndex = 0;
             this.lblSettings.Text = "Settings";
             // 
@@ -174,10 +180,42 @@ namespace SnakeTest
             this.MenuBackground.Image = ((System.Drawing.Image)(resources.GetObject("MenuBackground.Image")));
             this.MenuBackground.Location = new System.Drawing.Point(0, 0);
             this.MenuBackground.Name = "MenuBackground";
-            this.MenuBackground.Size = new System.Drawing.Size(888, 674);
+            this.MenuBackground.Size = new System.Drawing.Size(888, 683);
             this.MenuBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.MenuBackground.TabIndex = 7;
             this.MenuBackground.TabStop = false;
+            // 
+            // lblTeleportEnabled
+            // 
+            this.lblTeleportEnabled.AutoSize = true;
+            this.lblTeleportEnabled.Font = new System.Drawing.Font("Arial", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTeleportEnabled.Location = new System.Drawing.Point(27, 392);
+            this.lblTeleportEnabled.Name = "lblTeleportEnabled";
+            this.lblTeleportEnabled.Size = new System.Drawing.Size(421, 55);
+            this.lblTeleportEnabled.TabIndex = 3;
+            this.lblTeleportEnabled.Text = "Teleport Enabled:";
+            // 
+            // btnTeleportTrue
+            // 
+            this.btnTeleportTrue.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnTeleportTrue.Location = new System.Drawing.Point(474, 373);
+            this.btnTeleportTrue.Name = "btnTeleportTrue";
+            this.btnTeleportTrue.Size = new System.Drawing.Size(113, 81);
+            this.btnTeleportTrue.TabIndex = 5;
+            this.btnTeleportTrue.Text = "True";
+            this.btnTeleportTrue.UseVisualStyleBackColor = true;
+            this.btnTeleportTrue.Click += new System.EventHandler(this.btnTeleportClick);
+            // 
+            // btnTeleportFalse
+            // 
+            this.btnTeleportFalse.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnTeleportFalse.Location = new System.Drawing.Point(647, 373);
+            this.btnTeleportFalse.Name = "btnTeleportFalse";
+            this.btnTeleportFalse.Size = new System.Drawing.Size(134, 81);
+            this.btnTeleportFalse.TabIndex = 5;
+            this.btnTeleportFalse.TabStop = false;
+            this.btnTeleportFalse.Text = "False";
+            this.btnTeleportFalse.UseVisualStyleBackColor = true;
             // 
             // Menu
             // 
@@ -210,5 +248,9 @@ namespace SnakeTest
         private System.Windows.Forms.Button btnSizeSmall;
         private System.Windows.Forms.Label lblGameSize;
         private System.Windows.Forms.PictureBox MenuBackground;
+        private System.Windows.Forms.Button btnTel;
+        private System.Windows.Forms.Button btnTeleportTrue;
+        private System.Windows.Forms.Label lblTeleportEnabled;
+        private System.Windows.Forms.Button btnTeleportFalse;
     }
 }
