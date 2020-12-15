@@ -11,7 +11,6 @@ namespace SnakeTest
         // Attributes
         Panel GamePanel;
         PictureBox snakeHead;
-        Form gameForm;
 
         SnakeHead SnakeHead;
         List<Snake> SnakeBody = new List<Snake>();
@@ -31,11 +30,10 @@ namespace SnakeTest
 
 
         // Constructor
-        public SnakeGame(Panel gamePanel , PictureBox snakeHead, Form gameForm)
+        public SnakeGame(Panel gamePanel , PictureBox snakeHead)
         {
             this.GamePanel = gamePanel;
             this.snakeHead = snakeHead;
-            this.gameForm = gameForm;
             // Initilizing the snake
             SnakeHead = new SnakeHead(snakeHead);
             SnakeBody.Add(new Snake(SnakeHead, GamePanel));
@@ -90,14 +88,12 @@ namespace SnakeTest
                 case Direction.RIGHT:
                 case Direction.LEFT:
                     SnakeHead.MoveX(move);
-                    if (SnakeHead.GetX() < 0) SnakeHead.MoveSnake(GamePanel.Width - GameSettings.CellSize, SnakeHead.GetY());
-                    else if (SnakeHead.GetX() >= GamePanel.Width) SnakeHead.MoveSnake(0, SnakeHead.GetY());
+                    if (SnakeHead.GetX() < 0 || SnakeHead.GetX() >= GamePanel.Width) WallHit(direction);
                     break;
                 case Direction.UP:
                 case Direction.DOWN:
                     SnakeHead.MoveY(move);
-                    if (SnakeHead.GetY() < 0) SnakeHead.MoveSnake(SnakeHead.GetX(), GamePanel.Height - GameSettings.CellSize);
-                    else if (SnakeHead.GetY() >= GamePanel.Height) SnakeHead.MoveSnake(SnakeHead.GetX(), 0);
+                    if (SnakeHead.GetY() < 0 || SnakeHead.GetY() >= GamePanel.Height) WallHit(direction);
                     break;
             }
             currentMoveDirection = direction;
@@ -108,14 +104,25 @@ namespace SnakeTest
         {
             if (GameSettings.Teleport)
             {
-
+                switch (direction) 
+                {
+                    case Direction.UP:
+                        SnakeHead.MoveSnake(SnakeHead.GetX(), GamePanel.Height - GameSettings.CellSize);
+                        break;
+                    case Direction.DOWN:
+                        SnakeHead.MoveSnake(SnakeHead.GetX(), 0);
+                        break;
+                    case Direction.LEFT:
+                        SnakeHead.MoveSnake(GamePanel.Width - GameSettings.CellSize, SnakeHead.GetY());
+                        break;
+                    case Direction.RIGHT:
+                        SnakeHead.MoveSnake(0, SnakeHead.GetY());
+                        break;
+                }
             }
             else
             {
-                Form test = GameForm;
-
-                gameForm.
-                GameForm.ActiveForm.gameEnd();
+                ((GameForm)GameForm.ActiveForm).gameEnd();
             }
         }
 

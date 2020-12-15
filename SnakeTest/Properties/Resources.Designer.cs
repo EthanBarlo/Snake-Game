@@ -63,9 +63,9 @@ namespace SnakeTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap apple {
+        internal static System.Drawing.Bitmap Apple {
             get {
-                object obj = ResourceManager.GetObject("apple", resourceCulture);
+                object obj = ResourceManager.GetObject("Apple", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,59 @@ namespace SnakeTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap PlainBackground {
+        internal static System.Drawing.Bitmap PlainBackground__420_100_ {
             get {
-                object obj = ResourceManager.GetObject("PlainBackground", resourceCulture);
+                object obj = ResourceManager.GetObject("PlainBackground__420_100_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SaveBtn {
+            get {
+                object obj = ResourceManager.GetObject("SaveBtn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SettingsBackground {
+            get {
+                object obj = ResourceManager.GetObject("SettingsBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SizeLarge {
+            get {
+                object obj = ResourceManager.GetObject("SizeLarge", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SizeMedium {
+            get {
+                object obj = ResourceManager.GetObject("SizeMedium", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SizeSmall {
+            get {
+                object obj = ResourceManager.GetObject("SizeSmall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,9 +303,9 @@ namespace SnakeTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap snakeTitle {
+        internal static System.Drawing.Bitmap TeleFalse {
             get {
-                object obj = ResourceManager.GetObject("snakeTitle", resourceCulture);
+                object obj = ResourceManager.GetObject("TeleFalse", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -263,9 +313,9 @@ namespace SnakeTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Transparent_Image {
+        internal static System.Drawing.Bitmap TeleTrue {
             get {
-                object obj = ResourceManager.GetObject("Transparent_Image", resourceCulture);
+                object obj = ResourceManager.GetObject("TeleTrue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

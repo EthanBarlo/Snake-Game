@@ -24,9 +24,8 @@ namespace SnakeTest
             SnakeHeadBox.Left = (SnakeHeadBox.Location.X / GameSettings.CellSize) * GameSettings.CellSize;
             SnakeHeadBox.Top = (SnakeHeadBox.Location.Y / GameSettings.CellSize) * GameSettings.CellSize;
 
-            snakeGame = new SnakeGame(GamePanel, SnakeHeadBox, this);
+            snakeGame = new SnakeGame(GamePanel, SnakeHeadBox);
             SetLabelParents();
-
         }
 
         // Operations
@@ -38,7 +37,6 @@ namespace SnakeTest
                 if (pause) MovementTimer.Stop();
                 else MovementTimer.Start();
             }
-
             else
                 snakeGame.ChangeDirection(e);
 
@@ -248,9 +246,11 @@ namespace SnakeTest
             pause = false;
         }
 
-        private void GamePanel_Paint(object sender, PaintEventArgs e)
+        private void GameOverClose(object sender, EventArgs e)
         {
-
+            Reset();
+            GameOverPanel.Visible = false;
+            pause = false;
         }
     }
 }

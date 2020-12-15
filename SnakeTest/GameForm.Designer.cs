@@ -65,6 +65,7 @@
             this.lbl9 = new System.Windows.Forms.Label();
             this.lbl10 = new System.Windows.Forms.Label();
             this.leaderBoardSnake = new System.Windows.Forms.PictureBox();
+            this.btnCloseGameOver = new System.Windows.Forms.Button();
             this.GamePanel.SuspendLayout();
             this.GameOverPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GameOverBackground)).BeginInit();
@@ -87,11 +88,11 @@
             this.GamePanel.Name = "GamePanel";
             this.GamePanel.Size = new System.Drawing.Size(600, 600);
             this.GamePanel.TabIndex = 0;
-            this.GamePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.GamePanel_Paint);
             // 
             // GameOverPanel
             // 
             this.GameOverPanel.BackColor = System.Drawing.Color.Transparent;
+            this.GameOverPanel.Controls.Add(this.btnCloseGameOver);
             this.GameOverPanel.Controls.Add(this.lblEnterName);
             this.GameOverPanel.Controls.Add(this.btnNameConfirm);
             this.GameOverPanel.Controls.Add(this.tbName);
@@ -117,7 +118,7 @@
             // 
             this.btnNameConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(155)))), ((int)(((byte)(107)))));
             this.btnNameConfirm.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnNameConfirm.Location = new System.Drawing.Point(121, 198);
+            this.btnNameConfirm.Location = new System.Drawing.Point(46, 198);
             this.btnNameConfirm.Name = "btnNameConfirm";
             this.btnNameConfirm.Size = new System.Drawing.Size(191, 45);
             this.btnNameConfirm.TabIndex = 3;
@@ -493,6 +494,18 @@
             this.leaderBoardSnake.TabIndex = 9;
             this.leaderBoardSnake.TabStop = false;
             // 
+            // btnCloseGameOver
+            // 
+            this.btnCloseGameOver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(155)))), ((int)(((byte)(107)))));
+            this.btnCloseGameOver.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCloseGameOver.Location = new System.Drawing.Point(248, 198);
+            this.btnCloseGameOver.Name = "btnCloseGameOver";
+            this.btnCloseGameOver.Size = new System.Drawing.Size(140, 45);
+            this.btnCloseGameOver.TabIndex = 5;
+            this.btnCloseGameOver.Text = "Close";
+            this.btnCloseGameOver.UseVisualStyleBackColor = false;
+            this.btnCloseGameOver.Click += new System.EventHandler(this.GameOverClose);
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -579,5 +592,6 @@
         private System.Windows.Forms.Label lbl9;
         private System.Windows.Forms.Label lbl10;
         private System.Windows.Forms.PictureBox leaderBoardSnake;
+        private System.Windows.Forms.Button btnCloseGameOver;
     }
 }

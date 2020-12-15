@@ -32,21 +32,20 @@ namespace SnakeTest
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.Settings = new System.Windows.Forms.Panel();
+            this.btnTeleportFalse = new System.Windows.Forms.Button();
+            this.btnTeleportTrue = new System.Windows.Forms.Button();
             this.btnSizeMedium = new System.Windows.Forms.Button();
             this.btnSizeLarge = new System.Windows.Forms.Button();
             this.btnSizeSmall = new System.Windows.Forms.Button();
-            this.lblGameSize = new System.Windows.Forms.Label();
-            this.btnCloseSettings = new System.Windows.Forms.Button();
-            this.lblSettings = new System.Windows.Forms.Label();
+            this.btnSaveSettings = new System.Windows.Forms.Button();
+            this.SettingsBackground = new System.Windows.Forms.PictureBox();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnPlay = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
             this.MenuBackground = new System.Windows.Forms.PictureBox();
-            this.lblTeleportEnabled = new System.Windows.Forms.Label();
-            this.btnTeleportTrue = new System.Windows.Forms.Button();
-            this.btnTeleportFalse = new System.Windows.Forms.Button();
             this.MenuPanel.SuspendLayout();
             this.Settings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SettingsBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MenuBackground)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,108 +70,141 @@ namespace SnakeTest
             this.Settings.Controls.Add(this.btnSizeMedium);
             this.Settings.Controls.Add(this.btnSizeLarge);
             this.Settings.Controls.Add(this.btnSizeSmall);
-            this.Settings.Controls.Add(this.lblTeleportEnabled);
-            this.Settings.Controls.Add(this.lblGameSize);
-            this.Settings.Controls.Add(this.btnCloseSettings);
-            this.Settings.Controls.Add(this.lblSettings);
+            this.Settings.Controls.Add(this.btnSaveSettings);
+            this.Settings.Controls.Add(this.SettingsBackground);
             this.Settings.Location = new System.Drawing.Point(0, 0);
             this.Settings.Name = "Settings";
             this.Settings.Size = new System.Drawing.Size(886, 674);
             this.Settings.TabIndex = 6;
             this.Settings.Visible = false;
             // 
+            // btnTeleportFalse
+            // 
+            this.btnTeleportFalse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTeleportFalse.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnTeleportFalse.Image = ((System.Drawing.Image)(resources.GetObject("btnTeleportFalse.Image")));
+            this.btnTeleportFalse.Location = new System.Drawing.Point(593, 350);
+            this.btnTeleportFalse.Name = "btnTeleportFalse";
+            this.btnTeleportFalse.Size = new System.Drawing.Size(90, 90);
+            this.btnTeleportFalse.TabIndex = 5;
+            this.btnTeleportFalse.TabStop = false;
+            this.btnTeleportFalse.UseVisualStyleBackColor = true;
+            this.btnTeleportFalse.Click += new System.EventHandler(this.btnTeleportClick);
+            // 
+            // btnTeleportTrue
+            // 
+            this.btnTeleportTrue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTeleportTrue.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnTeleportTrue.Image = ((System.Drawing.Image)(resources.GetObject("btnTeleportTrue.Image")));
+            this.btnTeleportTrue.Location = new System.Drawing.Point(454, 350);
+            this.btnTeleportTrue.Name = "btnTeleportTrue";
+            this.btnTeleportTrue.Size = new System.Drawing.Size(90, 90);
+            this.btnTeleportTrue.TabIndex = 5;
+            this.btnTeleportTrue.TabStop = false;
+            this.btnTeleportTrue.UseVisualStyleBackColor = true;
+            this.btnTeleportTrue.Click += new System.EventHandler(this.btnTeleportClick);
+            // 
             // btnSizeMedium
             // 
+            this.btnSizeMedium.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSizeMedium.Font = new System.Drawing.Font("Arial", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSizeMedium.Location = new System.Drawing.Point(504, 238);
+            this.btnSizeMedium.Image = ((System.Drawing.Image)(resources.GetObject("btnSizeMedium.Image")));
+            this.btnSizeMedium.Location = new System.Drawing.Point(519, 254);
             this.btnSizeMedium.Name = "btnSizeMedium";
-            this.btnSizeMedium.Size = new System.Drawing.Size(97, 76);
+            this.btnSizeMedium.Size = new System.Drawing.Size(90, 90);
             this.btnSizeMedium.TabIndex = 4;
-            this.btnSizeMedium.Text = "M";
             this.btnSizeMedium.UseVisualStyleBackColor = true;
             this.btnSizeMedium.Click += new System.EventHandler(this.GameSizeChange);
             // 
             // btnSizeLarge
             // 
+            this.btnSizeLarge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSizeLarge.Font = new System.Drawing.Font("Arial", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSizeLarge.Location = new System.Drawing.Point(663, 238);
+            this.btnSizeLarge.Image = ((System.Drawing.Image)(resources.GetObject("btnSizeLarge.Image")));
+            this.btnSizeLarge.Location = new System.Drawing.Point(653, 254);
             this.btnSizeLarge.Name = "btnSizeLarge";
-            this.btnSizeLarge.Size = new System.Drawing.Size(97, 76);
+            this.btnSizeLarge.Size = new System.Drawing.Size(90, 90);
             this.btnSizeLarge.TabIndex = 4;
-            this.btnSizeLarge.Text = "L";
             this.btnSizeLarge.UseVisualStyleBackColor = true;
             this.btnSizeLarge.Click += new System.EventHandler(this.GameSizeChange);
             // 
             // btnSizeSmall
             // 
+            this.btnSizeSmall.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSizeSmall.Font = new System.Drawing.Font("Arial", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSizeSmall.Location = new System.Drawing.Point(351, 238);
+            this.btnSizeSmall.Image = ((System.Drawing.Image)(resources.GetObject("btnSizeSmall.Image")));
+            this.btnSizeSmall.Location = new System.Drawing.Point(378, 254);
             this.btnSizeSmall.Name = "btnSizeSmall";
-            this.btnSizeSmall.Size = new System.Drawing.Size(97, 76);
+            this.btnSizeSmall.Size = new System.Drawing.Size(90, 90);
             this.btnSizeSmall.TabIndex = 4;
-            this.btnSizeSmall.Text = "S";
             this.btnSizeSmall.UseVisualStyleBackColor = true;
             this.btnSizeSmall.Click += new System.EventHandler(this.GameSizeChange);
             // 
-            // lblGameSize
+            // btnSaveSettings
             // 
-            this.lblGameSize.AutoSize = true;
-            this.lblGameSize.Font = new System.Drawing.Font("Arial", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblGameSize.Location = new System.Drawing.Point(45, 254);
-            this.lblGameSize.Name = "lblGameSize";
-            this.lblGameSize.Size = new System.Drawing.Size(279, 55);
-            this.lblGameSize.TabIndex = 3;
-            this.lblGameSize.Text = "Game Size:";
+            this.btnSaveSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveSettings.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSaveSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveSettings.Image")));
+            this.btnSaveSettings.Location = new System.Drawing.Point(321, 500);
+            this.btnSaveSettings.Name = "btnSaveSettings";
+            this.btnSaveSettings.Size = new System.Drawing.Size(200, 75);
+            this.btnSaveSettings.TabIndex = 2;
+            this.btnSaveSettings.UseVisualStyleBackColor = true;
+            this.btnSaveSettings.Click += new System.EventHandler(this.SaveSettingsClick);
             // 
-            // btnCloseSettings
+            // SettingsBackground
             // 
-            this.btnCloseSettings.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCloseSettings.Location = new System.Drawing.Point(45, 35);
-            this.btnCloseSettings.Name = "btnCloseSettings";
-            this.btnCloseSettings.Size = new System.Drawing.Size(113, 101);
-            this.btnCloseSettings.TabIndex = 2;
-            this.btnCloseSettings.Text = "Close";
-            this.btnCloseSettings.UseVisualStyleBackColor = true;
-            this.btnCloseSettings.Click += new System.EventHandler(this.CloseButtonClick);
-            // 
-            // lblSettings
-            // 
-            this.lblSettings.AutoSize = true;
-            this.lblSettings.Font = new System.Drawing.Font("Arial", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblSettings.Location = new System.Drawing.Point(286, 23);
-            this.lblSettings.Name = "lblSettings";
-            this.lblSettings.Size = new System.Drawing.Size(297, 78);
-            this.lblSettings.TabIndex = 0;
-            this.lblSettings.Text = "Settings";
+            this.SettingsBackground.Image = ((System.Drawing.Image)(resources.GetObject("SettingsBackground.Image")));
+            this.SettingsBackground.Location = new System.Drawing.Point(0, 0);
+            this.SettingsBackground.Name = "SettingsBackground";
+            this.SettingsBackground.Size = new System.Drawing.Size(886, 674);
+            this.SettingsBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.SettingsBackground.TabIndex = 6;
+            this.SettingsBackground.TabStop = false;
             // 
             // btnSettings
             // 
-            this.btnSettings.Location = new System.Drawing.Point(227, 392);
+            this.btnSettings.BackColor = System.Drawing.Color.Transparent;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Font = new System.Drawing.Font("Arial", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(135)))), ((int)(((byte)(88)))));
+            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
+            this.btnSettings.Location = new System.Drawing.Point(227, 390);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(421, 96);
+            this.btnSettings.Size = new System.Drawing.Size(420, 100);
             this.btnSettings.TabIndex = 6;
             this.btnSettings.Text = "Settings";
-            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.UseVisualStyleBackColor = false;
             this.btnSettings.Click += new System.EventHandler(this.SettingsClick);
             // 
             // btnPlay
             // 
-            this.btnPlay.Location = new System.Drawing.Point(227, 262);
+            this.btnPlay.BackColor = System.Drawing.Color.Transparent;
+            this.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlay.Font = new System.Drawing.Font("Arial", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPlay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(135)))), ((int)(((byte)(88)))));
+            this.btnPlay.Image = ((System.Drawing.Image)(resources.GetObject("btnPlay.Image")));
+            this.btnPlay.Location = new System.Drawing.Point(227, 280);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(421, 108);
+            this.btnPlay.Size = new System.Drawing.Size(420, 100);
             this.btnPlay.TabIndex = 5;
             this.btnPlay.Text = "Play";
-            this.btnPlay.UseVisualStyleBackColor = true;
+            this.btnPlay.UseVisualStyleBackColor = false;
             this.btnPlay.Click += new System.EventHandler(this.PlayClicked);
             // 
             // btnQuit
             // 
-            this.btnQuit.Location = new System.Drawing.Point(227, 511);
+            this.btnQuit.BackColor = System.Drawing.Color.Transparent;
+            this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuit.Font = new System.Drawing.Font("Arial", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnQuit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(135)))), ((int)(((byte)(88)))));
+            this.btnQuit.Image = ((System.Drawing.Image)(resources.GetObject("btnQuit.Image")));
+            this.btnQuit.Location = new System.Drawing.Point(227, 500);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(421, 100);
+            this.btnQuit.Size = new System.Drawing.Size(420, 100);
             this.btnQuit.TabIndex = 6;
             this.btnQuit.Text = "Quit";
-            this.btnQuit.UseVisualStyleBackColor = true;
+            this.btnQuit.UseVisualStyleBackColor = false;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
             // MenuBackground
@@ -185,38 +217,6 @@ namespace SnakeTest
             this.MenuBackground.TabIndex = 7;
             this.MenuBackground.TabStop = false;
             // 
-            // lblTeleportEnabled
-            // 
-            this.lblTeleportEnabled.AutoSize = true;
-            this.lblTeleportEnabled.Font = new System.Drawing.Font("Arial", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTeleportEnabled.Location = new System.Drawing.Point(27, 392);
-            this.lblTeleportEnabled.Name = "lblTeleportEnabled";
-            this.lblTeleportEnabled.Size = new System.Drawing.Size(421, 55);
-            this.lblTeleportEnabled.TabIndex = 3;
-            this.lblTeleportEnabled.Text = "Teleport Enabled:";
-            // 
-            // btnTeleportTrue
-            // 
-            this.btnTeleportTrue.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTeleportTrue.Location = new System.Drawing.Point(474, 373);
-            this.btnTeleportTrue.Name = "btnTeleportTrue";
-            this.btnTeleportTrue.Size = new System.Drawing.Size(113, 81);
-            this.btnTeleportTrue.TabIndex = 5;
-            this.btnTeleportTrue.Text = "True";
-            this.btnTeleportTrue.UseVisualStyleBackColor = true;
-            this.btnTeleportTrue.Click += new System.EventHandler(this.btnTeleportClick);
-            // 
-            // btnTeleportFalse
-            // 
-            this.btnTeleportFalse.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTeleportFalse.Location = new System.Drawing.Point(647, 373);
-            this.btnTeleportFalse.Name = "btnTeleportFalse";
-            this.btnTeleportFalse.Size = new System.Drawing.Size(134, 81);
-            this.btnTeleportFalse.TabIndex = 5;
-            this.btnTeleportFalse.TabStop = false;
-            this.btnTeleportFalse.Text = "False";
-            this.btnTeleportFalse.UseVisualStyleBackColor = true;
-            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -228,7 +228,7 @@ namespace SnakeTest
             this.Text = "Menu";
             this.MenuPanel.ResumeLayout(false);
             this.Settings.ResumeLayout(false);
-            this.Settings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SettingsBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MenuBackground)).EndInit();
             this.ResumeLayout(false);
 
@@ -239,18 +239,16 @@ namespace SnakeTest
         private System.Windows.Forms.Panel MenuPanel;
         private System.Windows.Forms.Panel Settings;
         private System.Windows.Forms.Button btnCloseSettings;
-        private System.Windows.Forms.Label lblSettings;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.Button btnQuit;
         private System.Windows.Forms.Button btnSizeMedium;
         private System.Windows.Forms.Button btnSizeLarge;
         private System.Windows.Forms.Button btnSizeSmall;
-        private System.Windows.Forms.Label lblGameSize;
         private System.Windows.Forms.PictureBox MenuBackground;
-        private System.Windows.Forms.Button btnTel;
         private System.Windows.Forms.Button btnTeleportTrue;
-        private System.Windows.Forms.Label lblTeleportEnabled;
         private System.Windows.Forms.Button btnTeleportFalse;
+        private System.Windows.Forms.PictureBox SettingsBackground;
+        private System.Windows.Forms.Button btnSaveSettings;
     }
 }

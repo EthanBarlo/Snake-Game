@@ -22,12 +22,34 @@ namespace SnakeTest
 
 
         // Operations
+
+        static public void ChangeGameSize(int newSize)
+        {
+            switch (newSize)
+            {
+                case 1:
+                    GameSettings.GameSize = 1;
+                    GameSettings.CellSize = 40;
+                    break;
+                case 2:
+                    GameSettings.GameSize = 2;
+                    GameSettings.CellSize = 30;
+                    break;
+                case 3:
+                    GameSettings.GameSize = 3;
+                    GameSettings.CellSize = 25;
+                    break;
+            }
+        }
+
+
+
         static public void LoadSettings()
         {
             if (File.Exists(fileName))
             {
                 string[] settings = File.ReadAllLines(fileName);
-                GameSize = Convert.ToInt32(settings[0]);
+                ChangeGameSize(Convert.ToInt32(settings[0]));
                 Teleport = Convert.ToBoolean(settings[1]);
                 snakeSpeed = Convert.ToInt32(settings[2]);
             }

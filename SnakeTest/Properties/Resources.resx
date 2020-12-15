@@ -118,67 +118,82 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="snakeHead" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\snakeHead.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="snakeBodyHorizontal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\snakeBody\snakeBodyHorizontal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="snakeBodyVertical" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\snakeBody\snakeBodyVertical.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="snakeNorth_East" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\snakeTurn\snakeNorth-East.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="snakeNorth_West" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\snakeTurn\snakeNorth-West.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="snakeSouth_East" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\snakeTurn\snakeSouth-East.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="snakeSouth_West" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\snakeTurn\snakeSouth-West.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="snakeTailEast" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\snakeTail\snakeTailEast.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="snakeTailNorth" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\snakeTail\snakeTailNorth.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="snakeTailSouth" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\snakeTail\snakeTailSouth.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="snakeTailWest" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\snakeTail\snakeTailWest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="apple" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\apple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="snakeTitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\snaketitle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="GameBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\gamebackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Transparent_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\transparent image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Apple" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\game\apple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BackgroundLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\backgroundlarge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\game\backgroundlarge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BackgroundMedium" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\backgroundmedium.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\game\backgroundmedium.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BackgroundSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\backgroundsmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\game\backgroundsmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MenuBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\menubackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PlainBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\plainbackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="GameBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\game\gamebackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LeaderBoardSnake" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\leaderboardsnake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\game\leaderboardsnake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MenuBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\menu\menubackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PlainBackground__420_100_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\menu\plainbackground (420,100).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SabeBtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Settings\SabeBtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SettingsBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\settings\settingsbackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SizeLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\settings\sizelarge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SizeMedium" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\settings\sizemedium.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SizeSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\settings\sizesmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snakeBodyHorizontal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\game\snake\snakebody\snakebodyhorizontal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snakeBodyVertical" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\game\snake\snakebody\snakebodyvertical.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snakeHead" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\game\snake\snakehead.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snakeNorth_East" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\game\snake\snaketurn\snakenorth-east.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snakeNorth_West" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\game\snake\snaketurn\snakenorth-west.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snakeSouth_East" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\game\snake\snaketurn\snakesouth-east.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snakeSouth_West" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\game\snake\snaketurn\snakesouth-west.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snakeTailEast" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\game\snake\snaketail\snaketaileast.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snakeTailNorth" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\game\snake\snaketail\snaketailnorth.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snakeTailSouth" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\game\snake\snaketail\snaketailsouth.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snakeTailWest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\game\snake\snaketail\snaketailwest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TeleFalse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\settings\telefalse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TeleTrue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\settings\teletrue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

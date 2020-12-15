@@ -14,7 +14,7 @@ namespace SnakeTest
         public Apple(Panel panel, SnakeHead snakeHead, List<Snake> snakeBody) : base(panel)
         {
             //entity.BackColor = System.Drawing.Color.DarkRed;
-            entity.Image = Properties.Resources.apple;
+            entity.Image = Properties.Resources.Apple;
             gameBoard = panel;
             this.snakeBody = snakeBody;
             MoveRandom(snakeHead);

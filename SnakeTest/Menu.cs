@@ -20,6 +20,17 @@ namespace SnakeTest
         public Menu()
         {
             InitializeComponent();
+
+            btnPlay.Parent = MenuBackground;
+            btnSettings.Parent = MenuBackground;
+            btnQuit.Parent = MenuBackground;
+
+            btnSizeLarge.Parent = SettingsBackground;
+            btnSizeMedium.Parent = SettingsBackground;
+            btnSizeSmall.Parent = SettingsBackground;
+            btnTeleportTrue.Parent = SettingsBackground;
+            btnTeleportFalse.Parent = SettingsBackground;
+            btnSaveSettings.Parent = SettingsBackground;
             UpdateButtons();
         }
 
@@ -36,37 +47,27 @@ namespace SnakeTest
             game.ShowDialog();
         }
 
-        // Settings Menu
-        private void CloseButtonClick(object sender, EventArgs e)
-        {
-            Settings.Visible = false;
-        }
-
         private void btnQuit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-
-        // Settings
+        // Settings Menu
 
         // Game Size
         private void GameSizeChange(object sender, EventArgs e)
         {
             Button btn = sender as Button;
-            switch (btn.Text)
+            switch (btn.Name)
             {
-                case "S":
-                    GameSettings.GameSize = 1;
-                    GameSettings.CellSize = 40;
+                case "btnSizeSmall":
+                    GameSettings.ChangeGameSize(1);
                     break;
-                case "M":
-                    GameSettings.GameSize = 2;
-                    GameSettings.CellSize = 30;
+                case "btnSizeMedium":
+                    GameSettings.ChangeGameSize(2);
                     break;
-                case "L":
-                    GameSettings.GameSize = 3;
-                    GameSettings.CellSize = 25;
+                case "btnSizeLarge":
+                    GameSettings.ChangeGameSize(3);
                     break;
             }
             UpdateButtons();
@@ -82,14 +83,14 @@ namespace SnakeTest
             btnSizeLarge.Enabled = GameSettings.GameSize != 3;
 
             btnTeleportTrue.Enabled = !GameSettings.Teleport;
-            btnTeleportFalse.Enabled = !GameSettings.Teleport;
+            btnTeleportFalse.Enabled = GameSettings.Teleport;
 
         }
 
         private void btnTeleportClick(object sender, EventArgs e)
         {
             Button btn = sender as Button;
-            if(btn.Text == "True")
+            if(btn.Name == "btnTeleportTrue")
             {
                 GameSettings.Teleport = true;
             }
@@ -98,6 +99,12 @@ namespace SnakeTest
                 GameSettings.Teleport = false;
             }
             UpdateButtons();
+        }
+
+        private void SaveSettingsClick(object sender, EventArgs e)
+        {
+            Settings.Visible = false;
+            GameSettings.SaveSettings();
         }
     }
     
