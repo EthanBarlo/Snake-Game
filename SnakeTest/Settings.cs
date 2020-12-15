@@ -11,7 +11,6 @@ namespace SnakeTest
         static public string fileName = "gameSettings.txt";
         static public int GameSize = 2;
         static public bool Teleport = true;
-        static public int snakeSpeed = 2;
         static public int CellSize = 30;
 
         // Constructor
@@ -22,7 +21,6 @@ namespace SnakeTest
 
 
         // Operations
-
         static public void ChangeGameSize(int newSize)
         {
             switch (newSize)
@@ -42,8 +40,6 @@ namespace SnakeTest
             }
         }
 
-
-
         static public void LoadSettings()
         {
             if (File.Exists(fileName))
@@ -51,13 +47,12 @@ namespace SnakeTest
                 string[] settings = File.ReadAllLines(fileName);
                 ChangeGameSize(Convert.ToInt32(settings[0]));
                 Teleport = Convert.ToBoolean(settings[1]);
-                snakeSpeed = Convert.ToInt32(settings[2]);
             }
         }
 
         static public void SaveSettings()
         {
-            string[] settings = { $"{GameSize}", $"{Teleport}", $"{snakeSpeed}" };
+            string[] settings = { $"{GameSize}", $"{Teleport}"};
             File.WriteAllLines(fileName, settings);
         }
     }
