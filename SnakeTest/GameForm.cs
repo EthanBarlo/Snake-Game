@@ -197,6 +197,7 @@ namespace SnakeTest
         {
             GameOverPanel.Visible = false;
             Reset();
+            pause = false;
         }
 
         //-------------------------------------------------------------------------------------------
