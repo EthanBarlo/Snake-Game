@@ -10,7 +10,7 @@ namespace SnakeTest
     {
         // Attributes
         SnakeGame snakeGame;
-        bool pause = false;
+        public bool pause = false;
         List<List<string>> leaderboard;
         int userScoreIndex;
         int score = 0;
@@ -98,20 +98,14 @@ namespace SnakeTest
 
         public void gameEnd()
         {
-            MovementTimer.Stop();
-            GameOverPanel.Visible = true;
             PauseGame();
+            GameOverPanel.Visible = true;
         }
 
         private void Reset()
         {
-            // Center Location
-            int center = ((GamePanel.Height / GameSettings.CellSize) / 2) * GameSettings.CellSize;
-
-            // Resetting score and snakeHead location
+            // Resetting score
             lblScore.Text = "0".PadLeft(6, '0');
-            SnakeHeadBox.Top = center;
-            SnakeHeadBox.Left = center;
         }
 
         private void PauseGame()
@@ -174,6 +168,12 @@ namespace SnakeTest
                 SetLeaderboardValues(lblPlace9, lbl9, leaderboard[8]);
             if (leaderboardLength >= 10)
                 SetLeaderboardValues(lblPlace10, lbl10, leaderboard[9]);
+            if (userScoreIndex == 10)
+            {
+                var scoreItem = leaderboard[userScoreIndex];
+                lblYouBottom.Text = scoreItem[0] + scoreItem[1];
+                lblYouBottom.Visible = true;
+            }    
 
             // Moving the leaderboard Snake
             leaderBoardSnake.Top = 390 + (35 * userScoreIndex);
@@ -190,12 +190,14 @@ namespace SnakeTest
         {
             Leaderboard.addNewScore(lblScore.Text, tbName.Text, GameSettings.GameSize);
             GameOverPanel.Visible = false;
+            pause = false;
             Reset();
         }
 
         private void GameOverClose(object sender, EventArgs e)
         {
             GameOverPanel.Visible = false;
+            pause = false;
             Reset();
             pause = false;
         }

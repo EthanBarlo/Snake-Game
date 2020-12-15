@@ -146,7 +146,8 @@ namespace SnakeTest
                     snakeHead.Image = bmpSnakeHeadRotated[1];
                     break;
             }
-            HasColission();
+            if (!gameForm.pause)
+                HasColission();
         }
 
         //--------------------------------------------
@@ -234,12 +235,18 @@ namespace SnakeTest
         public void Reset()
         {
             GameOverSound.Play();
+
             // Removing all snakes from the gameSpace
             foreach (Snake snake in SnakeBody)
             {
                 snake.remove(GamePanel);
             }
             SnakeBody.Clear();
+
+
+            int center = ((GamePanel.Height / GameSettings.CellSize) / 2) * GameSettings.CellSize;
+            SnakeHead.MoveSnake(center, center);
+
             // Creating the starting snake length & moving the apple
             SnakeBody.Add(new Snake(SnakeHead, GamePanel));
             SnakeBody.Add(new Snake(SnakeHead, GamePanel));
