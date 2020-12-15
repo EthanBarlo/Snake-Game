@@ -17,7 +17,6 @@ static class Leaderboard
     }
 
 
-
     // Edit Leaderboard
     public static void addNewScore(string score, string name, int gameSize)
     {
@@ -27,28 +26,27 @@ static class Leaderboard
 
 
     //Get leaderBoard
-    public static List<string> GetShortLeaderBoard(int GameSize) 
+    public static List<List<string>> GetShortLeaderBoard(int gameSize) 
     {
         // Get Size List
-        var SizeList = GetSpecificSize(GameSize);
-
+        var SizeList = GetSpecificSize(gameSize);
+        
         // Generate Output
-        var OutputLeaderBoard = new List<string>();
+        var OutputLeaderBoard = new List<List<string>>();
         int counter = 0;
         foreach (var scoreItem in SizeList)
         {
-            OutputLeaderBoard.Add($"{scoreItem[0]}-{scoreItem[1]}");
+            OutputLeaderBoard.Add(new List<string>{scoreItem[1] + new string(' ', 10 - scoreItem[0].Length), scoreItem[0]});
             counter++;
             if (counter == 10) break;
         }
-
         return OutputLeaderBoard;
     }
 
 
     private static List<List<string>> GetSpecificSize(int size)
     {
-        var outputList = leaderBoard.FindAll(f => int.Parse(f[2]) == size).OrderBy(s => int.Parse(s[0])).ToList();
+        var outputList = leaderBoard.FindAll(f => int.Parse(f[2]) == size).OrderByDescending(s => int.Parse(s[0])).ToList();
         return outputList;
     }
 

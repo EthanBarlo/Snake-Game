@@ -55,13 +55,21 @@
             this.lblYouBottom = new System.Windows.Forms.Label();
             this.lblPlace9 = new System.Windows.Forms.Label();
             this.lblPlace10 = new System.Windows.Forms.Label();
-            this.ScorePanel = new System.Windows.Forms.Panel();
+            this.lbl1 = new System.Windows.Forms.Label();
+            this.lbl2 = new System.Windows.Forms.Label();
+            this.lbl3 = new System.Windows.Forms.Label();
+            this.lbl4 = new System.Windows.Forms.Label();
+            this.lbl5 = new System.Windows.Forms.Label();
+            this.lbl6 = new System.Windows.Forms.Label();
+            this.lbl7 = new System.Windows.Forms.Label();
+            this.lbl8 = new System.Windows.Forms.Label();
+            this.lbl9 = new System.Windows.Forms.Label();
+            this.lbl10 = new System.Windows.Forms.Label();
             this.GamePanel.SuspendLayout();
             this.GameOverPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GameOverBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SnakeHeadBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GameBackground)).BeginInit();
-            this.ScorePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // MovementTimer
@@ -78,6 +86,7 @@
             this.GamePanel.Name = "GamePanel";
             this.GamePanel.Size = new System.Drawing.Size(600, 600);
             this.GamePanel.TabIndex = 0;
+            this.GamePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.GamePanel_Paint);
             // 
             // GameOverPanel
             // 
@@ -163,7 +172,7 @@
             this.lblScore.BackColor = System.Drawing.Color.Transparent;
             this.lblScore.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(135)))), ((int)(((byte)(88)))));
-            this.lblScore.Location = new System.Drawing.Point(5, 66);
+            this.lblScore.Location = new System.Drawing.Point(765, 248);
             this.lblScore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblScore.Name = "lblScore";
             this.lblScore.Size = new System.Drawing.Size(268, 61);
@@ -177,7 +186,7 @@
             this.lblScoreText.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblScoreText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(135)))), ((int)(((byte)(88)))));
             this.lblScoreText.Image = ((System.Drawing.Image)(resources.GetObject("lblScoreText.Image")));
-            this.lblScoreText.Location = new System.Drawing.Point(58, 13);
+            this.lblScoreText.Location = new System.Drawing.Point(818, 192);
             this.lblScoreText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblScoreText.Name = "lblScoreText";
             this.lblScoreText.Size = new System.Drawing.Size(160, 56);
@@ -226,104 +235,112 @@
             this.lblPlace1.BackColor = System.Drawing.Color.Transparent;
             this.lblPlace1.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlace1.Image = ((System.Drawing.Image)(resources.GetObject("lblPlace1.Image")));
-            this.lblPlace1.Location = new System.Drawing.Point(784, 401);
+            this.lblPlace1.Location = new System.Drawing.Point(832, 401);
             this.lblPlace1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlace1.Name = "lblPlace1";
-            this.lblPlace1.Size = new System.Drawing.Size(234, 30);
+            this.lblPlace1.Size = new System.Drawing.Size(186, 30);
             this.lblPlace1.TabIndex = 0;
-            this.lblPlace1.Text = "1.   wwwwww    000000";
+            this.lblPlace1.Text = "wwwwww    000000";
             this.lblPlace1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblPlace1.Visible = false;
             // 
             // lblPlace2
             // 
             this.lblPlace2.BackColor = System.Drawing.Color.Transparent;
             this.lblPlace2.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlace2.Image = ((System.Drawing.Image)(resources.GetObject("lblPlace2.Image")));
-            this.lblPlace2.Location = new System.Drawing.Point(784, 436);
+            this.lblPlace2.Location = new System.Drawing.Point(832, 436);
             this.lblPlace2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlace2.Name = "lblPlace2";
-            this.lblPlace2.Size = new System.Drawing.Size(234, 30);
+            this.lblPlace2.Size = new System.Drawing.Size(186, 30);
             this.lblPlace2.TabIndex = 0;
-            this.lblPlace2.Text = "2.   TestName    000000";
+            this.lblPlace2.Text = "TestName    000000";
             this.lblPlace2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblPlace2.Visible = false;
             // 
             // lblPlace3
             // 
             this.lblPlace3.BackColor = System.Drawing.Color.Transparent;
             this.lblPlace3.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlace3.Image = ((System.Drawing.Image)(resources.GetObject("lblPlace3.Image")));
-            this.lblPlace3.Location = new System.Drawing.Point(784, 471);
+            this.lblPlace3.Location = new System.Drawing.Point(832, 471);
             this.lblPlace3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlace3.Name = "lblPlace3";
-            this.lblPlace3.Size = new System.Drawing.Size(234, 30);
+            this.lblPlace3.Size = new System.Drawing.Size(186, 30);
             this.lblPlace3.TabIndex = 0;
-            this.lblPlace3.Text = "3.   TestName    000000";
+            this.lblPlace3.Text = "TestName    000000";
             this.lblPlace3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblPlace3.Visible = false;
             // 
             // lblPlace4
             // 
             this.lblPlace4.BackColor = System.Drawing.Color.Transparent;
             this.lblPlace4.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlace4.Image = ((System.Drawing.Image)(resources.GetObject("lblPlace4.Image")));
-            this.lblPlace4.Location = new System.Drawing.Point(784, 506);
+            this.lblPlace4.Location = new System.Drawing.Point(832, 506);
             this.lblPlace4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlace4.Name = "lblPlace4";
-            this.lblPlace4.Size = new System.Drawing.Size(234, 30);
+            this.lblPlace4.Size = new System.Drawing.Size(186, 30);
             this.lblPlace4.TabIndex = 0;
-            this.lblPlace4.Text = "4.   TestName    000000";
+            this.lblPlace4.Text = "TestName    000000";
             this.lblPlace4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblPlace4.Visible = false;
             // 
             // lblPlace5
             // 
             this.lblPlace5.BackColor = System.Drawing.Color.Transparent;
             this.lblPlace5.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlace5.Image = ((System.Drawing.Image)(resources.GetObject("lblPlace5.Image")));
-            this.lblPlace5.Location = new System.Drawing.Point(784, 541);
+            this.lblPlace5.Location = new System.Drawing.Point(832, 541);
             this.lblPlace5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlace5.Name = "lblPlace5";
-            this.lblPlace5.Size = new System.Drawing.Size(234, 30);
+            this.lblPlace5.Size = new System.Drawing.Size(186, 30);
             this.lblPlace5.TabIndex = 0;
-            this.lblPlace5.Text = "5.   TestName    000000";
+            this.lblPlace5.Text = "TestName    000000";
             this.lblPlace5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblPlace5.Visible = false;
             // 
             // lblPlace6
             // 
             this.lblPlace6.BackColor = System.Drawing.Color.Transparent;
             this.lblPlace6.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlace6.Image = ((System.Drawing.Image)(resources.GetObject("lblPlace6.Image")));
-            this.lblPlace6.Location = new System.Drawing.Point(784, 576);
+            this.lblPlace6.Location = new System.Drawing.Point(832, 576);
             this.lblPlace6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlace6.Name = "lblPlace6";
-            this.lblPlace6.Size = new System.Drawing.Size(234, 30);
+            this.lblPlace6.Size = new System.Drawing.Size(186, 30);
             this.lblPlace6.TabIndex = 0;
-            this.lblPlace6.Text = "6.   TestName    000000";
+            this.lblPlace6.Text = "TestName    000000";
             this.lblPlace6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblPlace6.Visible = false;
             // 
             // lblPlace7
             // 
             this.lblPlace7.BackColor = System.Drawing.Color.Transparent;
             this.lblPlace7.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlace7.Image = ((System.Drawing.Image)(resources.GetObject("lblPlace7.Image")));
-            this.lblPlace7.Location = new System.Drawing.Point(784, 611);
+            this.lblPlace7.Location = new System.Drawing.Point(832, 611);
             this.lblPlace7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlace7.Name = "lblPlace7";
-            this.lblPlace7.Size = new System.Drawing.Size(234, 30);
+            this.lblPlace7.Size = new System.Drawing.Size(186, 30);
             this.lblPlace7.TabIndex = 0;
-            this.lblPlace7.Text = "7.   TestName    000000";
+            this.lblPlace7.Text = "TestName    000000";
             this.lblPlace7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblPlace7.Visible = false;
             // 
             // lblPlace8
             // 
             this.lblPlace8.BackColor = System.Drawing.Color.Transparent;
             this.lblPlace8.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlace8.Image = ((System.Drawing.Image)(resources.GetObject("lblPlace8.Image")));
-            this.lblPlace8.Location = new System.Drawing.Point(784, 646);
+            this.lblPlace8.Location = new System.Drawing.Point(832, 646);
             this.lblPlace8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlace8.Name = "lblPlace8";
-            this.lblPlace8.Size = new System.Drawing.Size(234, 30);
+            this.lblPlace8.Size = new System.Drawing.Size(186, 30);
             this.lblPlace8.TabIndex = 0;
-            this.lblPlace8.Text = "8.   TestName    000000";
+            this.lblPlace8.Text = "TestName    000000";
             this.lblPlace8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblPlace8.Visible = false;
             // 
             // lblYouBottom
             // 
@@ -343,45 +360,156 @@
             this.lblPlace9.BackColor = System.Drawing.Color.Transparent;
             this.lblPlace9.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlace9.Image = ((System.Drawing.Image)(resources.GetObject("lblPlace9.Image")));
-            this.lblPlace9.Location = new System.Drawing.Point(784, 681);
+            this.lblPlace9.Location = new System.Drawing.Point(832, 681);
             this.lblPlace9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlace9.Name = "lblPlace9";
-            this.lblPlace9.Size = new System.Drawing.Size(234, 30);
+            this.lblPlace9.Size = new System.Drawing.Size(186, 30);
             this.lblPlace9.TabIndex = 0;
-            this.lblPlace9.Text = "9.   TestName    000000";
+            this.lblPlace9.Text = "TestName    000000";
             this.lblPlace9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblPlace9.Visible = false;
             // 
             // lblPlace10
             // 
             this.lblPlace10.BackColor = System.Drawing.Color.Transparent;
             this.lblPlace10.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPlace10.Image = ((System.Drawing.Image)(resources.GetObject("lblPlace10.Image")));
-            this.lblPlace10.Location = new System.Drawing.Point(784, 716);
+            this.lblPlace10.Location = new System.Drawing.Point(832, 716);
             this.lblPlace10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlace10.Name = "lblPlace10";
-            this.lblPlace10.Size = new System.Drawing.Size(234, 30);
+            this.lblPlace10.Size = new System.Drawing.Size(186, 30);
             this.lblPlace10.TabIndex = 0;
-            this.lblPlace10.Text = "10.  TestName    000000";
+            this.lblPlace10.Text = "TestName    000000";
             this.lblPlace10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblPlace10.Visible = false;
             // 
-            // ScorePanel
+            // lbl1
             // 
-            this.ScorePanel.BackColor = System.Drawing.Color.Transparent;
-            this.ScorePanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ScorePanel.BackgroundImage")));
-            this.ScorePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ScorePanel.Controls.Add(this.lblScoreText);
-            this.ScorePanel.Controls.Add(this.lblScore);
-            this.ScorePanel.Location = new System.Drawing.Point(754, 181);
-            this.ScorePanel.Name = "ScorePanel";
-            this.ScorePanel.Size = new System.Drawing.Size(289, 145);
-            this.ScorePanel.TabIndex = 8;
+            this.lbl1.BackColor = System.Drawing.Color.Transparent;
+            this.lbl1.Font = new System.Drawing.Font("Arial", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl1.Location = new System.Drawing.Point(784, 401);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(41, 30);
+            this.lbl1.TabIndex = 8;
+            this.lbl1.Text = "1.";
+            this.lbl1.Visible = false;
+            // 
+            // lbl2
+            // 
+            this.lbl2.BackColor = System.Drawing.Color.Transparent;
+            this.lbl2.Font = new System.Drawing.Font("Arial", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl2.Location = new System.Drawing.Point(784, 436);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(41, 30);
+            this.lbl2.TabIndex = 8;
+            this.lbl2.Text = "2.";
+            this.lbl2.Visible = false;
+            // 
+            // lbl3
+            // 
+            this.lbl3.BackColor = System.Drawing.Color.Transparent;
+            this.lbl3.Font = new System.Drawing.Font("Arial", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl3.Location = new System.Drawing.Point(784, 471);
+            this.lbl3.Name = "lbl3";
+            this.lbl3.Size = new System.Drawing.Size(41, 30);
+            this.lbl3.TabIndex = 8;
+            this.lbl3.Text = "3.";
+            this.lbl3.Visible = false;
+            // 
+            // lbl4
+            // 
+            this.lbl4.BackColor = System.Drawing.Color.Transparent;
+            this.lbl4.Font = new System.Drawing.Font("Arial", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl4.Location = new System.Drawing.Point(784, 506);
+            this.lbl4.Name = "lbl4";
+            this.lbl4.Size = new System.Drawing.Size(41, 30);
+            this.lbl4.TabIndex = 8;
+            this.lbl4.Text = "4.";
+            this.lbl4.Visible = false;
+            // 
+            // lbl5
+            // 
+            this.lbl5.BackColor = System.Drawing.Color.Transparent;
+            this.lbl5.Font = new System.Drawing.Font("Arial", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl5.Location = new System.Drawing.Point(784, 540);
+            this.lbl5.Name = "lbl5";
+            this.lbl5.Size = new System.Drawing.Size(41, 30);
+            this.lbl5.TabIndex = 8;
+            this.lbl5.Text = "5.";
+            this.lbl5.Visible = false;
+            // 
+            // lbl6
+            // 
+            this.lbl6.BackColor = System.Drawing.Color.Transparent;
+            this.lbl6.Font = new System.Drawing.Font("Arial", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl6.Location = new System.Drawing.Point(784, 576);
+            this.lbl6.Name = "lbl6";
+            this.lbl6.Size = new System.Drawing.Size(41, 30);
+            this.lbl6.TabIndex = 8;
+            this.lbl6.Text = "6.";
+            this.lbl6.Visible = false;
+            // 
+            // lbl7
+            // 
+            this.lbl7.BackColor = System.Drawing.Color.Transparent;
+            this.lbl7.Font = new System.Drawing.Font("Arial", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl7.Location = new System.Drawing.Point(784, 611);
+            this.lbl7.Name = "lbl7";
+            this.lbl7.Size = new System.Drawing.Size(41, 30);
+            this.lbl7.TabIndex = 8;
+            this.lbl7.Text = "7.";
+            this.lbl7.Visible = false;
+            // 
+            // lbl8
+            // 
+            this.lbl8.BackColor = System.Drawing.Color.Transparent;
+            this.lbl8.Font = new System.Drawing.Font("Arial", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl8.Location = new System.Drawing.Point(784, 646);
+            this.lbl8.Name = "lbl8";
+            this.lbl8.Size = new System.Drawing.Size(41, 30);
+            this.lbl8.TabIndex = 8;
+            this.lbl8.Text = "8.";
+            this.lbl8.Visible = false;
+            // 
+            // lbl9
+            // 
+            this.lbl9.BackColor = System.Drawing.Color.Transparent;
+            this.lbl9.Font = new System.Drawing.Font("Arial", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl9.Location = new System.Drawing.Point(784, 681);
+            this.lbl9.Name = "lbl9";
+            this.lbl9.Size = new System.Drawing.Size(41, 30);
+            this.lbl9.TabIndex = 8;
+            this.lbl9.Text = "9.";
+            this.lbl9.Visible = false;
+            // 
+            // lbl10
+            // 
+            this.lbl10.BackColor = System.Drawing.Color.Transparent;
+            this.lbl10.Font = new System.Drawing.Font("Arial", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl10.Location = new System.Drawing.Point(771, 715);
+            this.lbl10.Name = "lbl10";
+            this.lbl10.Size = new System.Drawing.Size(50, 30);
+            this.lbl10.TabIndex = 8;
+            this.lbl10.Text = "10.";
+            this.lbl10.Visible = false;
             // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1092, 846);
-            this.Controls.Add(this.ScorePanel);
+            this.Controls.Add(this.lbl3);
+            this.Controls.Add(this.lbl4);
+            this.Controls.Add(this.lbl5);
+            this.Controls.Add(this.lbl6);
+            this.Controls.Add(this.lbl2);
+            this.Controls.Add(this.lbl7);
+            this.Controls.Add(this.lbl8);
+            this.Controls.Add(this.lbl9);
+            this.Controls.Add(this.lbl10);
+            this.Controls.Add(this.lbl1);
+            this.Controls.Add(this.lblScore);
+            this.Controls.Add(this.lblScoreText);
             this.Controls.Add(this.lblYouBottom);
             this.Controls.Add(this.lblPlace9);
             this.Controls.Add(this.lblPlace10);
@@ -410,7 +538,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.GameOverBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SnakeHeadBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GameBackground)).EndInit();
-            this.ScorePanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -441,6 +568,15 @@
         private System.Windows.Forms.Label lblEnterName;
         private System.Windows.Forms.Button btnNameConfirm;
         private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.Panel ScorePanel;
+        private System.Windows.Forms.Label lbl1;
+        private System.Windows.Forms.Label lbl2;
+        private System.Windows.Forms.Label lbl3;
+        private System.Windows.Forms.Label lbl4;
+        private System.Windows.Forms.Label lbl5;
+        private System.Windows.Forms.Label lbl6;
+        private System.Windows.Forms.Label lbl7;
+        private System.Windows.Forms.Label lbl8;
+        private System.Windows.Forms.Label lbl9;
+        private System.Windows.Forms.Label lbl10;
     }
 }

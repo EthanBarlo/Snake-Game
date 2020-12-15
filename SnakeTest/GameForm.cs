@@ -11,7 +11,8 @@ namespace SnakeTest
         // Attributes
         SnakeGame snakeGame;
         bool pause = false;
-        List<string> leaderboard;
+        List<List<string>> leaderboard;
+        int userScoreIndex;
 
         // Constructor
         public GameForm()
@@ -70,6 +71,7 @@ namespace SnakeTest
         {
             IncreaseScore();
             snakeGame.AppleEaten();
+            UpdateLeaderboard();
         }
         private void SnakeHit()
         {
@@ -78,8 +80,10 @@ namespace SnakeTest
 
         public void IncreaseScore()
         {
-            if (Convert.ToInt32(lblScore.Text) == 9999999) { MessageBox.Show("Max Score reached"); MovementTimer.Stop(); }
-            lblScore.Text = Convert.ToString(Convert.ToInt32(lblScore.Text) + 1).PadLeft(7, '0');
+            if (Convert.ToInt32(lblScore.Text) == 999999) { MessageBox.Show("Max Score reached"); MovementTimer.Stop(); }
+            lblScore.Text = Convert.ToString(Convert.ToInt32(lblScore.Text) + 1).PadLeft(6, '0');
+
+            leaderboard[userScoreIndex][1] = lblScore.Text;
         }
 
         private void gameEnd()
@@ -103,7 +107,7 @@ namespace SnakeTest
             int center = ((GamePanel.Height / GameSettings.CellSize) / 2) * GameSettings.CellSize;
 
             // Resetting score and snakeHead location
-            lblScore.Text = "0".PadLeft(7, '0');
+            lblScore.Text = "0".PadLeft(6, '0');
             SnakeHeadBox.Top = center;
             SnakeHeadBox.Left = center;
             snakeGame.Reset();
@@ -148,26 +152,61 @@ namespace SnakeTest
 
             // Leaderboard Stuff
             leaderboard = Leaderboard.GetShortLeaderBoard(GameSettings.GameSize);
-            int boardLength = leaderboard.Count;
-            if (boardLength >= 1 && leaderboard[0] != null) lblPlace1.Text = leaderboard[0];
-            if (boardLength >= 2 && leaderboard[1] != null) lblPlace2.Text = leaderboard[1];
-            if (boardLength >= 3 && leaderboard[2] != null) lblPlace3.Text = leaderboard[2];
-            if (boardLength >= 4 && leaderboard[3] != null) lblPlace4.Text = leaderboard[3];
-            if (boardLength >= 5 && leaderboard[4] != null) lblPlace5.Text = leaderboard[4];
-            if (boardLength >= 6 && leaderboard[5] != null) lblPlace6.Text = leaderboard[5];
-            if (boardLength >= 7 && leaderboard[6] != null) lblPlace7.Text = leaderboard[6];
-            if (boardLength >= 8 && leaderboard[7] != null) lblPlace8.Text = leaderboard[7];
-            if (boardLength >= 9 && leaderboard[8] != null) lblPlace9.Text = leaderboard[8];
-            if (boardLength >= 10 && leaderboard[9] != null) lblPlace10.Text = leaderboard[9];
+            int leaderboardLength = leaderboard.Count;
+            leaderboard.Add(new List<string> { "You       ", lblScore.Text });
+            userScoreIndex = leaderboardLength;
+            // leaderboard is a List<List<string>>, First item is Score, Second Is Name
 
-
+            if (leaderboardLength >= 1 && leaderboard[0] != null)
+                SetLeaderboardValues(lblPlace1, lbl1, leaderboard[0]);
+            if (leaderboardLength >= 2 && leaderboard[1] != null)
+                SetLeaderboardValues(lblPlace2, lbl2, leaderboard[1]);
+            if (leaderboardLength >= 3 && leaderboard[2] != null) 
+                SetLeaderboardValues(lblPlace3, lbl3, leaderboard[2]);
+            if (leaderboardLength >= 4 && leaderboard[3] != null) 
+                SetLeaderboardValues(lblPlace4, lbl4, leaderboard[3]);
+            if (leaderboardLength >= 5 && leaderboard[4] != null)
+                SetLeaderboardValues(lblPlace5, lbl5, leaderboard[4]);
+            if (leaderboardLength >= 6 && leaderboard[5] != null) 
+                SetLeaderboardValues(lblPlace6, lbl6, leaderboard[5]);
+            if (leaderboardLength >= 7 && leaderboard[6] != null)
+                SetLeaderboardValues(lblPlace7, lbl7, leaderboard[6]);
+            if (leaderboardLength >= 8 && leaderboard[7] != null)
+                SetLeaderboardValues(lblPlace8, lbl8, leaderboard[7]);
+            if (leaderboardLength >= 9 && leaderboard[8] != null)
+                SetLeaderboardValues(lblPlace9, lbl9, leaderboard[8]);
+            if (leaderboardLength >= 10 && leaderboard[9] != null)
+                SetLeaderboardValues(lblPlace10, lbl10, leaderboard[9]);
         }
 
+        private void SetLeaderboardValues(Label label, Label numLabel, List<string> leaderboard)
+        {
+            label.Text = leaderboard[0] + leaderboard[1];
+            label.Visible = true;
+            numLabel.Visible = true;
+        }
+
+        private void UpdateLeaderboard()
+        {
+            int currentScore = int.Parse(lblScore.Text);
+            for (int i = 0; i < 10; i++)
+            {
+                if (int.Parse(leaderboard[i][1]) < currentScore)
+                {
+                    if (i == userScoreIndex) break;
+                    var temp = leaderboard[i];
+                    leaderboard[i] = new List<string> { "You       ", lblScore.Text };
+                    leaderboard[userScoreIndex] = temp;
+                    userScoreIndex = i;
+                }
+            }
+        }
 
         private void SetLabelParents()
         {
             // Score
-            ScorePanel.Parent = GameBackground;
+            lblScore.Parent = GameBackground;
+            lblScoreText.Parent = GameBackground;
 
             // Leaderboard
             lblLeaderboard.Parent = GameBackground;
@@ -182,6 +221,17 @@ namespace SnakeTest
             lblPlace9.Parent = GameBackground;
             lblPlace10.Parent = GameBackground;
             lblYouBottom.Parent = GameBackground;
+            // Leaderboard Numbers
+            lbl1.Parent = GameBackground;
+            lbl2.Parent = GameBackground;
+            lbl3.Parent = GameBackground;
+            lbl4.Parent = GameBackground;
+            lbl5.Parent = GameBackground;
+            lbl6.Parent = GameBackground;
+            lbl7.Parent = GameBackground;
+            lbl8.Parent = GameBackground;
+            lbl9.Parent = GameBackground;
+            lbl10.Parent = GameBackground;
 
             // Game Over
             lblGameOver.Parent = GameOverBackground;
@@ -195,6 +245,11 @@ namespace SnakeTest
             Reset();
             GameOverPanel.Visible = false;
             pause = false;
+        }
+
+        private void GamePanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
