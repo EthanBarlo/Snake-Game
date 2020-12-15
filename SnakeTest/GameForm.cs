@@ -129,6 +129,7 @@ namespace SnakeTest
             leaderboard = Leaderboard.GetShortLeaderBoard(GameSettings.GameSize);
             userScoreIndex = leaderboard.Count;
             leaderboard.Add(new List<string> { "You       ", lblScore.Text });
+            UpdateLeaderboard();
         }
 
         private void UpdateLeaderboard()
@@ -192,6 +193,7 @@ namespace SnakeTest
             GameOverPanel.Visible = false;
             pause = false;
             Reset();
+            UpdateLeaderboard();
         }
 
         private void GameOverClose(object sender, EventArgs e)

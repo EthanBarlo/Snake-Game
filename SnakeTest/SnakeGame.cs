@@ -15,8 +15,6 @@ namespace SnakeTest
         GameForm gameForm;
 
         SoundPlayer AppleBiteSound = new SoundPlayer(Properties.Resources.AppleBite);
-        SoundPlayer WallHitSound = new SoundPlayer(Properties.Resources.WallHit);
-        SoundPlayer SnakeHitSound = new SoundPlayer(Properties.Resources.SnakeHit);
         SoundPlayer GameOverSound = new SoundPlayer(Properties.Resources.GameOver);
 
         SnakeHead SnakeHead;
@@ -174,7 +172,7 @@ namespace SnakeTest
             }
             else
             {
-                WallHitSound.Play();
+                new SoundPlayer(Properties.Resources.WallHit).PlaySync();
                 Reset();
                 gameForm.gameEnd();
             }
@@ -187,7 +185,7 @@ namespace SnakeTest
                 AppleEaten();
             else if (HitSnakeBody())
             {
-                SnakeHitSound.Play();
+                new SoundPlayer(Properties.Resources.SnakeHit).PlaySync();
                 Reset();
                 gameForm.gameEnd();
             }
