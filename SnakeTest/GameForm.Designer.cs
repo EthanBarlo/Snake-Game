@@ -32,6 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameForm));
             this.MovementTimer = new System.Windows.Forms.Timer(this.components);
             this.GamePanel = new System.Windows.Forms.Panel();
+            this.GameOverPanel = new System.Windows.Forms.Panel();
+            this.lblEnterName = new System.Windows.Forms.Label();
+            this.btnNameConfirm = new System.Windows.Forms.Button();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.lblGameOver = new System.Windows.Forms.Label();
+            this.GameOverBackground = new System.Windows.Forms.PictureBox();
             this.SnakeHeadBox = new System.Windows.Forms.PictureBox();
             this.lblScore = new System.Windows.Forms.Label();
             this.lblScoreText = new System.Windows.Forms.Label();
@@ -49,9 +55,13 @@
             this.lblYouBottom = new System.Windows.Forms.Label();
             this.lblPlace9 = new System.Windows.Forms.Label();
             this.lblPlace10 = new System.Windows.Forms.Label();
+            this.ScorePanel = new System.Windows.Forms.Panel();
             this.GamePanel.SuspendLayout();
+            this.GameOverPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GameOverBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SnakeHeadBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GameBackground)).BeginInit();
+            this.ScorePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // MovementTimer
@@ -61,12 +71,80 @@
             // GamePanel
             // 
             this.GamePanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("GamePanel.BackgroundImage")));
+            this.GamePanel.Controls.Add(this.GameOverPanel);
             this.GamePanel.Controls.Add(this.SnakeHeadBox);
             this.GamePanel.Location = new System.Drawing.Point(72, 192);
             this.GamePanel.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.GamePanel.Name = "GamePanel";
             this.GamePanel.Size = new System.Drawing.Size(600, 600);
             this.GamePanel.TabIndex = 0;
+            // 
+            // GameOverPanel
+            // 
+            this.GameOverPanel.BackColor = System.Drawing.Color.Transparent;
+            this.GameOverPanel.Controls.Add(this.lblEnterName);
+            this.GameOverPanel.Controls.Add(this.btnNameConfirm);
+            this.GameOverPanel.Controls.Add(this.tbName);
+            this.GameOverPanel.Controls.Add(this.lblGameOver);
+            this.GameOverPanel.Controls.Add(this.GameOverBackground);
+            this.GameOverPanel.Location = new System.Drawing.Point(79, 157);
+            this.GameOverPanel.Name = "GameOverPanel";
+            this.GameOverPanel.Size = new System.Drawing.Size(446, 269);
+            this.GameOverPanel.TabIndex = 8;
+            this.GameOverPanel.Visible = false;
+            // 
+            // lblEnterName
+            // 
+            this.lblEnterName.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblEnterName.Location = new System.Drawing.Point(46, 82);
+            this.lblEnterName.Name = "lblEnterName";
+            this.lblEnterName.Size = new System.Drawing.Size(342, 52);
+            this.lblEnterName.TabIndex = 4;
+            this.lblEnterName.Text = "Enter your Name. Max Size of 6 Characters";
+            this.lblEnterName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnNameConfirm
+            // 
+            this.btnNameConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(155)))), ((int)(((byte)(107)))));
+            this.btnNameConfirm.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnNameConfirm.Location = new System.Drawing.Point(121, 198);
+            this.btnNameConfirm.Name = "btnNameConfirm";
+            this.btnNameConfirm.Size = new System.Drawing.Size(191, 45);
+            this.btnNameConfirm.TabIndex = 3;
+            this.btnNameConfirm.Text = "Add Score";
+            this.btnNameConfirm.UseVisualStyleBackColor = false;
+            this.btnNameConfirm.Click += new System.EventHandler(this.AddScoreClick);
+            // 
+            // tbName
+            // 
+            this.tbName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(155)))), ((int)(((byte)(107)))));
+            this.tbName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbName.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tbName.Location = new System.Drawing.Point(46, 139);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(342, 53);
+            this.tbName.TabIndex = 2;
+            this.tbName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblGameOver
+            // 
+            this.lblGameOver.AutoSize = true;
+            this.lblGameOver.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblGameOver.Location = new System.Drawing.Point(93, 36);
+            this.lblGameOver.Name = "lblGameOver";
+            this.lblGameOver.Size = new System.Drawing.Size(244, 46);
+            this.lblGameOver.TabIndex = 1;
+            this.lblGameOver.Text = "Game Over!";
+            // 
+            // GameOverBackground
+            // 
+            this.GameOverBackground.Image = ((System.Drawing.Image)(resources.GetObject("GameOverBackground.Image")));
+            this.GameOverBackground.Location = new System.Drawing.Point(0, 0);
+            this.GameOverBackground.Name = "GameOverBackground";
+            this.GameOverBackground.Size = new System.Drawing.Size(446, 269);
+            this.GameOverBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.GameOverBackground.TabIndex = 0;
+            this.GameOverBackground.TabStop = false;
             // 
             // SnakeHeadBox
             // 
@@ -85,7 +163,7 @@
             this.lblScore.BackColor = System.Drawing.Color.Transparent;
             this.lblScore.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(135)))), ((int)(((byte)(88)))));
-            this.lblScore.Location = new System.Drawing.Point(767, 248);
+            this.lblScore.Location = new System.Drawing.Point(5, 66);
             this.lblScore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblScore.Name = "lblScore";
             this.lblScore.Size = new System.Drawing.Size(268, 61);
@@ -99,7 +177,7 @@
             this.lblScoreText.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblScoreText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(135)))), ((int)(((byte)(88)))));
             this.lblScoreText.Image = ((System.Drawing.Image)(resources.GetObject("lblScoreText.Image")));
-            this.lblScoreText.Location = new System.Drawing.Point(817, 192);
+            this.lblScoreText.Location = new System.Drawing.Point(58, 13);
             this.lblScoreText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblScoreText.Name = "lblScoreText";
             this.lblScoreText.Size = new System.Drawing.Size(160, 56);
@@ -286,11 +364,24 @@
             this.lblPlace10.Text = "10.  TestName    000000";
             this.lblPlace10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // ScorePanel
+            // 
+            this.ScorePanel.BackColor = System.Drawing.Color.Transparent;
+            this.ScorePanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ScorePanel.BackgroundImage")));
+            this.ScorePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ScorePanel.Controls.Add(this.lblScoreText);
+            this.ScorePanel.Controls.Add(this.lblScore);
+            this.ScorePanel.Location = new System.Drawing.Point(754, 181);
+            this.ScorePanel.Name = "ScorePanel";
+            this.ScorePanel.Size = new System.Drawing.Size(289, 145);
+            this.ScorePanel.TabIndex = 8;
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1092, 846);
+            this.Controls.Add(this.ScorePanel);
             this.Controls.Add(this.lblYouBottom);
             this.Controls.Add(this.lblPlace9);
             this.Controls.Add(this.lblPlace10);
@@ -303,8 +394,6 @@
             this.Controls.Add(this.lblPlace2);
             this.Controls.Add(this.lblPlace1);
             this.Controls.Add(this.lblLeaderboard);
-            this.Controls.Add(this.lblScore);
-            this.Controls.Add(this.lblScoreText);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.GamePanel);
             this.Controls.Add(this.GameBackground);
@@ -316,8 +405,12 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyHasBeenPressed);
             this.GamePanel.ResumeLayout(false);
+            this.GameOverPanel.ResumeLayout(false);
+            this.GameOverPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GameOverBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SnakeHeadBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GameBackground)).EndInit();
+            this.ScorePanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -342,5 +435,12 @@
         private System.Windows.Forms.Label lblYouBottom;
         private System.Windows.Forms.Label lblPlace9;
         private System.Windows.Forms.Label lblPlace10;
+        private System.Windows.Forms.Panel GameOverPanel;
+        private System.Windows.Forms.PictureBox GameOverBackground;
+        private System.Windows.Forms.Label lblGameOver;
+        private System.Windows.Forms.Label lblEnterName;
+        private System.Windows.Forms.Button btnNameConfirm;
+        private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.Panel ScorePanel;
     }
 }

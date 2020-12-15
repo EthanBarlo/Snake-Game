@@ -11,6 +11,7 @@ namespace SnakeTest
         // Attributes
         SnakeGame snakeGame;
         bool pause = false;
+        List<string> leaderboard;
 
         // Constructor
         public GameForm()
@@ -40,13 +41,15 @@ namespace SnakeTest
             else
                 snakeGame.ChangeDirection(e);
 
-            if (MovementTimer.Enabled == false)
+            if (pause == false)
             {
-                MovementTimer.Start();
-                btnReset.Enabled = true;
-                SnakeHeadBox.Focus();
+                if (MovementTimer.Enabled == false)
+                {
+                    MovementTimer.Start();
+                    btnReset.Enabled = true;
+                    SnakeHeadBox.Focus();
+                }
             }
-
         }
 
         private void TimerTick(object sender, EventArgs e)
@@ -83,8 +86,8 @@ namespace SnakeTest
         {
             btnReset.Enabled = true;
             MovementTimer.Stop();
-            MessageBox.Show($"You Died!\nFinal Score: {Convert.ToInt32(lblScore.Text)}");
-            Reset();
+            GameOverPanel.Visible = true;
+            PauseGame();
         }
 
         private void btnRestart_Click(object sender, EventArgs e)   //not in use
@@ -105,6 +108,20 @@ namespace SnakeTest
             SnakeHeadBox.Left = center;
             snakeGame.Reset();
         }
+
+        private void PauseGame()
+        {
+            if (pause)
+            {
+                MovementTimer.Start();
+            }
+            else
+            {
+                MovementTimer.Stop();
+            }
+            pause = !pause;
+        }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -129,22 +146,28 @@ namespace SnakeTest
                     break;
             }
 
-            
+            // Leaderboard Stuff
+            leaderboard = Leaderboard.GetShortLeaderBoard(GameSettings.GameSize);
+            int boardLength = leaderboard.Count;
+            if (boardLength >= 1 && leaderboard[0] != null) lblPlace1.Text = leaderboard[0];
+            if (boardLength >= 2 && leaderboard[1] != null) lblPlace2.Text = leaderboard[1];
+            if (boardLength >= 3 && leaderboard[2] != null) lblPlace3.Text = leaderboard[2];
+            if (boardLength >= 4 && leaderboard[3] != null) lblPlace4.Text = leaderboard[3];
+            if (boardLength >= 5 && leaderboard[4] != null) lblPlace5.Text = leaderboard[4];
+            if (boardLength >= 6 && leaderboard[5] != null) lblPlace6.Text = leaderboard[5];
+            if (boardLength >= 7 && leaderboard[6] != null) lblPlace7.Text = leaderboard[6];
+            if (boardLength >= 8 && leaderboard[7] != null) lblPlace8.Text = leaderboard[7];
+            if (boardLength >= 9 && leaderboard[8] != null) lblPlace9.Text = leaderboard[8];
+            if (boardLength >= 10 && leaderboard[9] != null) lblPlace10.Text = leaderboard[9];
 
 
-            // Leaderboard stuff
-            //Leaderboard.LoadFile();
-            //foreach (var item in Leaderboard.GetLeaderBoard())
-            //{
-            //    lbLeaderboard.Items.Add(item);
-            //}
         }
+
 
         private void SetLabelParents()
         {
             // Score
-            lblScoreText.Parent = GameBackground;
-            lblScore.Parent = GameBackground;
+            ScorePanel.Parent = GameBackground;
 
             // Leaderboard
             lblLeaderboard.Parent = GameBackground;
@@ -159,6 +182,19 @@ namespace SnakeTest
             lblPlace9.Parent = GameBackground;
             lblPlace10.Parent = GameBackground;
             lblYouBottom.Parent = GameBackground;
+
+            // Game Over
+            lblGameOver.Parent = GameOverBackground;
+            lblEnterName.Parent = GameOverBackground;
+        }
+
+        private void AddScoreClick(object sender, EventArgs e)
+        {
+            Leaderboard.addNewScore(lblScore.Text, tbName.Text, GameSettings.GameSize);
+
+            Reset();
+            GameOverPanel.Visible = false;
+            pause = false;
         }
     }
 }
