@@ -543,7 +543,6 @@
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "GameForm";
             this.Text = "Snake Game";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyHasBeenPressed);
             this.GamePanel.ResumeLayout(false);
             this.GameOverPanel.ResumeLayout(false);

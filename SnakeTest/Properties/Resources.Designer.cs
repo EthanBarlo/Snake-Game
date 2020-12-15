@@ -71,6 +71,15 @@ namespace SnakeTest.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream AppleBite {
+            get {
+                return ResourceManager.GetStream("AppleBite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap BackgroundLarge {
@@ -107,6 +116,15 @@ namespace SnakeTest.Properties {
             get {
                 object obj = ResourceManager.GetObject("GameBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream GameOver {
+            get {
+                return ResourceManager.GetStream("GameOver", resourceCulture);
             }
         }
         
@@ -221,6 +239,15 @@ namespace SnakeTest.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream SnakeHit {
+            get {
+                return ResourceManager.GetStream("SnakeHit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap snakeNorth_East {
@@ -317,6 +344,15 @@ namespace SnakeTest.Properties {
             get {
                 object obj = ResourceManager.GetObject("TeleTrue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream WallHit {
+            get {
+                return ResourceManager.GetStream("WallHit", resourceCulture);
             }
         }
     }

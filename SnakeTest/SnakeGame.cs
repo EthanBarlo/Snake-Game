@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.Media;
 
 namespace SnakeTest
 {
@@ -11,6 +12,12 @@ namespace SnakeTest
         // Attributes
         Panel GamePanel;
         PictureBox snakeHead;
+        GameForm gameForm;
+
+        SoundPlayer AppleBiteSound = new SoundPlayer(Properties.Resources.AppleBite);
+        SoundPlayer WallHitSound = new SoundPlayer(Properties.Resources.WallHit);
+        SoundPlayer SnakeHitSound = new SoundPlayer(Properties.Resources.SnakeHit);
+        SoundPlayer GameOverSound = new SoundPlayer(Properties.Resources.GameOver);
 
         SnakeHead SnakeHead;
         List<Snake> SnakeBody = new List<Snake>();
@@ -30,10 +37,11 @@ namespace SnakeTest
 
 
         // Constructor
-        public SnakeGame(Panel gamePanel , PictureBox snakeHead)
+        public SnakeGame(Panel gamePanel , PictureBox snakeHead, GameForm gameForm)
         {
             this.GamePanel = gamePanel;
             this.snakeHead = snakeHead;
+            this.gameForm = gameForm;
             // Initilizing the snake
             SnakeHead = new SnakeHead(snakeHead);
             SnakeBody.Add(new Snake(SnakeHead, GamePanel));
@@ -49,7 +57,10 @@ namespace SnakeTest
             bmpSnakeHeadRotated = rotateImage(bmpSnakeHead);
         }
 
+        //-------------------------------------------------------------------------------------------
         // Game Operations
+        //--------------------------------------------
+        // Movement
         public void ChangeDirection(KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -100,32 +111,6 @@ namespace SnakeTest
             snakeDirectionImage = $"{direction}";
         }
 
-        private void WallHit(Direction direction)
-        {
-            if (GameSettings.Teleport)
-            {
-                switch (direction) 
-                {
-                    case Direction.UP:
-                        SnakeHead.MoveSnake(SnakeHead.GetX(), GamePanel.Height - GameSettings.CellSize);
-                        break;
-                    case Direction.DOWN:
-                        SnakeHead.MoveSnake(SnakeHead.GetX(), 0);
-                        break;
-                    case Direction.LEFT:
-                        SnakeHead.MoveSnake(GamePanel.Width - GameSettings.CellSize, SnakeHead.GetY());
-                        break;
-                    case Direction.RIGHT:
-                        SnakeHead.MoveSnake(0, SnakeHead.GetY());
-                        break;
-                }
-            }
-            else
-            {
-                ((GameForm)GameForm.ActiveForm).gameEnd();
-            }
-        }
-
         public void MoveSnake()
         {
             // Updating the location of each snake piece
@@ -161,24 +146,55 @@ namespace SnakeTest
                     snakeHead.Image = bmpSnakeHeadRotated[1];
                     break;
             }
-        }
-        
-        public void AddSnakePiece()
-        {
-            SnakeBody.Last().Type = "body";
-            Snake lastSnake = SnakeBody.Last();
-            SnakeBody.Add(new Snake(lastSnake, GamePanel, "tail", lastSnake.Direction));
-            snakeLength += 1;
+            HasColission();
         }
 
-        public string HasColission()
+        //--------------------------------------------
+        // Collision Detection
+        private void WallHit(Direction direction)
+        {
+            if (GameSettings.Teleport)
+            {
+                switch (direction)
+                {
+                    case Direction.UP:
+                        SnakeHead.MoveSnake(SnakeHead.GetX(), GamePanel.Height - GameSettings.CellSize);
+                        break;
+                    case Direction.DOWN:
+                        SnakeHead.MoveSnake(SnakeHead.GetX(), 0);
+                        break;
+                    case Direction.LEFT:
+                        SnakeHead.MoveSnake(GamePanel.Width - GameSettings.CellSize, SnakeHead.GetY());
+                        break;
+                    case Direction.RIGHT:
+                        SnakeHead.MoveSnake(0, SnakeHead.GetY());
+                        break;
+                }
+            }
+            else
+            {
+                WallHitSound.Play();
+                Reset();
+                gameForm.gameEnd();
+            }
+        }
+        //----------------
+        // Colission Operations
+        public void HasColission()
         {
             if (HitApple())
-                return "apple";
+                AppleEaten();
             else if (HitSnakeBody())
-                return "snakeBody";
+            {
+                SnakeHitSound.Play();
+                Reset();
+                gameForm.gameEnd();
+            }
+        }
 
-            return "";
+        bool HitApple()
+        {
+            return SnakeHead.GetY() == apple.GetY() && SnakeHead.GetX() == apple.GetX();
         }
 
         bool HitSnakeBody()
@@ -190,21 +206,34 @@ namespace SnakeTest
             }
             return false;
         }
+        //----------------
 
-        bool HitApple()
-        {
-            return SnakeHead.GetY() == apple.GetY() && SnakeHead.GetX() == apple.GetX();
-        }
+        //--------------------------------------------
 
+        //----------------
+        // Apple Eaten
         public void AppleEaten()
         {
             apple.MoveRandom(SnakeHead);
+            AppleBiteSound.Play();
             AddSnakePiece();
-            // need to increase score
+            gameForm.IncreaseScore();
         }
 
+        public void AddSnakePiece()
+        {
+            SnakeBody.Last().Type = "body";
+            Snake lastSnake = SnakeBody.Last();
+            SnakeBody.Add(new Snake(lastSnake, GamePanel, "tail", lastSnake.Direction));
+            snakeLength += 1;
+        }
+        //----------------
+
+        //-------------------------------------------------------------------------------------------
+        // Misc
         public void Reset()
         {
+            GameOverSound.Play();
             // Removing all snakes from the gameSpace
             foreach (Snake snake in SnakeBody)
             {

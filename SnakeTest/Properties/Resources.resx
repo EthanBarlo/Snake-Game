@@ -121,6 +121,9 @@
   <data name="Apple" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\game\apple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AppleBite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\sounds\applebite.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="BackgroundLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\game\backgroundlarge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -133,6 +136,9 @@
   <data name="GameBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\game\gamebackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="GameOver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sounds\GameOver.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="LeaderBoardSnake" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\game\leaderboardsnake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,8 +148,8 @@
   <data name="PlainBackground__420_100_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\menu\plainbackground (420,100).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SabeBtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Settings\SabeBtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SaveBtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Settings\SaveBtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SettingsBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\settings\settingsbackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -165,6 +171,9 @@
   </data>
   <data name="snakeHead" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\game\snake\snakehead.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SnakeHit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sounds\SnakeHit.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="snakeNorth_East" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\game\snake\snaketurn\snakenorth-east.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -195,5 +204,8 @@
   </data>
   <data name="TeleTrue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\settings\teletrue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WallHit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sounds\WallHit.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
