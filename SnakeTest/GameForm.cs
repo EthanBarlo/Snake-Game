@@ -126,7 +126,7 @@ namespace SnakeTest
 
         private void LoadLeaderboard()
         {
-            leaderboard = Leaderboard.GetShortLeaderBoard(GameSettings.GameSize);
+            leaderboard = Leaderboard.GetShortLeaderBoard(GameSettings.GameSize, GameSettings.Teleport);
             userScoreIndex = leaderboard.Count;
             leaderboard.Add(new List<string> { "You       ", lblScore.Text });
             UpdateLeaderboard();
@@ -174,7 +174,9 @@ namespace SnakeTest
                 var scoreItem = leaderboard[userScoreIndex];
                 lblYouBottom.Text = scoreItem[0] + scoreItem[1];
                 lblYouBottom.Visible = true;
-            }    
+            }
+            else
+                lblYouBottom.Visible = false;
 
             // Moving the leaderboard Snake
             leaderBoardSnake.Top = 390 + (35 * userScoreIndex);
@@ -189,7 +191,7 @@ namespace SnakeTest
 
         private void AddScoreClick(object sender, EventArgs e)
         {
-            Leaderboard.addNewScore(lblScore.Text, tbName.Text, GameSettings.GameSize);
+            Leaderboard.addNewScore(lblScore.Text, tbName.Text, GameSettings.GameSize, GameSettings.Teleport);
             GameOverPanel.Visible = false;
             pause = false;
             Reset();

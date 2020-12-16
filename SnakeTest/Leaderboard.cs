@@ -18,20 +18,20 @@ static class Leaderboard
 
 
     // Edit Leaderboard
-    public static void addNewScore(string score, string name, int gameSize)
+    public static void addNewScore(string score, string name, int gameSize, bool teleport)
     {
         if (name.Length > 6)
             name = name.Substring(0, 6);
-        leaderBoard.Add(new List<string>  {score, name.ToLower(), $"{gameSize}" });
+        leaderBoard.Add(new List<string> { score, name.ToLower(), $"{gameSize}", $"{teleport}" });
         SaveToFile();
     }
 
 
     //Get leaderBoard
-    public static List<List<string>> GetShortLeaderBoard(int gameSize) 
+    public static List<List<string>> GetShortLeaderBoard(int gameSize, bool teleport) 
     {
         // Get Size List
-        var SizeList = GetSpecificSize(gameSize);
+        var SizeList = GetSpecificSettings(gameSize, teleport);
         
         // Generate Output
         var OutputLeaderBoard = new List<List<string>>();
@@ -46,9 +46,12 @@ static class Leaderboard
     }
 
 
-    private static List<List<string>> GetSpecificSize(int size)
+    private static List<List<string>> GetSpecificSettings(int size, bool teleport)
     {
-        var outputList = leaderBoard.FindAll(f => int.Parse(f[2]) == size).OrderByDescending(s => int.Parse(s[0])).ToList();
+        var outputList = leaderBoard.FindAll(f => int.Parse(f[2]) == size)
+                                    .FindAll(x => bool.Parse(x[3]) == teleport)
+                                    .OrderByDescending(s => int.Parse(s[0]))
+                                    .ToList();
         return outputList;
     }
 
