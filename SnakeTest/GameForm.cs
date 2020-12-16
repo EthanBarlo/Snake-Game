@@ -113,7 +113,6 @@ namespace SnakeTest
 
         //-------------------------------------------------------------------------------------------
         // LeaderBoard
-
         private void LoadLeaderboard()
         {
             // Grabs the leaderboard of scores with the same settings
@@ -189,33 +188,33 @@ namespace SnakeTest
 
         private void AddScoreClick(object sender, EventArgs e)
         {
+            // Updating global leaderboard
+            Leaderboard.addNewScore(lblScore.Text, tbName.Text, GameSettings.GameSize, GameSettings.Teleport);
+
+            // Updating local leaderboard, If the player wants to play multiple times
+            leaderboard[userScoreIndex][0] = tbName.Text + new string(' ', 10 - tbName.Text.Length);
+            userScoreIndex = leaderboard.Count;
+            leaderboard.Add(new List<string> { "You       ", lblScore.Text });
+
             // Reset GameForm settings
             ResetScore();
             GameOverPanel.Visible = false;
             pause = false;
-
-            // Updating global leaderboard
-            Leaderboard.addNewScore(lblScore.Text, tbName.Text, GameSettings.GameSize, GameSettings.Teleport);
-
-            // Updating local leaderboard, for if the player wants to play multiple times
-            leaderboard[userScoreIndex][0] = tbName.Text + new string(' ', 10 - tbName.Text.Length);
-            userScoreIndex = leaderboard.Count;
-            leaderboard.Add(new List<string> { "You       ", lblScore.Text });
 
             UpdateLeaderboard();
         }
 
         private void GameOverClose(object sender, EventArgs e)
         {
-            // Reset GameForm settings
-            ResetScore();
-            GameOverPanel.Visible = false;
-            pause = false;
-
             // Updating local leaderboard, for it the player wants to play multiple times
             leaderboard.RemoveAt(userScoreIndex);
             userScoreIndex = leaderboard.Count;
             leaderboard.Add(new List<string> { "You       ", lblScore.Text });
+
+            // Reset GameForm settings
+            ResetScore();
+            GameOverPanel.Visible = false;
+            pause = false;
 
             UpdateLeaderboard();
         }
