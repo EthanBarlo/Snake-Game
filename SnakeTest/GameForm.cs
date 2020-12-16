@@ -80,6 +80,7 @@ namespace SnakeTest
             scoreMultiplyer--;
             if (scoreMultiplyer == 4)
                 ScoreMultiplyerTimer.Stop();
+            lblMultiplier.Text = Convert.ToString(scoreMultiplyer);
         }
 
         public void IncreaseScore()
@@ -240,6 +241,10 @@ namespace SnakeTest
         // Misc
         private void SetParents()
         {
+            // Score Multiplier
+            lblMultiplier.Parent = GameBackground;
+            lblMultiplierText.Parent = GameBackground;
+
             // Score
             lblScore.Parent = GameBackground;
             lblScoreText.Parent = GameBackground;

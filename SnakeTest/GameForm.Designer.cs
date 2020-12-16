@@ -67,6 +67,8 @@
             this.lbl10 = new System.Windows.Forms.Label();
             this.leaderBoardSnake = new System.Windows.Forms.PictureBox();
             this.ScoreMultiplyerTimer = new System.Windows.Forms.Timer(this.components);
+            this.lblMultiplier = new System.Windows.Forms.Label();
+            this.lblMultiplierText = new System.Windows.Forms.Label();
             this.GamePanel.SuspendLayout();
             this.GameOverPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GameOverBackground)).BeginInit();
@@ -146,7 +148,7 @@
             this.tbName.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tbName.Location = new System.Drawing.Point(46, 139);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(342, 53);
+            this.tbName.Size = new System.Drawing.Size(342, 65);
             this.tbName.TabIndex = 2;
             this.tbName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -156,7 +158,7 @@
             this.lblGameOver.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblGameOver.Location = new System.Drawing.Point(93, 36);
             this.lblGameOver.Name = "lblGameOver";
-            this.lblGameOver.Size = new System.Drawing.Size(244, 46);
+            this.lblGameOver.Size = new System.Drawing.Size(306, 59);
             this.lblGameOver.TabIndex = 1;
             this.lblGameOver.Text = "Game Over!";
             // 
@@ -242,7 +244,7 @@
             this.lblPlace1.Name = "lblPlace1";
             this.lblPlace1.Size = new System.Drawing.Size(186, 30);
             this.lblPlace1.TabIndex = 0;
-            this.lblPlace1.Text = "wwwwww    000000";
+            this.lblPlace1.Text = "TestName    000000";
             this.lblPlace1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblPlace1.Visible = false;
             // 
@@ -512,11 +514,37 @@
             this.ScoreMultiplyerTimer.Interval = 500;
             this.ScoreMultiplyerTimer.Tick += new System.EventHandler(this.ScoreMultiplierTick);
             // 
+            // lblMultiplier
+            // 
+            this.lblMultiplier.AutoSize = true;
+            this.lblMultiplier.BackColor = System.Drawing.Color.Transparent;
+            this.lblMultiplier.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMultiplier.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(135)))), ((int)(((byte)(88)))));
+            this.lblMultiplier.Location = new System.Drawing.Point(859, 290);
+            this.lblMultiplier.Name = "lblMultiplier";
+            this.lblMultiplier.Size = new System.Drawing.Size(70, 19);
+            this.lblMultiplier.TabIndex = 10;
+            this.lblMultiplier.Text = "<None>";
+            // 
+            // lblMultiplierText
+            // 
+            this.lblMultiplierText.AutoSize = true;
+            this.lblMultiplierText.BackColor = System.Drawing.Color.Transparent;
+            this.lblMultiplierText.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMultiplierText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(135)))), ((int)(((byte)(88)))));
+            this.lblMultiplierText.Location = new System.Drawing.Point(765, 290);
+            this.lblMultiplierText.Name = "lblMultiplierText";
+            this.lblMultiplierText.Size = new System.Drawing.Size(100, 19);
+            this.lblMultiplierText.TabIndex = 11;
+            this.lblMultiplierText.Text = "Multiplier: x";
+            // 
             // GameForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1092, 846);
+            this.Controls.Add(this.lblMultiplierText);
+            this.Controls.Add(this.lblMultiplier);
             this.Controls.Add(this.leaderBoardSnake);
             this.Controls.Add(this.lbl3);
             this.Controls.Add(this.lbl4);
@@ -558,6 +586,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.GameBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leaderBoardSnake)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -599,5 +628,7 @@
         private System.Windows.Forms.PictureBox leaderBoardSnake;
         private System.Windows.Forms.Button btnCloseGameOver;
         private System.Windows.Forms.Timer ScoreMultiplyerTimer;
+        private System.Windows.Forms.Label lblMultiplier;
+        private System.Windows.Forms.Label lblMultiplierText;
     }
 }
