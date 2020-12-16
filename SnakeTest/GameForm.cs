@@ -192,24 +192,24 @@ namespace SnakeTest
 
         private void AddScoreClick(object sender, EventArgs e)
         {
+            Reset();
+            GameOverPanel.Visible = false;
+            pause = false;
             Leaderboard.addNewScore(lblScore.Text, tbName.Text, GameSettings.GameSize, GameSettings.Teleport);
             leaderboard[userScoreIndex][0] = tbName.Text + new string(' ', 10 - tbName.Text.Length);
             userScoreIndex = leaderboard.Count;
             leaderboard.Add(new List<string> { "You       ", lblScore.Text });
-            GameOverPanel.Visible = false;
-            pause = false;
-            Reset();
             UpdateLeaderboard();
         }
 
         private void GameOverClose(object sender, EventArgs e)
         {
+            Reset();
+            GameOverPanel.Visible = false;
+            pause = false;
             leaderboard.RemoveAt(userScoreIndex);
             userScoreIndex = leaderboard.Count;
             leaderboard.Add(new List<string> { "You       ", lblScore.Text });
-            GameOverPanel.Visible = false;
-            Reset();
-            pause = false;
             UpdateLeaderboard();
         }
 
