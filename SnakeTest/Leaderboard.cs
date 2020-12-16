@@ -77,7 +77,7 @@ static class Leaderboard
         foreach (var scoreItem in leaderBoard)
         {
             //              Score : Name : GameSize
-            SaveOutput += $"{scoreItem[0]}:{scoreItem[1]}:{scoreItem[2]}";
+            SaveOutput += $"{scoreItem[0]}:{scoreItem[1]}:{scoreItem[2]}:{scoreItem[3]}";
             SaveOutput += "\n";
         }
         File.WriteAllText(fileName, SaveOutput);
