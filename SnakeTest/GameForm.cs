@@ -31,13 +31,13 @@ namespace SnakeTest
             switch (GameSettings.GameSize)
             {
                 case 1:
-                    GamePanel.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.BackgroundSmall));
+                    GamePanel.BackgroundImage = Properties.Resources.BackgroundSmall;
                     break;
                 case 2:
-                    GamePanel.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.BackgroundMedium));
+                    GamePanel.BackgroundImage = Properties.Resources.BackgroundMedium;
                     break;
                 case 3:
-                    GamePanel.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.BackgroundLarge));
+                    GamePanel.BackgroundImage = Properties.Resources.BackgroundLarge;
                     break;
             }
 
