@@ -103,7 +103,9 @@ namespace SnakeTest
 
         private void ResetMultiplyer()
         {
-            scoreMultiplyer = 11;
+            scoreMultiplyer = 10;
+            lblMultiplier.Text = Convert.ToString(scoreMultiplyer);
+            ScoreMultiplyerTimer.Stop();
             ScoreMultiplyerTimer.Start();
         }
 
@@ -246,9 +248,9 @@ namespace SnakeTest
             lblScoreText.Parent = GameBackground;
 
             // Multiplier
+            lblMultiplier.Parent = GameBackground;
+            lblMultiplierText.Parent = GameBackground;
             MultiplierBox.Parent = GameBackground;
-            //lblMultiplier.Parent = MultiplierBox;
-            //lblMultiplierText.Parent = MultiplierBox;
 
             // Leaderboard
             lblLeaderboard.Parent = GameBackground;
