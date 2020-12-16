@@ -9,15 +9,16 @@ static class Leaderboard
     // Attributes
     private static string fileName = "leaderBoard.txt";
     public static List<List<string>> leaderBoard;
-    
-    
+
+    //  Initializer
     static Leaderboard()
     {
         LoadFile();
     }
 
-
-    // Edit Leaderboard
+    //-------------------------------------------------------------------------------------------
+    // Public Operations
+    // Leaderboard Operations
     public static void addNewScore(string score, string name, int gameSize, bool teleport)
     {
         if (name.Length > 6)
@@ -26,38 +27,43 @@ static class Leaderboard
         SaveToFile();
     }
 
-
-    //Get leaderBoard
+    //-----------------------------------------------
+    // Get top 10 Leaderboard with specific settings
     public static List<List<string>> GetShortLeaderBoard(int gameSize, bool teleport) 
     {
-        // Get Size List
+        // Get sorted list of scoreItems with the Specific Settings
         var SizeList = GetSpecificSettings(gameSize, teleport);
         
         // Generate Output
         var OutputLeaderBoard = new List<List<string>>();
-        int counter = 0;
+        int counter = 0; 
         foreach (var scoreItem in SizeList)
         {
             OutputLeaderBoard.Add(new List<string>{scoreItem[1] + new string(' ', 10 - scoreItem[0].Length), scoreItem[0]});
             counter++;
-            if (counter == 10) break;
+            if (counter == 10) break; // Only grabs top 10
         }
         return OutputLeaderBoard;
     }
 
-
+    //-----------------------------------------------
+    // Get all scores with specific settings in order
     private static List<List<string>> GetSpecificSettings(int size, bool teleport)
     {
-        var outputList = leaderBoard.FindAll(f => int.Parse(f[2]) == size)
-                                    .FindAll(x => bool.Parse(x[3]) == teleport)
-                                    .OrderByDescending(s => int.Parse(s[0]))
+        //    0   :   1  :     2    :    3
+        //  Score : Name : GameSize : Teleport
+        var outputList = leaderBoard.FindAll(s => int.Parse(s[2]) == size)
+                                    .FindAll(t => bool.Parse(t[3]) == teleport)
+                                    .OrderByDescending(o => int.Parse(o[0]))
                                     .ToList();
         return outputList;
     }
 
 
+    //-------------------------------------------------------------------------------------------
+    // Private Operations
     // Load/Save to file
-    public static void LoadFile()
+    private static void LoadFile()
     {
         if (File.Exists(fileName))
         {
@@ -71,12 +77,12 @@ static class Leaderboard
             leaderBoard = new List<List<string>>();
     }
 
-    public static void SaveToFile()
+    private static void SaveToFile()
     {
         string SaveOutput = "";
         foreach (var scoreItem in leaderBoard)
         {
-            //              Score : Name : GameSize
+            //              Score:Name:GameSize:Teleport
             SaveOutput += $"{scoreItem[0]}:{scoreItem[1]}:{scoreItem[2]}:{scoreItem[3]}";
             SaveOutput += "\n";
         }

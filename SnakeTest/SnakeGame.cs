@@ -9,37 +9,44 @@ namespace SnakeTest
 {
     class SnakeGame
     {
+        //-------------------------------------------------------------------------------------------
         // Attributes
-        Panel GamePanel;
-        PictureBox snakeHead;
-        GameForm gameForm;
+        //--------------------------------------
+        // GameForm
+            Panel GamePanel;
+            PictureBox snakeHead;
+            GameForm gameForm;
+        //--------------------------------------
+        // Audio
+            SoundPlayer AppleBiteSound = new SoundPlayer(Properties.Resources.AppleBite);
+            SoundPlayer GameOverSound = new SoundPlayer(Properties.Resources.GameOver);
+        //--------------------------------------
+        // Snake/Apple Objects
+            SnakeHead SnakeHead;
+            List<Snake> SnakeBody = new List<Snake>();
+            Apple apple;
+            int snakeLength;
+        //--------------------------------------
+        // Bitmap for SnakeHead
+            Bitmap bmpSnakeHead;
+            Image[] bmpSnakeHeadRotated;
+        //--------------------------------------
+        // Direction
+            enum Direction { UP, DOWN, LEFT, RIGHT }
+            Direction updateMoveDirection;   // User Input Change
+            Direction currentMoveDirection;  // Direction Snake is currently moving in
+            string snakeDirectionImage;   // So all following SnakeBody pieces know what image to display
 
-        SoundPlayer AppleBiteSound = new SoundPlayer(Properties.Resources.AppleBite);
-        SoundPlayer GameOverSound = new SoundPlayer(Properties.Resources.GameOver);
 
-        SnakeHead SnakeHead;
-        List<Snake> SnakeBody = new List<Snake>();
-        int snakeLength;
-
-        Apple apple;
-
-        Bitmap bmpSnakeHead;
-        Image[] bmpSnakeHeadRotated;
-
-        Direction updateMoveDirection;   // User Input Change
-        Direction currentMoveDirection;  // Direction Snake is currently moving in
-        string snakeDirectionImage;   // So all following SnakeBody pieces know what image to display
-
-        enum Direction { UP, DOWN, LEFT, RIGHT}
-
-
-
+        //-------------------------------------------------------------------------------------------
         // Constructor
         public SnakeGame(Panel gamePanel , PictureBox snakeHead, GameForm gameForm)
         {
+            // Storing GameForm attributes
             this.GamePanel = gamePanel;
             this.snakeHead = snakeHead;
             this.gameForm = gameForm;
+
             // Initilizing the snake
             SnakeHead = new SnakeHead(snakeHead);
             SnakeBody.Add(new Snake(SnakeHead, GamePanel));
@@ -149,7 +156,7 @@ namespace SnakeTest
         }
 
         //--------------------------------------------
-        // Collision Detection
+        // Colission Operations
         private void WallHit(Direction direction)
         {
             if (GameSettings.Teleport)
@@ -174,40 +181,37 @@ namespace SnakeTest
             {
                 new SoundPlayer(Properties.Resources.WallHit).PlaySync();
                 Reset();
-                gameForm.gameEnd();
+                gameForm.GameOver();
             }
         }
-        //----------------
-        // Colission Operations
+
         public void HasColission()
         {
             if (HitApple())
                 AppleEaten();
             else if (HitSnakeBody())
             {
-                new SoundPlayer(Properties.Resources.SnakeHit).PlaySync();
+                // Corupts after being played a few times so we need to make a new SoundPlayer each time
+                new SoundPlayer(Properties.Resources.SnakeHit).PlaySync(); 
                 Reset();
-                gameForm.gameEnd();
+                gameForm.GameOver();
             }
         }
 
-        bool HitApple()
+        private bool HitApple()
         {
             return SnakeHead.GetY() == apple.GetY() && SnakeHead.GetX() == apple.GetX();
         }
 
-        bool HitSnakeBody()
+        private bool HitSnakeBody()
         {
             foreach (Snake snake in SnakeBody)
             {
                 if (SnakeHead.GetY() == snake.GetY() && SnakeHead.GetX() == snake.GetX()) 
-                { return true; }
+                    return true;
             }
             return false;
         }
-        //----------------
-
-        //--------------------------------------------
 
         //----------------
         // Apple Eaten
@@ -226,7 +230,6 @@ namespace SnakeTest
             SnakeBody.Add(new Snake(lastSnake, GamePanel, "tail", lastSnake.Direction));
             snakeLength += 1;
         }
-        //----------------
 
         //-------------------------------------------------------------------------------------------
         // Misc
@@ -237,7 +240,7 @@ namespace SnakeTest
             // Removing all snakes from the gameSpace
             foreach (Snake snake in SnakeBody)
             {
-                snake.remove(GamePanel);
+                snake.Remove(GamePanel);
             }
             SnakeBody.Clear();
 
@@ -253,6 +256,7 @@ namespace SnakeTest
             snakeLength = SnakeBody.Count;
             apple.MoveRandom(SnakeHead);
         }
+
 
         // Design Operations
         private Image[] rotateImage(Bitmap bmp)

@@ -33,7 +33,7 @@ namespace SnakeTest
             return entity.Location.Y;
         }
 
-        public void remove(Panel panel)
+        public void Remove(Panel panel)
         {
             panel.Controls.Remove(entity);
         }

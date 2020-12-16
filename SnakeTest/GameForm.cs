@@ -26,12 +26,6 @@ namespace SnakeTest
                 ControlStyles.DoubleBuffer,
                 true);
 
-            // Setting SnakeHead Up
-            SnakeHeadBox.Width = GameSettings.CellSize;
-            SnakeHeadBox.Height = GameSettings.CellSize;
-            SnakeHeadBox.Left = (SnakeHeadBox.Location.X / GameSettings.CellSize) * GameSettings.CellSize;
-            SnakeHeadBox.Top = (SnakeHeadBox.Location.Y / GameSettings.CellSize) * GameSettings.CellSize;
-
             // Setting Game Size
             switch (GameSettings.GameSize)
             {
@@ -46,8 +40,15 @@ namespace SnakeTest
                     break;
             }
 
+            // Setting the correct SnakeHead Size
+            SnakeHeadBox.Width = GameSettings.CellSize;
+            SnakeHeadBox.Height = GameSettings.CellSize;
+            SnakeHeadBox.Left = (SnakeHeadBox.Location.X / GameSettings.CellSize) * GameSettings.CellSize;
+            SnakeHeadBox.Top = (SnakeHeadBox.Location.Y / GameSettings.CellSize) * GameSettings.CellSize;
+
+            // New snakeGame, and setting up labels
             snakeGame = new SnakeGame(GamePanel, SnakeHeadBox, this);
-            SetLabelParents();
+            SetParents();
             LoadLeaderboard();
         }
 
@@ -57,21 +58,13 @@ namespace SnakeTest
         {
             // Pause
             if (e.KeyCode == Keys.Escape)
-            {
-                pause = !pause;
-                if (pause) MovementTimer.Stop();
-                else MovementTimer.Start();
-            }
+                PauseGame();
             else
                 snakeGame.ChangeDirection(e);
 
-            if (pause == false)
-            {
-                if (MovementTimer.Enabled == false)
-                {
-                    MovementTimer.Start();
-                }
-            }
+            // Start timer if not paused
+            if (pause == false && MovementTimer.Enabled == false)
+                MovementTimer.Start();
         }
 
         private void TimerTick(object sender, EventArgs e)
@@ -79,47 +72,43 @@ namespace SnakeTest
             snakeGame.MoveSnake();
         }
 
-        private void SnakeHit()
-        {
-            gameEnd();
-        }
-
         public void IncreaseScore()
         {
             score += 1;
             // Set Score Label
-            if (Convert.ToInt32(lblScore.Text) == 999999) { MessageBox.Show("Max Score reached"); MovementTimer.Stop(); }
-            lblScore.Text = Convert.ToString($"{score}".PadLeft(6, '0'));
+            // Max score check, might as well
+            if (Convert.ToInt32(lblScore.Text) == 999999) 
+            { 
+                MessageBox.Show("Max Score reached"); 
+                MovementTimer.Stop(); 
+            }
+            lblScore.Text = $"{score}".PadLeft(6, '0');
 
             // Update Score in leaderboard
             leaderboard[userScoreIndex][1] = lblScore.Text;
             UpdateLeaderboard();
         }
 
-        public void gameEnd()
+        private void PauseGame()
         {
-            PauseGame();
-            GameOverPanel.Visible = true;
+            pause = !pause;
+            if (pause)
+                MovementTimer.Stop();
+            else
+                MovementTimer.Start();
         }
 
-        private void Reset()
+        private void ResetScore()
         {
             // Resetting score
             lblScore.Text = "0".PadLeft(6, '0');
             score = 0;
         }
 
-        private void PauseGame()
+        public void GameOver()
         {
-            if (pause)
-            {
-                MovementTimer.Start();
-            }
-            else
-            {
-                MovementTimer.Stop();
-            }
-            pause = !pause;
+            PauseGame();
+            GameOverPanel.Visible = true;
         }
 
         //-------------------------------------------------------------------------------------------
@@ -127,9 +116,13 @@ namespace SnakeTest
 
         private void LoadLeaderboard()
         {
+            // Grabs the leaderboard of scores with the same settings
             leaderboard = Leaderboard.GetShortLeaderBoard(GameSettings.GameSize, GameSettings.Teleport);
+
+            // Adds current player to leaderboard
             userScoreIndex = leaderboard.Count;
             leaderboard.Add(new List<string> { "You       ", lblScore.Text });
+
             UpdateLeaderboard();
         }
 
@@ -149,7 +142,9 @@ namespace SnakeTest
             }
 
             // Updating the labels
+            // Only updates and makes visible labels that are used.
             int leaderboardLength = leaderboard.Count;
+
             if (leaderboardLength >= 1)
                 SetLeaderboardValues(lblPlace1, lbl1, leaderboard[0]);
             if (leaderboardLength >= 2)
@@ -170,6 +165,8 @@ namespace SnakeTest
                 SetLeaderboardValues(lblPlace9, lbl9, leaderboard[8]);
             if (leaderboardLength >= 10)
                 SetLeaderboardValues(lblPlace10, lbl10, leaderboard[9]);
+
+            // If leaderboard is full, currentPlayer is placed at the bottom
             if (userScoreIndex == 10)
             {
                 var scoreItem = leaderboard[userScoreIndex];
@@ -183,39 +180,49 @@ namespace SnakeTest
             leaderBoardSnake.Top = 390 + (35 * userScoreIndex);
         }
 
-        private void SetLeaderboardValues(Label label, Label numLabel, List<string> leaderboard)
+        private void SetLeaderboardValues(Label label, Label numLabel, List<string> scoreItem)
         {
-            label.Text = leaderboard[0] + leaderboard[1];
+            label.Text = scoreItem[0] + scoreItem[1];
             label.Visible = true;
             numLabel.Visible = true;
         }
 
         private void AddScoreClick(object sender, EventArgs e)
         {
-            Reset();
+            // Reset GameForm settings
+            ResetScore();
             GameOverPanel.Visible = false;
             pause = false;
+
+            // Updating global leaderboard
             Leaderboard.addNewScore(lblScore.Text, tbName.Text, GameSettings.GameSize, GameSettings.Teleport);
+
+            // Updating local leaderboard, for if the player wants to play multiple times
             leaderboard[userScoreIndex][0] = tbName.Text + new string(' ', 10 - tbName.Text.Length);
             userScoreIndex = leaderboard.Count;
             leaderboard.Add(new List<string> { "You       ", lblScore.Text });
+
             UpdateLeaderboard();
         }
 
         private void GameOverClose(object sender, EventArgs e)
         {
-            Reset();
+            // Reset GameForm settings
+            ResetScore();
             GameOverPanel.Visible = false;
             pause = false;
+
+            // Updating local leaderboard, for it the player wants to play multiple times
             leaderboard.RemoveAt(userScoreIndex);
             userScoreIndex = leaderboard.Count;
             leaderboard.Add(new List<string> { "You       ", lblScore.Text });
+
             UpdateLeaderboard();
         }
 
         //-------------------------------------------------------------------------------------------
         // Misc
-        private void SetLabelParents()
+        private void SetParents()
         {
             // Score
             lblScore.Parent = GameBackground;
@@ -234,6 +241,7 @@ namespace SnakeTest
             lblPlace9.Parent = GameBackground;
             lblPlace10.Parent = GameBackground;
             lblYouBottom.Parent = GameBackground;
+
             // Leaderboard Numbers
             lbl1.Parent = GameBackground;
             lbl2.Parent = GameBackground;
@@ -246,6 +254,7 @@ namespace SnakeTest
             lbl9.Parent = GameBackground;
             lbl10.Parent = GameBackground;
 
+            // Leaderboard Snake
             leaderBoardSnake.Parent = GameBackground;
 
             // Game Over

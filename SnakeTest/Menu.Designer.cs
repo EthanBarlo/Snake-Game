@@ -114,7 +114,7 @@ namespace SnakeTest
             this.btnSizeMedium.Size = new System.Drawing.Size(90, 90);
             this.btnSizeMedium.TabIndex = 4;
             this.btnSizeMedium.UseVisualStyleBackColor = true;
-            this.btnSizeMedium.Click += new System.EventHandler(this.GameSizeChange);
+            this.btnSizeMedium.Click += new System.EventHandler(this.GameSizeBtnClick);
             // 
             // btnSizeLarge
             // 
@@ -126,7 +126,7 @@ namespace SnakeTest
             this.btnSizeLarge.Size = new System.Drawing.Size(90, 90);
             this.btnSizeLarge.TabIndex = 4;
             this.btnSizeLarge.UseVisualStyleBackColor = true;
-            this.btnSizeLarge.Click += new System.EventHandler(this.GameSizeChange);
+            this.btnSizeLarge.Click += new System.EventHandler(this.GameSizeBtnClick);
             // 
             // btnSizeSmall
             // 
@@ -138,7 +138,7 @@ namespace SnakeTest
             this.btnSizeSmall.Size = new System.Drawing.Size(90, 90);
             this.btnSizeSmall.TabIndex = 4;
             this.btnSizeSmall.UseVisualStyleBackColor = true;
-            this.btnSizeSmall.Click += new System.EventHandler(this.GameSizeChange);
+            this.btnSizeSmall.Click += new System.EventHandler(this.GameSizeBtnClick);
             // 
             // btnSaveSettings
             // 

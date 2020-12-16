@@ -13,7 +13,6 @@ namespace SnakeTest
         // Constructor
         public Apple(Panel panel, SnakeHead snakeHead, List<Snake> snakeBody) : base(panel)
         {
-            //entity.BackColor = System.Drawing.Color.DarkRed;
             entity.Image = Properties.Resources.Apple;
             gameBoard = panel;
             this.snakeBody = snakeBody;
@@ -35,14 +34,14 @@ namespace SnakeTest
                 int row = rand.Next(gameBoard.Height / CellSize) * CellSize;
                 int col = rand.Next(gameBoard.Width / CellSize) * CellSize;
 
-                // If apple is in same location as SnakeHead try another location
+                // If apple is in same location as SnakeHead, try another
                 if (snakeHead.GetX() == col && snakeHead.GetY() == row)
                     continue;
 
 
                 foreach (var snakePiece in snakeBody)
                 {
-                    // If apple is in same location as the snakePiece check next snakePiece
+                    // If apple is in same location as the snakePiece
                     if (row == snakePiece.GetY() && col == snakePiece.GetX())
                     {
                         spaceTaken = true;
@@ -53,8 +52,7 @@ namespace SnakeTest
                 if (spaceTaken)
                     continue;
 
-                // If it made it here, Apple is not in the same location as any SnakePiece
-                // And so can be moved
+                // If here, space is empty
                 entity.Top = row;
                 entity.Left = col;
                 break;
