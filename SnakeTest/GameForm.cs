@@ -14,6 +14,7 @@ namespace SnakeTest
         List<List<string>> leaderboard;
         int userScoreIndex;
         int score = 0;
+        int scoreMultiplyer;
 
         // Constructor
         public GameForm()
@@ -64,7 +65,10 @@ namespace SnakeTest
 
             // Start timer if not paused
             if (pause == false && MovementTimer.Enabled == false)
+            {
                 MovementTimer.Start();
+                ResetMultiplyer();
+            }
         }
 
         private void TimerTick(object sender, EventArgs e)
@@ -72,9 +76,18 @@ namespace SnakeTest
             snakeGame.MoveSnake();
         }
 
+        // Every half second / 5 spaces on the grid
+        private void ScoreMultiplierTick(object sender, EventArgs e)
+        {
+            scoreMultiplyer--;
+            if (scoreMultiplyer == 4)
+                ScoreMultiplyerTimer.Stop();
+        }
+
         public void IncreaseScore()
         {
-            score += 1;
+            score += 1 * scoreMultiplyer;
+            ResetMultiplyer();
             // Set Score Label
             // Max score check, might as well
             if (Convert.ToInt32(lblScore.Text) == 999999) 
@@ -87,6 +100,12 @@ namespace SnakeTest
             // Update Score in leaderboard
             leaderboard[userScoreIndex][1] = lblScore.Text;
             UpdateLeaderboard();
+        }
+
+        private void ResetMultiplyer()
+        {
+            scoreMultiplyer = 11;
+            ScoreMultiplyerTimer.Start();
         }
 
         private void PauseGame()
@@ -191,30 +210,30 @@ namespace SnakeTest
             // Updating global leaderboard
             Leaderboard.addNewScore(lblScore.Text, tbName.Text, GameSettings.GameSize, GameSettings.Teleport);
 
-            // Updating local leaderboard, If the player wants to play multiple times
-            leaderboard[userScoreIndex][0] = tbName.Text + new string(' ', 10 - tbName.Text.Length);
-            userScoreIndex = leaderboard.Count;
-            leaderboard.Add(new List<string> { "You       ", lblScore.Text });
-
             // Reset GameForm settings
             ResetScore();
             GameOverPanel.Visible = false;
             pause = false;
+
+            // Updating local leaderboard, If the player wants to play multiple times
+            leaderboard[userScoreIndex][0] = tbName.Text + new string(' ', 10 - tbName.Text.Length);
+            userScoreIndex = leaderboard.Count;
+            leaderboard.Add(new List<string> { "You       ", lblScore.Text });
 
             UpdateLeaderboard();
         }
 
         private void GameOverClose(object sender, EventArgs e)
         {
-            // Updating local leaderboard, for it the player wants to play multiple times
-            leaderboard.RemoveAt(userScoreIndex);
-            userScoreIndex = leaderboard.Count;
-            leaderboard.Add(new List<string> { "You       ", lblScore.Text });
-
             // Reset GameForm settings
             ResetScore();
             GameOverPanel.Visible = false;
             pause = false;
+
+            // Updating local leaderboard, for it the player wants to play multiple times
+            leaderboard.RemoveAt(userScoreIndex);
+            userScoreIndex = leaderboard.Count;
+            leaderboard.Add(new List<string> { "You       ", lblScore.Text });
 
             UpdateLeaderboard();
         }
