@@ -241,13 +241,14 @@ namespace SnakeTest
         // Misc
         private void SetParents()
         {
-            // Score Multiplier
-            lblMultiplier.Parent = GameBackground;
-            lblMultiplierText.Parent = GameBackground;
-
             // Score
             lblScore.Parent = GameBackground;
             lblScoreText.Parent = GameBackground;
+
+            // Multiplier
+            MultiplierBox.Parent = GameBackground;
+            //lblMultiplier.Parent = MultiplierBox;
+            //lblMultiplierText.Parent = MultiplierBox;
 
             // Leaderboard
             lblLeaderboard.Parent = GameBackground;
