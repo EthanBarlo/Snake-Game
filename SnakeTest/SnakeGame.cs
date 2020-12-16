@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Windows.Forms;
 using System.Media;
+using System.Windows.Forms;
 
 namespace SnakeTest
 {

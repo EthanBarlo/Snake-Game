@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using System.IO;
 
 
 namespace SnakeTest
@@ -14,8 +8,6 @@ namespace SnakeTest
     {
         // Attributes
         GameForm game;
-        Dictionary<string, string> SettingsDict =
-                    new Dictionary<string, string>();
 
         // Initializer
         public Menu()
