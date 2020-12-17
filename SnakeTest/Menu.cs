@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SnakeTest
+namespace Snake
 {
     public partial class Menu : Form
     {

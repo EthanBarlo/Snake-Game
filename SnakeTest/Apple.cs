@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace SnakeTest
+namespace Snake
 {
     class Apple : Piece
     {

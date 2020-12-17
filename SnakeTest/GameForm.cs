@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace SnakeTest
+namespace Snake
 {
     public partial class GameForm : Form
     {
@@ -109,13 +109,19 @@ namespace SnakeTest
             ScoreMultiplyerTimer.Start();
         }
 
-        private void PauseGame()
+        public void PauseGame()
         {
             pause = !pause;
             if (pause)
+            {
                 MovementTimer.Stop();
+                ScoreMultiplyerTimer.Stop();
+            }
             else
+            {
                 MovementTimer.Start();
+                ScoreMultiplyerTimer.Stop();
+            }
         }
 
         private void ResetScore()
@@ -218,7 +224,8 @@ namespace SnakeTest
             pause = false;
 
             // Updating local leaderboard, If the player wants to play multiple times
-            tbName.Text = tbName.Text.Substring(0, 6);
+            if(tbName.Text.Length > 6)
+                tbName.Text = tbName.Text.Substring(0, 6);
             leaderboard[userScoreIndex][0] = tbName.Text + new string(' ', 10 - tbName.Text.Length);
             userScoreIndex = leaderboard.Count;
             leaderboard.Add(new List<string> { "You       ", lblScore.Text });

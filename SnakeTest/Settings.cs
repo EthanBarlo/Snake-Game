@@ -2,7 +2,7 @@
 using System.IO;
 
 
-namespace SnakeTest
+namespace Snake
 {
     static class GameSettings
     {

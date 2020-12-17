@@ -1,5 +1,5 @@
 ﻿
-namespace SnakeTest
+namespace Snake
 {
     partial class Menu
     {

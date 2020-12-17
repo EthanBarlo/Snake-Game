@@ -4,7 +4,7 @@ using System.Linq;
 using System.Media;
 using System.Windows.Forms;
 
-namespace SnakeTest
+namespace Snake
 {
     class SnakeGame
     {
@@ -93,7 +93,11 @@ namespace SnakeTest
                         updateMoveDirection = Direction.RIGHT;
                     }
                     break;
+                default:
+                    return;
             }
+            if (gameForm.pause == true)
+                gameForm.PauseGame();
         }
 
         private void MoveHead(int move, Direction direction)

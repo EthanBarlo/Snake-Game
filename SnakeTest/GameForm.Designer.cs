@@ -1,4 +1,4 @@
-﻿namespace SnakeTest
+﻿namespace Snake
 {
     partial class GameForm
     {

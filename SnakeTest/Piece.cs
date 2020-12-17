@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace SnakeTest
+namespace Snake
 {
     // Generic piece class, This is esentially the basic game piece, or Block
     class Piece
