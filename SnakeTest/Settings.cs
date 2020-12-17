@@ -8,7 +8,7 @@ namespace SnakeTest
     {
         // Attributes
         static private string fileName = "gameSettings.txt";
-        static public int GameSize = 2;
+        static public string GameSize = "M";
         static public bool Teleport = true;
         static public int CellSize = 30;
 
@@ -20,20 +20,20 @@ namespace SnakeTest
 
         //-------------------------------------------------------------------------------------------
         // Public Operations
-        static public void ChangeGameSize(int newSize)
+        static public void ChangeGameSize(string newSize)
         {
             switch (newSize)
             {
-                case 1:
-                    GameSettings.GameSize = 1;
+                case "S":
+                    GameSettings.GameSize = "S";
                     GameSettings.CellSize = 40;
                     break;
-                case 2:
-                    GameSettings.GameSize = 2;
+                case "M":
+                    GameSettings.GameSize = "M";
                     GameSettings.CellSize = 30;
                     break;
-                case 3:
-                    GameSettings.GameSize = 3;
+                case "L":
+                    GameSettings.GameSize = "L";
                     GameSettings.CellSize = 25;
                     break;
             }
@@ -53,7 +53,7 @@ namespace SnakeTest
             if (File.Exists(fileName))
             {
                 string[] settings = File.ReadAllLines(fileName);
-                ChangeGameSize(Convert.ToInt32(settings[0]));
+                ChangeGameSize(settings[0]);
                 Teleport = Convert.ToBoolean(settings[1]);
             }
         }

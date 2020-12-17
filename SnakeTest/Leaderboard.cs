@@ -18,7 +18,7 @@ static class Leaderboard
     //-------------------------------------------------------------------------------------------
     // Public Operations
     // Leaderboard Operations
-    public static void addNewScore(string score, string name, int gameSize, bool teleport)
+    public static void addNewScore(string score, string name, string gameSize, bool teleport)
     {
         if (name.Length > 6)
             name = name.Substring(0, 6);
@@ -28,7 +28,7 @@ static class Leaderboard
 
     //-----------------------------------------------
     // Get top 10 Leaderboard with specific settings
-    public static List<List<string>> GetShortLeaderBoard(int gameSize, bool teleport) 
+    public static List<List<string>> GetShortLeaderBoard(string gameSize, bool teleport) 
     {
         // Get sorted list of scoreItems with the Specific Settings
         var SizeList = GetSpecificSettings(gameSize, teleport);
@@ -52,11 +52,11 @@ static class Leaderboard
 
     //-----------------------------------------------
     // Get all scores with specific settings in order
-    private static List<List<string>> GetSpecificSettings(int size, bool teleport)
+    private static List<List<string>> GetSpecificSettings(string size, bool teleport)
     {
         //    0   :   1  :     2    :    3
         //  Score : Name : GameSize : Teleport
-        var outputList = leaderBoard.FindAll(s => int.Parse(s[2]) == size && bool.Parse(s[3]) == teleport)
+        var outputList = leaderBoard.FindAll(s => s[2] == size && bool.Parse(s[3]) == teleport)
                                     .OrderByDescending(o => int.Parse(o[0]))
                                     .ToList();
         return outputList;

@@ -389,7 +389,6 @@ namespace SnakeTest
 
         private System.Windows.Forms.Panel MenuPanel;
         private System.Windows.Forms.Panel SettingsPannel;
-        private System.Windows.Forms.Button btnCloseSettings;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.Button btnQuit;

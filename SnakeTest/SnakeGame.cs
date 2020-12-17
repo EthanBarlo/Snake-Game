@@ -22,7 +22,7 @@ namespace SnakeTest
         //--------------------------------------
         // Snake/Apple Objects
             SnakeHead SnakeHead;
-            List<Snake> SnakeBody = new List<Snake>();
+            List<SnakeBodyPiece> SnakeBody = new List<SnakeBodyPiece>();
             Apple apple;
             int snakeLength;
         //--------------------------------------
@@ -48,10 +48,10 @@ namespace SnakeTest
 
             // Initilizing the snake
             SnakeHead = new SnakeHead(snakeHead);
-            SnakeBody.Add(new Snake(SnakeHead, GamePanel));
-            SnakeBody.Add(new Snake(SnakeHead, GamePanel));
-            SnakeBody.Add(new Snake(SnakeHead, GamePanel));
-            SnakeBody.Add(new Snake(SnakeHead, GamePanel, "tail"));
+            SnakeBody.Add(new SnakeBodyPiece(SnakeHead, GamePanel));
+            SnakeBody.Add(new SnakeBodyPiece(SnakeHead, GamePanel));
+            SnakeBody.Add(new SnakeBodyPiece(SnakeHead, GamePanel));
+            SnakeBody.Add(new SnakeBodyPiece(SnakeHead, GamePanel, "tail"));
             snakeLength = SnakeBody.Count;
             
             apple = new Apple(GamePanel, SnakeHead, SnakeBody);
@@ -204,7 +204,7 @@ namespace SnakeTest
 
         private bool HitSnakeBody()
         {
-            foreach (Snake snake in SnakeBody)
+            foreach (SnakeBodyPiece snake in SnakeBody)
             {
                 if (SnakeHead.GetY() == snake.GetY() && SnakeHead.GetX() == snake.GetX()) 
                     return true;
@@ -225,8 +225,8 @@ namespace SnakeTest
         public void AddSnakePiece()
         {
             SnakeBody.Last().Type = "body";
-            Snake lastSnake = SnakeBody.Last();
-            SnakeBody.Add(new Snake(lastSnake, GamePanel, "tail", lastSnake.Direction));
+            SnakeBodyPiece lastSnake = SnakeBody.Last();
+            SnakeBody.Add(new SnakeBodyPiece(lastSnake, GamePanel, "tail", lastSnake.Direction));
             snakeLength += 1;
         }
 
@@ -237,7 +237,7 @@ namespace SnakeTest
             GameOverSound.Play();
 
             // Removing all snakes from the gameSpace
-            foreach (Snake snake in SnakeBody)
+            foreach (SnakeBodyPiece snake in SnakeBody)
             {
                 snake.Remove(GamePanel);
             }
@@ -248,10 +248,10 @@ namespace SnakeTest
             SnakeHead.MoveSnake(center, center);
 
             // Creating the starting snake length & moving the apple
-            SnakeBody.Add(new Snake(SnakeHead, GamePanel));
-            SnakeBody.Add(new Snake(SnakeHead, GamePanel));
-            SnakeBody.Add(new Snake(SnakeHead, GamePanel));
-            SnakeBody.Add(new Snake(SnakeHead, GamePanel, "tail"));
+            SnakeBody.Add(new SnakeBodyPiece(SnakeHead, GamePanel));
+            SnakeBody.Add(new SnakeBodyPiece(SnakeHead, GamePanel));
+            SnakeBody.Add(new SnakeBodyPiece(SnakeHead, GamePanel));
+            SnakeBody.Add(new SnakeBodyPiece(SnakeHead, GamePanel, "tail"));
             snakeLength = SnakeBody.Count;
             apple.MoveRandom(SnakeHead);
         }

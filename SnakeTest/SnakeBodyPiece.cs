@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace SnakeTest
 {
-    class SnakeHead : Snake
+    class SnakeHead : SnakeBodyPiece
     {
         // Constructor
         public SnakeHead(PictureBox pBox) : base(pBox) { }
@@ -20,19 +20,19 @@ namespace SnakeTest
         }
     }
 
-    class Snake : Piece
+    class SnakeBodyPiece : Piece
     {
         // Attributes
         public String Type { get; set; }
         public String Direction { get; set; }
 
         // Constructors
-        public Snake(Snake previousSnake, Panel panel, string type = "body", string direction = "") : base(panel)
+        public SnakeBodyPiece(SnakeBodyPiece previousSnake, Panel panel, string type = "body", string direction = "") : base(panel)
         {
             this.Type = type;
             MoveSnake(previousSnake.GetX(), previousSnake.GetY(), direction);
         }
-        public Snake(PictureBox pBox) : base(pBox) {}
+        public SnakeBodyPiece(PictureBox pBox) : base(pBox) {}
 
 
         //-------------------------------------------------------------------------------------------

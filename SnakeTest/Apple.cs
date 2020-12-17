@@ -8,10 +8,10 @@ namespace SnakeTest
     {
         // Attributes
         Panel gameBoard;
-        List<Snake> snakeBody;
+        List<SnakeBodyPiece> snakeBody;
 
         // Constructor
-        public Apple(Panel panel, SnakeHead snakeHead, List<Snake> snakeBody) : base(panel)
+        public Apple(Panel panel, SnakeHead snakeHead, List<SnakeBodyPiece> snakeBody) : base(panel)
         {
             entity.Image = Properties.Resources.Apple;
             gameBoard = panel;

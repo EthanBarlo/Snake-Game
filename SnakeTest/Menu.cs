@@ -55,13 +55,13 @@ namespace SnakeTest
             switch (btn.Name)
             {
                 case "btnSizeSmall":
-                    GameSettings.ChangeGameSize(1);
+                    GameSettings.ChangeGameSize("S");
                     break;
                 case "btnSizeMedium":
-                    GameSettings.ChangeGameSize(2);
+                    GameSettings.ChangeGameSize("M");
                     break;
                 case "btnSizeLarge":
-                    GameSettings.ChangeGameSize(3);
+                    GameSettings.ChangeGameSize("L");
                     break;
             }
 
@@ -89,9 +89,9 @@ namespace SnakeTest
         private void UpdateButtons()
         {
             // Settings Buttons
-            btnSizeSmall.Enabled = GameSettings.GameSize != 1;
-            btnSizeMedium.Enabled = GameSettings.GameSize != 2;
-            btnSizeLarge.Enabled = GameSettings.GameSize != 3;
+            btnSizeSmall.Enabled = GameSettings.GameSize != "S";
+            btnSizeMedium.Enabled = GameSettings.GameSize != "M";
+            btnSizeLarge.Enabled = GameSettings.GameSize != "L";
             btnTeleportTrue.Enabled = !GameSettings.Teleport;
             btnTeleportFalse.Enabled = GameSettings.Teleport;
         }
@@ -104,13 +104,13 @@ namespace SnakeTest
             switch (btn.Name)
             {
                 case "lbtnSmall":
-                    lbSortSize += "1";
+                    lbSortSize += "S";
                     break;
                 case "lbtnMedium":
-                    lbSortSize += "2";
+                    lbSortSize += "M";
                     break;
                 case "lbtnLarge":
-                    lbSortSize += "3";
+                    lbSortSize += "L";
                     break;
             }
             btn.Enabled = false;
@@ -176,7 +176,7 @@ namespace SnakeTest
             lbLeaderboard.Items.Clear();
             foreach(var scoreItem in OutputList.OrderByDescending(o => int.Parse(o[0])))
             {
-                lbLeaderboard.Items.Add($"{scoreItem[0]}   {scoreItem[1].PadRight(12 - scoreItem[1].Length)}\t{scoreItem[2]}      {scoreItem[3]}");
+                lbLeaderboard.Items.Add($"{scoreItem[0]}     {scoreItem[1].PadRight(12 - scoreItem[1].Length)}\t    {scoreItem[2]}      {scoreItem[3]}");
             }
         }
 

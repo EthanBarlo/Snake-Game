@@ -28,13 +28,13 @@ namespace SnakeTest
             // Setting Game Size
             switch (GameSettings.GameSize)
             {
-                case 1:
+                case "S":
                     GamePanel.BackgroundImage = Properties.Resources.BackgroundSmall;
                     break;
-                case 2:
+                case "M":
                     GamePanel.BackgroundImage = Properties.Resources.BackgroundMedium;
                     break;
-                case 3:
+                case "L":
                     GamePanel.BackgroundImage = Properties.Resources.BackgroundLarge;
                     break;
             }
@@ -128,6 +128,7 @@ namespace SnakeTest
         public void GameOver()
         {
             PauseGame();
+            ScoreMultiplyerTimer.Stop();
             GameOverPanel.Visible = true;
         }
 
