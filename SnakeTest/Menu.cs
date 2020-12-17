@@ -122,11 +122,11 @@ namespace SnakeTest
         {
             Button btn = sender as Button;
             if (btn.Name == "lbtnTrue")
-                lbSortTeleport += "true";
+                lbSortTeleport += "True";
             else
-                lbSortTeleport += "false";
+                lbSortTeleport += "False";
 
-            if (lbSortTeleport == "truefalse" || lbSortTeleport == "falsetrue")
+            if (lbSortTeleport == "TrueFalse" || lbSortTeleport == "FalseTrue")
                 lbSortTeleport = "";
             btn.Enabled = false;
 
