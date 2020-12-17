@@ -218,6 +218,7 @@ namespace SnakeTest
             pause = false;
 
             // Updating local leaderboard, If the player wants to play multiple times
+            tbName.Text = tbName.Text.Substring(0, 6);
             leaderboard[userScoreIndex][0] = tbName.Text + new string(' ', 10 - tbName.Text.Length);
             userScoreIndex = leaderboard.Count;
             leaderboard.Add(new List<string> { "You       ", lblScore.Text });
