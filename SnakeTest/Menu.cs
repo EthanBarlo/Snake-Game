@@ -176,7 +176,7 @@ namespace SnakeTest
             lbLeaderboard.Items.Clear();
             foreach(var scoreItem in OutputList.OrderByDescending(o => int.Parse(o[0])))
             {
-                lbLeaderboard.Items.Add($"{scoreItem[0]}     {scoreItem[1].PadRight(12 - scoreItem[1].Length)}        {scoreItem[2]}      {scoreItem[3]}");
+                lbLeaderboard.Items.Add($"{scoreItem[0]}   {scoreItem[1].PadRight(12 - scoreItem[1].Length)}\t{scoreItem[2]}      {scoreItem[3]}");
             }
         }
 
