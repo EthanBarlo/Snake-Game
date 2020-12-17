@@ -533,9 +533,9 @@
             this.lblMultiplierText.BackColor = System.Drawing.Color.Transparent;
             this.lblMultiplierText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMultiplierText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(135)))), ((int)(((byte)(88)))));
-            this.lblMultiplierText.Location = new System.Drawing.Point(779, 216);
+            this.lblMultiplierText.Location = new System.Drawing.Point(782, 216);
             this.lblMultiplierText.Name = "lblMultiplierText";
-            this.lblMultiplierText.Size = new System.Drawing.Size(82, 19);
+            this.lblMultiplierText.Size = new System.Drawing.Size(78, 19);
             this.lblMultiplierText.TabIndex = 0;
             this.lblMultiplierText.Text = "Multiplier";
             // 
