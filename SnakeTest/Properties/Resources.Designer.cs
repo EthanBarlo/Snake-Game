@@ -131,6 +131,36 @@ namespace SnakeTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LeaderboardBackground {
+            get {
+                object obj = ResourceManager.GetObject("LeaderboardBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LeaderboardClose {
+            get {
+                object obj = ResourceManager.GetObject("LeaderboardClose", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LeaderboardReset {
+            get {
+                object obj = ResourceManager.GetObject("LeaderboardReset", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LeaderBoardSnake {
             get {
                 object obj = ResourceManager.GetObject("LeaderBoardSnake", resourceCulture);
@@ -154,6 +184,16 @@ namespace SnakeTest.Properties {
         internal static System.Drawing.Bitmap PlainBackground__420_100_ {
             get {
                 object obj = ResourceManager.GetObject("PlainBackground__420_100_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PlainBackground__420_70_ {
+            get {
+                object obj = ResourceManager.GetObject("PlainBackground__420_70_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

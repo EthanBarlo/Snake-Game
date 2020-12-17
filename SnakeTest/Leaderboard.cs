@@ -7,7 +7,7 @@ static class Leaderboard
 {
     // Attributes
     private static string fileName = "leaderBoard.txt";
-    public static List<List<string>> leaderBoard;
+    private static List<List<string>> leaderBoard;
 
     //  Initializer
     static Leaderboard()
@@ -45,14 +45,18 @@ static class Leaderboard
         return OutputLeaderBoard;
     }
 
+    public static List<List<string>> GetLeaderBoard()
+    {
+        return leaderBoard;
+    }
+
     //-----------------------------------------------
     // Get all scores with specific settings in order
     private static List<List<string>> GetSpecificSettings(int size, bool teleport)
     {
         //    0   :   1  :     2    :    3
         //  Score : Name : GameSize : Teleport
-        var outputList = leaderBoard.FindAll(s => int.Parse(s[2]) == size)
-                                    .FindAll(t => bool.Parse(t[3]) == teleport)
+        var outputList = leaderBoard.FindAll(s => int.Parse(s[2]) == size && bool.Parse(s[3]) == teleport)
                                     .OrderByDescending(o => int.Parse(o[0]))
                                     .ToList();
         return outputList;
