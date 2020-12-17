@@ -519,22 +519,23 @@
             // lblMultiplier
             // 
             this.lblMultiplier.BackColor = System.Drawing.Color.Transparent;
-            this.lblMultiplier.Font = new System.Drawing.Font("Arial", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMultiplier.Font = new System.Drawing.Font("Arial", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMultiplier.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(135)))), ((int)(((byte)(88)))));
-            this.lblMultiplier.Location = new System.Drawing.Point(770, 236);
+            this.lblMultiplier.Location = new System.Drawing.Point(783, 236);
             this.lblMultiplier.Name = "lblMultiplier";
-            this.lblMultiplier.Size = new System.Drawing.Size(104, 61);
+            this.lblMultiplier.Size = new System.Drawing.Size(74, 58);
             this.lblMultiplier.TabIndex = 0;
-            this.lblMultiplier.Text = "3x";
+            this.lblMultiplier.Text = "10";
+            this.lblMultiplier.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMultiplierText
             // 
             this.lblMultiplierText.BackColor = System.Drawing.Color.Transparent;
-            this.lblMultiplierText.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMultiplierText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMultiplierText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(135)))), ((int)(((byte)(88)))));
-            this.lblMultiplierText.Location = new System.Drawing.Point(775, 206);
+            this.lblMultiplierText.Location = new System.Drawing.Point(779, 216);
             this.lblMultiplierText.Name = "lblMultiplierText";
-            this.lblMultiplierText.Size = new System.Drawing.Size(95, 30);
+            this.lblMultiplierText.Size = new System.Drawing.Size(82, 19);
             this.lblMultiplierText.TabIndex = 0;
             this.lblMultiplierText.Text = "Multiplier";
             // 
